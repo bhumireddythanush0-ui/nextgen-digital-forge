@@ -1,19 +1,26 @@
+import s1 from "@/assets/showcase-1.jpg";
+import s2 from "@/assets/showcase-2.jpg";
+import s3 from "@/assets/showcase-3.jpg";
+import s4 from "@/assets/showcase-4.jpg";
+import s5 from "@/assets/showcase-5.jpg";
+import s6 from "@/assets/showcase-6.jpg";
+
 const projects = [
-  { title: "Orbit Finance", tag: "SaaS · Fintech", color: "from-indigo-500 to-blue-600" },
-  { title: "Lumen Health", tag: "Mobile · Healthcare", color: "from-emerald-500 to-teal-600" },
-  { title: "Paperkit CMS", tag: "Web · Publishing", color: "from-amber-500 to-orange-600" },
-  { title: "Northwind AI", tag: "AI · Automation", color: "from-fuchsia-500 to-purple-600" },
-  { title: "Vault Commerce", tag: "E-commerce", color: "from-rose-500 to-red-600" },
-  { title: "Signal Studio", tag: "Design System", color: "from-sky-500 to-cyan-600" },
+  { title: "Orbit Finance", tag: "SaaS · Fintech", image: s1 },
+  { title: "Lumen Health", tag: "Mobile · Healthcare", image: s2 },
+  { title: "Paperkit CMS", tag: "Web · Publishing", image: s3 },
+  { title: "Northwind AI", tag: "AI · Automation", image: s4 },
+  { title: "Vault Commerce", tag: "E-commerce", image: s5 },
+  { title: "Signal Studio", tag: "Design System", image: s6 },
 ];
 
-function Card({ title, tag, color }: (typeof projects)[number]) {
+function Card({ title, tag, image }: (typeof projects)[number]) {
   return (
     <div className="group w-[340px] shrink-0 md:w-[420px]">
-      <div className={`relative aspect-[4/3] overflow-hidden rounded-3xl bg-gradient-to-br ${color} card-shadow transition duration-500 group-hover:-rotate-1 group-hover:scale-[1.02]`}>
-        <div className="absolute inset-0 dotted-bg opacity-20" />
-        <div className="absolute bottom-6 left-6 right-6 text-white">
-          <div className="text-xs font-semibold uppercase tracking-widest opacity-80">{tag}</div>
+      <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-muted card-shadow transition duration-500 group-hover:-rotate-1 group-hover:scale-[1.02]">
+        <img src={image} alt={title} loading="lazy" width={1024} height={768} className="h-full w-full object-cover" />
+        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-6 text-white">
+          <div className="text-xs font-semibold uppercase tracking-widest opacity-90">{tag}</div>
           <div className="mt-1 text-2xl font-bold">{title}</div>
         </div>
       </div>
