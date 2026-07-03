@@ -77,14 +77,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "NexGen Founders — World-class Tech Partner" },
+      { name: "description", content: "We help startups and businesses move from idea to launch with design, development, automation, and AI-powered digital products." },
+      { property: "og:title", content: "NexGen Founders — World-class Tech Partner" },
+      { property: "og:description", content: "Design, development, automation, and AI-powered digital products for founders and teams." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
