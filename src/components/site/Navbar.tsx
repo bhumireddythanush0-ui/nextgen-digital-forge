@@ -1,11 +1,12 @@
 import { ArrowUpRight } from "lucide-react";
 
 const links = [
+  { href: "#hubs", label: "Hubs" },
+  { href: "#investors", label: "Investors" },
   { href: "#services", label: "Services" },
-  { href: "#work", label: "Our Work" },
-  { href: "#achievements", label: "Achievements" },
+  { href: "#support", label: "Support" },
   { href: "#faqs", label: "FAQs" },
-  { href: "#contact", label: "Contact" },
+  { href: "#about-founders", label: "About" },
 ];
 
 export function Navbar() {
@@ -34,7 +35,7 @@ export function Navbar() {
         </nav>
 
         <a
-          href="#contact"
+          href="#support"
           className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-foreground py-2.5 pr-2 pl-5 text-sm font-semibold text-background transition hover:-translate-y-0.5 soft-shadow"
         >
           Book a Call

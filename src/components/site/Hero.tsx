@@ -41,7 +41,7 @@ function QuoteCard({
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-40 pb-28 md:pt-52 md:pb-40">
+    <section className="relative overflow-hidden pt-40 pb-8 md:pt-52 md:pb-12">
       <div className="pointer-events-none absolute inset-0 dotted-bg opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)]" />
 
       <div className="relative mx-auto max-w-6xl px-6">
