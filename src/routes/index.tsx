@@ -9,6 +9,7 @@ import { FAQs } from "@/components/site/FAQs";
 import { Support } from "@/components/site/Support";
 import { AboutFounders } from "@/components/site/AboutFounders";
 import { Footer } from "@/components/site/Footer";
+import { PitchDeckUpload } from "@/components/site/PitchDeckUpload";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -21,6 +22,7 @@ function Index() {
       <main>
         <Hero />
         <Hubs />
+        <PitchDeckUpload/>
         <Investors />
         <Services />
         <Support />

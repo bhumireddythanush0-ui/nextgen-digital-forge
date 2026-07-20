@@ -2,6 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 
 const links = [
   { href: "#hubs", label: "Hubs" },
+  { href: "#pitch-deck", label: "Pitch Deck" },
   { href: "#investors", label: "Investors" },
   { href: "#services", label: "Services" },
   { href: "#support", label: "Support" },
@@ -13,7 +14,10 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
       <div className="flex w-full max-w-6xl items-center justify-between gap-3">
-        <a href="#" className="flex shrink-0 items-center gap-2 rounded-full bg-white/90 px-4 py-2 backdrop-blur soft-shadow">
+        <a
+          href="#"
+          className="flex shrink-0 items-center gap-2 rounded-full bg-white/90 px-4 py-2 backdrop-blur soft-shadow"
+        >
           <span className="grid h-7 w-7 place-items-center rounded-full bg-brand text-white">
             <span className="h-2.5 w-2.5 rounded-full bg-white" />
           </span>
