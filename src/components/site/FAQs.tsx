@@ -2,12 +2,30 @@ import { useState } from "react";
 import { Plus } from "lucide-react";
 
 const faqs = [
-  { q: "How long does a typical project take?", a: "Most MVPs ship in 4–8 weeks. Larger platforms run 3–6 months in shipping intervals of two weeks." },
-  { q: "Do you work with early-stage startups?", a: "Yes. We partner with founders from pre-seed through Series B, and often become their extended team." },
-  { q: "What's your pricing model?", a: "Fixed-scope sprints or monthly retainers. We recommend the right model on our intro call." },
-  { q: "Can you take over an existing codebase?", a: "Absolutely. We start with a technical audit, then plan a low-risk transition into shipping mode." },
-  { q: "Do you handle design and engineering?", a: "Both, under one roof. That's the whole point — no handoffs, no telephone-game specs." },
-  { q: "What happens after launch?", a: "We stay on for iteration, growth work, and reliability — as much or as little as you need." },
+  {
+    q: "How long does a typical project take?",
+    a: "Most MVPs ship in 4–8 weeks. Larger platforms run 3–6 months in shipping intervals of two weeks.",
+  },
+  {
+    q: "Do you work with early-stage startups?",
+    a: "Yes. We partner with founders from pre-seed through Series B, and often become their extended team.",
+  },
+  {
+    q: "What's your pricing model?",
+    a: "Fixed-scope sprints or monthly retainers. We recommend the right model on our intro call.",
+  },
+  {
+    q: "Can you take over an existing codebase?",
+    a: "Absolutely. We start with a technical audit, then plan a low-risk transition into shipping mode.",
+  },
+  {
+    q: "Do you handle design and engineering?",
+    a: "Both, under one roof. That's the whole point — no handoffs, no telephone-game specs.",
+  },
+  {
+    q: "What happens after launch?",
+    a: "We stay on for iteration, growth work, and reliability — as much or as little as you need.",
+  },
 ];
 
 export function FAQs() {
@@ -22,7 +40,9 @@ export function FAQs() {
           <h2 className="text-4xl md:text-5xl">
             Answers to <span className="text-foreground/40">common questions.</span>
           </h2>
-          <p className="mt-4 text-muted-foreground">Not seeing yours? Reach out — we reply within a day.</p>
+          <p className="mt-4 text-muted-foreground">
+            Not seeing yours? Reach out — we reply within a day.
+          </p>
         </div>
 
         <div className="space-y-3">
@@ -36,7 +56,9 @@ export function FAQs() {
               >
                 <div className="flex items-start justify-between gap-6">
                   <span className="text-base font-semibold">{f.q}</span>
-                  <Plus className={`h-5 w-5 shrink-0 text-muted-foreground transition ${isOpen ? "rotate-45" : ""}`} />
+                  <Plus
+                    className={`h-5 w-5 shrink-0 text-muted-foreground transition ${isOpen ? "rotate-45" : ""}`}
+                  />
                 </div>
                 <div
                   className={`grid overflow-hidden transition-all duration-500 ${isOpen ? "mt-3 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}

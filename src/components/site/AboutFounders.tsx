@@ -245,7 +245,7 @@ export function AboutFounders() {
           </h2>
 
           <p className="max-w-3xl text-lg leading-relaxed text-foreground/70">
-            NexGen Founders was born from a simple belief: businesses need more than developers.
+            Hanova  was born from a simple belief: businesses need more than developers.
             They need strategic technology partners who understand their vision, work with urgency,
             and build products that users love.
           </p>
@@ -256,7 +256,7 @@ export function AboutFounders() {
           <FounderCard
             name="Harsha"
             role="Co-Founder and CEO"
-            bio="Harsha NexGen with a founder-first vision. He focuses on product strategy, client relationships, business growth, and helping ambitious ideas become successful digital products."
+            bio="Harsha Hanova with a founder-first vision. He focuses on product strategy, client relationships, business growth, and helping ambitious ideas become successful digital products."
             image="/images/cofounder-1.jpeg"
             socials={{
               linkedin: "https://www.linkedin.com",
@@ -267,7 +267,7 @@ export function AboutFounders() {
           <FounderCard
             name="Yaswanth"
             role="Co-Founder and CTO"
-            bio="Yaswanth technology and development at NexGen. She specializes in modern websites, scalable applications, automation systems, and creating reliable digital experiences."
+            bio="Yaswanth technology and development at Hanova. She specializes in modern websites, scalable applications, automation systems, and creating reliable digital experiences."
             image="/images/cofounder-2.jpeg"
             socials={{
               linkedin: "https://www.linkedin.com",
@@ -283,7 +283,7 @@ export function AboutFounders() {
           <div className="grid gap-12 md:grid-cols-2">
             <div>
               <p className="mb-4 leading-relaxed text-foreground/80">
-                NexGen Founders started when we realized that many agencies do not fully understand
+                Hanova started when we realized that many agencies do not fully understand
                 the challenges businesses face. Clients often experience unclear communication,
                 missed deadlines, and solutions that do not solve their actual problems.
               </p>

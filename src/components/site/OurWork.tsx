@@ -63,7 +63,9 @@ export function OurWork() {
               </div>
               <div className="flex items-start justify-between gap-6 p-6">
                 <div>
-                  <div className="text-xs font-semibold uppercase tracking-widest text-brand">{w.tag}</div>
+                  <div className="text-xs font-semibold uppercase tracking-widest text-brand">
+                    {w.tag}
+                  </div>
                   <h3 className="mt-2 text-xl font-bold">{w.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{w.desc}</p>
                 </div>

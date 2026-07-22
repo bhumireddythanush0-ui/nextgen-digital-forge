@@ -12,13 +12,21 @@ export function Footer() {
             </span>
           </div>
           <nav className="flex flex-wrap gap-6 text-sm text-muted-foreground">
-            <a href="#services" className="hover:text-foreground">Services</a>
-            <a href="#work" className="hover:text-foreground">Work</a>
-            <a href="#faqs" className="hover:text-foreground">FAQs</a>
-            <a href="#contact" className="hover:text-foreground">Contact</a>
+            <a href="#services" className="hover:text-foreground">
+              Services
+            </a>
+            <a href="#work" className="hover:text-foreground">
+              Work
+            </a>
+            <a href="#faqs" className="hover:text-foreground">
+              FAQs
+            </a>
+            <a href="#contact" className="hover:text-foreground">
+              Contact
+            </a>
           </nav>
           <div className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} NexGen Founders. All rights reserved.
+            © {new Date().getFullYear()} Hanova. All rights reserved.
           </div>
         </div>
       </div>

@@ -1,35 +1,36 @@
 import { createFileRoute } from "@tanstack/react-router";
+
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
-import { Services } from "@/components/site/Services";
-import { Investors } from "@/components/site/Investors";
+import { WhatIsHanova } from "@/components/site/WhatIsHanova";
+import { StartupJourney } from "@/components/site/StartupJourney";
 import { Hubs } from "@/components/site/Hubs";
-import { Testimonials } from "@/components/site/Testimonials";
-import { FAQs } from "@/components/site/FAQs";
-import { Support } from "@/components/site/Support";
-import { AboutFounders } from "@/components/site/AboutFounders";
+import { UpcomingMeetup } from "@/components/site/UpcomingMeetup";
+import { Partners } from "@/components/site/Partners";
+import { CommunityStartupCTA } from "@/components/site/CommunityStartupCTA";
+import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
-import { PitchDeckUpload } from "@/components/site/PitchDeckUpload";
 
 export const Route = createFileRoute("/")({
-  component: Index,
+  component: HomePage,
 });
 
-function Index() {
+function HomePage() {
   return (
-    <div className="relative min-h-screen bg-background">
+    <div className="relative min-h-screen bg-[#f7f8fa]">
       <Navbar />
+
       <main>
         <Hero />
+        <WhatIsHanova />
+        <StartupJourney />
         <Hubs />
-        <PitchDeckUpload/>
-        <Investors />
-        <Services />
-        <Support />
-        <FAQs />
-        <Testimonials />
-        <AboutFounders />
+        <UpcomingMeetup />
+        <Partners />
+        <CommunityStartupCTA />
+        <Contact />
       </main>
+
       <Footer />
     </div>
   );

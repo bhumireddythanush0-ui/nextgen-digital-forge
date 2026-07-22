@@ -62,7 +62,9 @@ export function Testimonials() {
                   <Star key={s} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
                 ))}
               </div>
-              <blockquote className="text-[15px] leading-relaxed text-foreground/85">"{t.quote}"</blockquote>
+              <blockquote className="text-[15px] leading-relaxed text-foreground/85">
+                "{t.quote}"
+              </blockquote>
               <figcaption className="mt-6 flex items-center gap-3">
                 <div className="h-10 w-10 rounded-full bg-gradient-to-br from-brand to-foreground" />
                 <div>

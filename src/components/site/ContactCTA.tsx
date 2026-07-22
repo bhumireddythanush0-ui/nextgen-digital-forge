@@ -11,8 +11,8 @@ export function ContactCTA() {
               Have an idea? <span className="text-foreground/40">Let's build it.</span>
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-base text-muted-foreground md:text-lg">
-              Book a free 30-minute call. We'll map your idea into a plan you can act on — no
-              pitch deck required.
+              Book a free 30-minute call. We'll map your idea into a plan you can act on — no pitch
+              deck required.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
               <a

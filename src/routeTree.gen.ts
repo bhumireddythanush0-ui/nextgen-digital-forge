@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as StartupsRegisterRouteImport } from './routes/startups/register'
+import { Route as CommunityJoinRouteImport } from './routes/community/join'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StartupsRegisterRoute = StartupsRegisterRouteImport.update({
+  id: '/startups/register',
+  path: '/startups/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityJoinRoute = CommunityJoinRouteImport.update({
+  id: '/community/join',
+  path: '/community/join',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/community/join': typeof CommunityJoinRoute
+  '/startups/register': typeof StartupsRegisterRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/community/join': typeof CommunityJoinRoute
+  '/startups/register': typeof StartupsRegisterRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/community/join': typeof CommunityJoinRoute
+  '/startups/register': typeof StartupsRegisterRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/community/join' | '/startups/register'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/community/join' | '/startups/register'
+  id: '__root__' | '/' | '/community/join' | '/startups/register'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CommunityJoinRoute: typeof CommunityJoinRoute
+  StartupsRegisterRoute: typeof StartupsRegisterRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/startups/register': {
+      id: '/startups/register'
+      path: '/startups/register'
+      fullPath: '/startups/register'
+      preLoaderRoute: typeof StartupsRegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community/join': {
+      id: '/community/join'
+      path: '/community/join'
+      fullPath: '/community/join'
+      preLoaderRoute: typeof CommunityJoinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CommunityJoinRoute: CommunityJoinRoute,
+  StartupsRegisterRoute: StartupsRegisterRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -20,7 +20,7 @@ function InvestorCard({ name, title, quote, image, link }: InvestorProps) {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -67,7 +67,7 @@ function InvestorStatCard({ stat, label, index }: StatCardProps) {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -92,21 +92,24 @@ export function Investors() {
     {
       name: "Sarah Mitchell",
       title: "Venture Partner, Founder Fund",
-      quote: "NexGen Founders understands the startup ecosystem in ways most agencies don't. They're builders, not just vendors.",
+      quote:
+        "Hanova understands the startup ecosystem in ways most agencies don't. They're builders, not just vendors.",
       image: "https://i.pravatar.cc/64?img=1",
       link: "#",
     },
     {
       name: "James Chen",
       title: "Co-founder, Momentum Ventures",
-      quote: "Every founder I work with gets referred to NexGen. They deliver consistently and think like founders.",
+      quote:
+        "Every founder I work with gets referred to NexGen. They deliver consistently and think like founders.",
       image: "https://i.pravatar.cc/64?img=2",
       link: "#",
     },
     {
       name: "Amelia Rodriguez",
       title: "GP, Founder Collective",
-      quote: "The quality of execution is exceptional. NexGen turns complex visions into market-ready products.",
+      quote:
+        "The quality of execution is exceptional. NexGen turns complex visions into market-ready products.",
       image: "https://i.pravatar.cc/64?img=3",
       link: "#",
     },
@@ -131,18 +134,18 @@ export function Investors() {
   return (
     <section id="investors" className="relative py-24 md:py-32">
       <div className="pointer-events-none absolute inset-0 dotted-bg opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_75%)]" />
-      
+
       <div className="relative mx-auto max-w-6xl px-6">
         {/* Header */}
         <div className="mb-16 md:mb-20">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-xs font-medium">
             <span className="h-1.5 w-1.5 rounded-full bg-brand" /> Backed by Leaders
           </div>
-          <h2 className="text-4xl md:text-6xl mb-6">
-            Investors & Advisors
-          </h2>
+          <h2 className="text-4xl md:text-6xl mb-6">Investors & Advisors</h2>
           <p className="text-lg text-foreground/70 max-w-3xl leading-relaxed">
-            We're backed and advised by leading venture investors and founders who believe in our mission. Their confidence in our approach validates what our clients already know: NexGen Founders delivers exceptional results.
+            We're backed and advised by leading venture investors and founders who believe in our
+            mission. Their confidence in our approach validates what our clients already know:
+            Hanova delivers exceptional results.
           </p>
         </div>
 
@@ -156,7 +159,9 @@ export function Investors() {
 
         {/* Investor Cards */}
         <div className="mb-20 md:mb-28">
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-8">What Our Investors Say</h3>
+          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
+            What Our Investors Say
+          </h3>
           <div className="grid md:grid-cols-2 gap-6">
             {investors.map((investor) => (
               <InvestorCard key={investor.name} {...investor} />
@@ -166,7 +171,9 @@ export function Investors() {
 
         {/* Why Investors Trust Us */}
         <div className="rounded-3xl border bg-gradient-to-br from-brand/10 to-transparent p-12 md:p-16 soft-shadow">
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-8">Why Investors Trust Us</h3>
+          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
+            Why Investors Trust Us
+          </h3>
           <div className="grid md:grid-cols-2 gap-6">
             {supportPoints.map((point, index) => (
               <div key={index} className="flex gap-3 items-start">
@@ -185,7 +192,8 @@ export function Investors() {
                 Ready to Build Together?
               </h3>
               <p className="text-foreground/70">
-                Join 30+ founders who trust us to transform their vision into successful digital products.
+                Join 30+ founders who trust us to transform their vision into successful digital
+                products.
               </p>
             </div>
             <a

@@ -15,8 +15,8 @@ export function Achievements() {
               A track record, <span className="text-background/40">not just talk.</span>
             </h2>
             <p className="text-base text-background/70">
-              Numbers we're proud of — earned by shipping real products with founders who
-              trusted us to move fast without breaking their vision.
+              Numbers we're proud of — earned by shipping real products with founders who trusted us
+              to move fast without breaking their vision.
             </p>
           </div>
           <div className="mt-14 grid grid-cols-2 gap-8 md:grid-cols-4">

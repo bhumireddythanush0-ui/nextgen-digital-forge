@@ -25,7 +25,11 @@ function QuoteCard({
   return (
     <div
       className={`absolute hidden w-64 rounded-2xl bg-white p-5 card-shadow animate-float md:block ${className ?? ""}`}
-      style={{ ["--tilt" as string]: `${tilt}deg`, animationDelay: delay, transform: `rotate(${tilt}deg)` }}
+      style={{
+        ["--tilt" as string]: `${tilt}deg`,
+        animationDelay: delay,
+        transform: `rotate(${tilt}deg)`,
+      }}
     >
       <p className="text-sm leading-relaxed text-foreground/80">"{quote}"</p>
       <div className="mt-4 flex items-center gap-3">
@@ -66,7 +70,12 @@ export function Hero() {
           <div className="mx-auto mb-8 inline-flex items-center gap-3 rounded-full border bg-white px-4 py-1.5 soft-shadow">
             <div className="flex -space-x-2">
               {avatars.map((src) => (
-                <img key={src} src={src} alt="" className="h-6 w-6 rounded-full border-2 border-white object-cover" />
+                <img
+                  key={src}
+                  src={src}
+                  alt=""
+                  className="h-6 w-6 rounded-full border-2 border-white object-cover"
+                />
               ))}
             </div>
             <div className="flex items-center gap-1">
@@ -78,17 +87,17 @@ export function Hero() {
           </div>
 
           <h1 className="text-5xl leading-[1.02] md:text-7xl">
-            World-class Tech Partner
+            Where founders turn
             <br />
-            <span className="text-foreground/40">Engineering Your</span>{" "}
+            <span className="text-foreground/40">ideas into</span>
+            <br></br>{" "}
             <span className="bg-gradient-to-r from-brand to-foreground bg-clip-text text-transparent">
-              Digital Success
+              Real Startups
             </span>
           </h1>
 
           <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            We help startups and businesses move from idea to launch with design, development,
-            automation, and AI-powered digital products.
+            Join a connected ecosystem of founders, mentors, investors, partners,and regional startup communities.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
@@ -96,7 +105,7 @@ export function Hero() {
               href="#contact"
               className="group inline-flex items-center gap-2 rounded-full bg-foreground py-3.5 pr-2 pl-6 text-sm font-semibold text-background transition hover:-translate-y-0.5 card-shadow"
             >
-              Book a 30-Min Call
+              Join Community
               <span className="grid h-8 w-8 place-items-center rounded-full bg-background/15 transition group-hover:rotate-45">
                 <ArrowUpRight className="h-4 w-4" />
               </span>
@@ -105,7 +114,7 @@ export function Hero() {
               href="#work"
               className="inline-flex items-center gap-2 rounded-full border bg-white px-6 py-3.5 text-sm font-semibold transition hover:-translate-y-0.5 soft-shadow"
             >
-              See our work
+              Register Startup
             </a>
           </div>
         </div>

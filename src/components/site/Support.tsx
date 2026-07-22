@@ -20,7 +20,7 @@ function SupportChannel({ icon, title, description, contact, response }: Support
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -64,13 +64,13 @@ function FAQItem({ question, answer }: FAQItemProps) {
         className="flex w-full items-center justify-between gap-4 text-left transition-colors hover:text-brand"
       >
         <span className="text-lg font-semibold text-foreground">{question}</span>
-        <div className={`text-brand transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
+        <div
+          className={`text-brand transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+        >
           <ArrowUpRight className="h-5 w-5" />
         </div>
       </button>
-      {isOpen && (
-        <p className="mt-4 text-foreground/70 leading-relaxed">{answer}</p>
-      )}
+      {isOpen && <p className="mt-4 text-foreground/70 leading-relaxed">{answer}</p>}
     </div>
   );
 }
@@ -110,27 +110,33 @@ export function Support() {
   const faqs = [
     {
       question: "What happens after my project launches?",
-      answer: "We provide comprehensive post-launch support, including monitoring, bug fixes, performance optimization, and feature updates. You're not alone after launch—we're with you for the long haul.",
+      answer:
+        "We provide comprehensive post-launch support, including monitoring, bug fixes, performance optimization, and feature updates. You're not alone after launch—we're with you for the long haul.",
     },
     {
       question: "How do you handle urgent issues?",
-      answer: "Critical production issues get immediate attention from our senior team. We have a 24/7 monitoring system in place to catch and resolve issues before they impact your users.",
+      answer:
+        "Critical production issues get immediate attention from our senior team. We have a 24/7 monitoring system in place to catch and resolve issues before they impact your users.",
     },
     {
       question: "Can we scale the support level based on needs?",
-      answer: "Absolutely. Support can be scaled up for peak seasons or scaled down during slower periods. We're flexible and align our support with your business needs.",
+      answer:
+        "Absolutely. Support can be scaled up for peak seasons or scaled down during slower periods. We're flexible and align our support with your business needs.",
     },
     {
       question: "Do you provide training for our team?",
-      answer: "Yes. We offer comprehensive documentation, video tutorials, and live training sessions for your team. Our goal is to empower you to manage and update your product independently.",
+      answer:
+        "Yes. We offer comprehensive documentation, video tutorials, and live training sessions for your team. Our goal is to empower you to manage and update your product independently.",
     },
     {
       question: "What's included in ongoing maintenance?",
-      answer: "Our maintenance packages include security updates, dependency updates, performance monitoring, backups, and regular health checks. We ensure your product stays secure, fast, and reliable.",
+      answer:
+        "Our maintenance packages include security updates, dependency updates, performance monitoring, backups, and regular health checks. We ensure your product stays secure, fast, and reliable.",
     },
     {
       question: "How do we track support requests?",
-      answer: "We use a transparent ticketing system where you can track the status of every request in real-time. You'll always know what's happening and when it's being resolved.",
+      answer:
+        "We use a transparent ticketing system where you can track the status of every request in real-time. You'll always know what's happening and when it's being resolved.",
     },
   ];
 
@@ -146,18 +152,17 @@ export function Support() {
   return (
     <section id="support" className="relative py-24 md:py-32">
       <div className="pointer-events-none absolute inset-0 dotted-bg opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_75%)]" />
-      
+
       <div className="relative mx-auto max-w-6xl px-6">
         {/* Header */}
         <div className="mb-16 md:mb-20">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-xs font-medium">
             <span className="h-1.5 w-1.5 rounded-full bg-brand" /> Always Here to Help
           </div>
-          <h2 className="text-4xl md:text-6xl mb-6">
-            Premium Support
-          </h2>
+          <h2 className="text-4xl md:text-6xl mb-6">Premium Support</h2>
           <p className="text-lg text-foreground/70 max-w-3xl leading-relaxed">
-            Your success doesn't end at launch. We provide comprehensive support across multiple channels, ensuring your product stays healthy, secure, and continuously improving.
+            Your success doesn't end at launch. We provide comprehensive support across multiple
+            channels, ensuring your product stays healthy, secure, and continuously improving.
           </p>
         </div>
 
@@ -222,7 +227,8 @@ export function Support() {
                 Let's Build & Grow Together
               </h3>
               <p className="text-foreground/80 mb-6 leading-relaxed">
-                From ideation to scale, we're committed to your success. Explore our packages and find the perfect support level for your business.
+                From ideation to scale, we're committed to your success. Explore our packages and
+                find the perfect support level for your business.
               </p>
               <div className="space-y-3">
                 <div className="flex gap-2 items-center text-foreground/80">
@@ -242,7 +248,8 @@ export function Support() {
             <div className="rounded-2xl border border-brand/30 bg-gradient-to-br from-brand/5 to-transparent p-8">
               <div className="text-4xl font-bold text-brand mb-2">Let's Talk</div>
               <p className="text-foreground/70 text-sm mb-6">
-                Schedule a call with our team to discuss your support needs and find the perfect fit.
+                Schedule a call with our team to discuss your support needs and find the perfect
+                fit.
               </p>
               <a
                 href="#contact"

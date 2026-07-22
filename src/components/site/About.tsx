@@ -5,12 +5,14 @@ export function About() {
     {
       icon: "🚀",
       title: "Innovation First",
-      description: "We stay ahead of technology trends to deliver cutting-edge solutions for your business.",
+      description:
+        "We stay ahead of technology trends to deliver cutting-edge solutions for your business.",
     },
     {
       icon: "👥",
       title: "Founder-Focused",
-      description: "We understand startup challenges and provide tailored solutions that accelerate growth.",
+      description:
+        "We understand startup challenges and provide tailored solutions that accelerate growth.",
     },
     {
       icon: "⚡",
@@ -29,10 +31,12 @@ export function About() {
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="mb-16 md:mb-20">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
-            About NexGen Founders
+            About Hanova
           </h2>
           <p className="mt-6 text-lg text-foreground/70 max-w-2xl">
-            We're a team of designers, developers, and strategists passionate about turning ambitious ideas into digital realities. Since day one, we've been partnering with founders and teams to build products that matter.
+            We're a team of designers, developers, and strategists passionate about turning
+            ambitious ideas into digital realities. Since day one, we've been partnering with
+            founders and teams to build products that matter.
           </p>
         </div>
 
@@ -41,13 +45,15 @@ export function About() {
             <div>
               <h3 className="text-2xl font-bold text-foreground mb-3">Our Mission</h3>
               <p className="text-foreground/70">
-                To empower founders and businesses with world-class technology solutions that transform their vision into scalable, profitable digital products.
+                To empower founders and businesses with world-class technology solutions that
+                transform their vision into scalable, profitable digital products.
               </p>
             </div>
             <div>
               <h3 className="text-2xl font-bold text-foreground mb-3">Our Vision</h3>
               <p className="text-foreground/70">
-                To be the trusted technology partner for founders across the globe, known for delivering exceptional results and building long-term partnerships.
+                To be the trusted technology partner for founders across the globe, known for
+                delivering exceptional results and building long-term partnerships.
               </p>
             </div>
           </div>

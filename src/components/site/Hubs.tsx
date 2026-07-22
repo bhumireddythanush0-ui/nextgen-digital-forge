@@ -26,7 +26,7 @@ function HubCard({ city, tagline, themes, description, stats, image, delay }: Hu
           setIsVisible(true);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -179,8 +179,7 @@ export function Hubs() {
             Innovation Begins Here.
           </h2>
           <p className="text-lg text-foreground/70 max-w-3xl leading-relaxed">
-            Building a connected startup ecosystem across Andhra Pradesh, where founders, investors, mentors, and
-            innovators come together to transform ideas into thriving businesses.
+            Connect with founders, mentors, events, and startup support in your region.
           </p>
         </div>
 
@@ -197,21 +196,21 @@ export function Hubs() {
             {/* Background layers */}
             <div className="absolute inset-0 bg-gradient-to-r from-brand/10 via-brand/5 to-brand/10 backdrop-blur-sm border border-brand/30 rounded-xl" />
             <div className="absolute inset-0 bg-gradient-to-r from-brand to-brand/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl" />
-            
+
             {/* Animated border glow */}
             <div className="absolute -inset-0.5 bg-gradient-to-r from-brand via-brand/50 to-brand rounded-xl blur-lg opacity-0 group-hover:opacity-75 transition-opacity duration-500 -z-10" />
-            
+
             {/* Content */}
             <div className="relative flex items-center justify-center gap-2 text-base font-semibold">
               <span className="text-brand group-hover:text-white transition-colors duration-300">
                 <Plus className="h-5 w-5 group-hover:rotate-90 group-hover:scale-125 transition-all duration-500" />
               </span>
               <span className="text-brand group-hover:text-white transition-colors duration-300 flex items-center gap-2">
-                Explore More Hubs
+                Find Your Nearest Hub
                 <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-400" />
               </span>
             </div>
-            
+
             {/* Shine effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 translate-x-full group-hover:translate-x-0 transition-all duration-700 rounded-xl" />
           </button>
@@ -225,8 +224,8 @@ export function Hubs() {
                 Ready to Join a Hub?
               </h3>
               <p className="text-foreground/80 mb-6 leading-relaxed">
-                Connect with founders, mentors, and investors in your region. Access resources, mentorship, and a
-                community dedicated to your success.
+                Connect with founders, mentors, and investors in your region. Access resources,
+                mentorship, and a community dedicated to your success.
               </p>
               <button className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background transition hover:bg-foreground/90">
                 Get Started

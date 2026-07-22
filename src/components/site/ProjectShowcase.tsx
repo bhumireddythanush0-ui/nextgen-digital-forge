@@ -18,7 +18,14 @@ function Card({ title, tag, image }: (typeof projects)[number]) {
   return (
     <div className="group w-[340px] shrink-0 md:w-[420px]">
       <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-muted card-shadow transition duration-500 group-hover:-rotate-1 group-hover:scale-[1.02]">
-        <img src={image} alt={title} loading="lazy" width={1024} height={768} className="h-full w-full object-cover" />
+        <img
+          src={image}
+          alt={title}
+          loading="lazy"
+          width={1024}
+          height={768}
+          className="h-full w-full object-cover"
+        />
         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-6 text-white">
           <div className="text-xs font-semibold uppercase tracking-widest opacity-90">{tag}</div>
           <div className="mt-1 text-2xl font-bold">{title}</div>
@@ -37,7 +44,10 @@ export function ProjectShowcase() {
           <h2 className="max-w-2xl text-3xl md:text-5xl">
             Recent launches, <span className="text-foreground/40">shipped with care.</span>
           </h2>
-          <a href="#work" className="hidden text-sm font-semibold text-muted-foreground hover:text-foreground md:block">
+          <a
+            href="#work"
+            className="hidden text-sm font-semibold text-muted-foreground hover:text-foreground md:block"
+          >
             All projects →
           </a>
         </div>

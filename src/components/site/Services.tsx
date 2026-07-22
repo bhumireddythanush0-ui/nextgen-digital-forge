@@ -1,12 +1,36 @@
 import { Code2, Palette, Bot, Zap, LineChart, Rocket } from "lucide-react";
 
 const services = [
-  { icon: Palette, title: "Product Design", desc: "Interfaces that feel obvious, considered, and unmistakably yours." },
-  { icon: Code2, title: "Web Development", desc: "Fast, scalable web apps built with modern React and edge infra." },
-  { icon: Rocket, title: "Mobile Apps", desc: "Native-feeling iOS and Android apps from a single codebase." },
-  { icon: Bot, title: "AI Products", desc: "LLM-powered features, agents, and automations that ship." },
-  { icon: Zap, title: "Automation", desc: "Cut manual work with tailored workflows and integrations." },
-  { icon: LineChart, title: "Growth Systems", desc: "Analytics, SEO, and iteration loops built into the product." },
+  {
+    icon: Palette,
+    title: "Product Design",
+    desc: "Interfaces that feel obvious, considered, and unmistakably yours.",
+  },
+  {
+    icon: Code2,
+    title: "Web Development",
+    desc: "Fast, scalable web apps built with modern React and edge infra.",
+  },
+  {
+    icon: Rocket,
+    title: "Mobile Apps",
+    desc: "Native-feeling iOS and Android apps from a single codebase.",
+  },
+  {
+    icon: Bot,
+    title: "AI Products",
+    desc: "LLM-powered features, agents, and automations that ship.",
+  },
+  {
+    icon: Zap,
+    title: "Automation",
+    desc: "Cut manual work with tailored workflows and integrations.",
+  },
+  {
+    icon: LineChart,
+    title: "Growth Systems",
+    desc: "Analytics, SEO, and iteration loops built into the product.",
+  },
 ];
 
 export function Services() {

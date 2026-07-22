@@ -1,52 +1,135 @@
-import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
-const links = [
-  { href: "#hubs", label: "Hubs" },
-  { href: "#pitch-deck", label: "Pitch Deck" },
-  { href: "#investors", label: "Investors" },
-  { href: "#services", label: "Services" },
-  { href: "#support", label: "Support" },
-  { href: "#faqs", label: "FAQs" },
-  { href: "#about-founders", label: "About" },
+const navigationItems = [
+  {
+    label: "About",
+    href: "/#about",
+  },
+  {
+    label: "Community",
+    href: "/community/join",
+  },
+  {
+    label: "Startups",
+    href: "/startups/register",
+  },
+  {
+    label: "Hubs",
+    href: "/#hubs",
+  },
+  {
+    label: "Events",
+    href: "/#events",
+  },
+  {
+    label: "Partners",
+    href: "/#partners",
+  },
+  {
+    label: "Contact",
+    href: "/#contact",
+  },
 ];
 
 export function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  function closeMenu() {
+    setMenuOpen(false);
+  }
+
   return (
-    <header className="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
-      <div className="flex w-full max-w-6xl items-center justify-between gap-3">
-        <a
-          href="#"
-          className="flex shrink-0 items-center gap-2 rounded-full bg-white/90 px-4 py-2 backdrop-blur soft-shadow"
-        >
-          <span className="grid h-7 w-7 place-items-center rounded-full bg-brand text-white">
-            <span className="h-2.5 w-2.5 rounded-full bg-white" />
-          </span>
-          <span className="text-[15px] font-bold tracking-tight">
-            <span className="text-brand">NexGen</span> Founders
-          </span>
-        </a>
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
+      <div className="mx-auto max-w-7xl">
+        <div className="flex min-h-[64px] items-center justify-between rounded-full border border-slate-200/80 bg-white/90 px-4 shadow-[0_15px_45px_-25px_rgba(15,23,42,0.4)] backdrop-blur-xl sm:px-5">
+          {/* Logo */}
+          <a
+            href="/"
+            onClick={closeMenu}
+            className="flex shrink-0 items-center gap-2.5"
+          >
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-600">
+              <span className="h-3 w-3 rounded-full bg-white" />
+            </span>
 
-        <nav className="hidden items-center gap-1 rounded-full bg-white/90 px-3 py-2 backdrop-blur soft-shadow md:flex">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="rounded-full px-4 py-1.5 text-sm font-medium text-foreground/80 transition hover:bg-foreground/5 hover:text-foreground"
-            >
-              {l.label}
-            </a>
-          ))}
-        </nav>
+            <span className="text-base font-bold tracking-tight text-slate-950">
+              Hanova
+            </span>
+          </a>
 
-        <a
-          href="#support"
-          className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-foreground py-2.5 pr-2 pl-5 text-sm font-semibold text-background transition hover:-translate-y-0.5 soft-shadow"
-        >
-          Book a Call
-          <span className="grid h-7 w-7 place-items-center rounded-full bg-background/15 transition group-hover:rotate-45">
-            <ArrowUpRight className="h-3.5 w-3.5" />
-          </span>
-        </a>
+          {/* Desktop navigation */}
+          <nav className="hidden items-center gap-1 lg:flex">
+            {navigationItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="rounded-full px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-950"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Desktop CTA */}
+          <a
+            href="/community/join"
+            className="hidden min-h-11 items-center justify-center rounded-full bg-slate-950 px-5 py-2 text-sm font-semibold text-white transition hover:bg-blue-600 lg:inline-flex"
+          >
+            Join community
+          </a>
+
+          {/* Mobile menu button */}
+          <button
+            type="button"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((current) => !current)}
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-slate-950 lg:hidden"
+          >
+            {menuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
+          </button>
+        </div>
+
+        {/* Mobile navigation */}
+        {menuOpen && (
+          <div className="mt-3 rounded-3xl border border-slate-200 bg-white p-4 shadow-2xl lg:hidden">
+            <nav className="grid">
+              {navigationItems.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={closeMenu}
+                  className="rounded-xl px-4 py-3 text-base font-medium text-slate-700 transition hover:bg-slate-100 hover:text-slate-950"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+
+            <div className="mt-3 grid gap-3 border-t border-slate-200 pt-4">
+              <a
+                href="/community/join"
+                onClick={closeMenu}
+                className="flex min-h-12 items-center justify-center rounded-full bg-blue-600 px-5 text-sm font-bold text-white"
+              >
+                Join community
+              </a>
+
+              <a
+                href="/startups/register"
+                onClick={closeMenu}
+                className="flex min-h-12 items-center justify-center rounded-full bg-slate-950 px-5 text-sm font-bold text-white"
+              >
+                Register startup
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );
