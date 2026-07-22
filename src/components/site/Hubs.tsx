@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { MapPin, Users, Lightbulb, ArrowRight, Plus } from "lucide-react";
 
 interface HubCardProps {
+  slug: string;
   city: string;
   tagline: string;
   themes: string[];
@@ -14,7 +15,7 @@ interface HubCardProps {
   delay: number;
 }
 
-function HubCard({ city, tagline, themes, description, stats, image, delay }: HubCardProps) {
+function HubCard({ slug, city, tagline, themes, description, stats, image, delay }: HubCardProps) {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -100,10 +101,13 @@ function HubCard({ city, tagline, themes, description, stats, image, delay }: Hu
         </div>
 
         {/* CTA Button */}
-        <button className="mt-auto group inline-flex items-center justify-center gap-2 w-full rounded-full bg-foreground py-2.5 text-sm font-semibold text-background transition-all duration-300 hover:-translate-y-0.5">
+        <a
+          href={"/hubs/" + slug}
+          className="mt-auto group inline-flex items-center justify-center gap-2 w-full rounded-full bg-foreground py-2.5 text-sm font-semibold text-background transition-all duration-300 hover:-translate-y-0.5"
+        >
           Explore Hub
           <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-        </button>
+        </a>
       </div>
     </div>
   );
@@ -112,6 +116,7 @@ function HubCard({ city, tagline, themes, description, stats, image, delay }: Hu
 export function Hubs() {
   const hubs: HubCardProps[] = [
     {
+      slug: "proddatur",
       city: "Proddatur Hub",
       tagline: "The Silk Road of Innovation",
       themes: ["Technology", "Manufacturing", "Creator Economy"],
@@ -125,6 +130,7 @@ export function Hubs() {
       delay: 0,
     },
     {
+      slug: "anantapur",
       city: "Anantapur Hub",
       tagline: "Powering Deep-Tech Growth",
       themes: ["Renewable Energy", "Deep Tech", "Sustainability"],
@@ -138,6 +144,7 @@ export function Hubs() {
       delay: 100,
     },
     {
+      slug: "kadapa",
       city: "Kadapa Hub",
       tagline: "Building Industrial Futures",
       themes: ["Infrastructure", "Energy", "Industrial Innovation"],
@@ -151,6 +158,7 @@ export function Hubs() {
       delay: 200,
     },
     {
+      slug: "kurnool",
       city: "Kurnool Hub",
       tagline: "Agritech Meets Innovation",
       themes: ["Agritech", "Food Processing", "Rural Innovation"],
@@ -192,7 +200,7 @@ export function Hubs() {
 
         {/* More Hubs Button */}
         <div className="mt-12 md:mt-16 flex justify-center">
-          <button className="group relative px-8 py-3 rounded-xl overflow-hidden transition-all duration-500 hover:scale-105">
+          <a href="/hubs/" className="group relative px-8 py-3 rounded-xl overflow-hidden transition-all duration-500 hover:scale-105">
             {/* Background layers */}
             <div className="absolute inset-0 bg-gradient-to-r from-brand/10 via-brand/5 to-brand/10 backdrop-blur-sm border border-brand/30 rounded-xl" />
             <div className="absolute inset-0 bg-gradient-to-r from-brand to-brand/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl" />
@@ -213,7 +221,7 @@ export function Hubs() {
 
             {/* Shine effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 translate-x-full group-hover:translate-x-0 transition-all duration-700 rounded-xl" />
-          </button>
+          </a>
         </div>
 
         {/* Bottom CTA */}
@@ -227,10 +235,10 @@ export function Hubs() {
                 Connect with founders, mentors, and investors in your region. Access resources,
                 mentorship, and a community dedicated to your success.
               </p>
-              <button className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background transition hover:bg-foreground/90">
+              <a href="/community/join" className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background transition hover:bg-foreground/90">
                 Get Started
                 <ArrowRight className="h-4 w-4" />
-              </button>
+              </a>
             </div>
             <div className="space-y-4">
               <div className="rounded-2xl border border-brand/30 bg-white p-6">
