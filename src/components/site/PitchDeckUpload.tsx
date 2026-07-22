@@ -89,7 +89,7 @@ export function PitchDeckUpload() {
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-foreground/65 md:text-lg">
-            One upload. Multiple opportunities. Submit your startup once and let NexGen connect you
+            One upload. Multiple opportunities. Submit your startup once and let Hanova connect you
             with investors, mentors, and service providers.
           </p>
         </div>

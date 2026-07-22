@@ -16,7 +16,7 @@ export function ContactCTA() {
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
               <a
-                href="mailto:hello@nexgenfounders.com"
+                href="mailto:hello@hanova.com"
                 className="group inline-flex items-center gap-2 rounded-full bg-foreground py-3.5 pr-2 pl-6 text-sm font-semibold text-background transition hover:-translate-y-0.5 card-shadow"
               >
                 Book a 30-Min Call
@@ -25,10 +25,10 @@ export function ContactCTA() {
                 </span>
               </a>
               <a
-                href="mailto:hello@nexgenfounders.com"
+                href="mailto:hello@honova.com"
                 className="inline-flex items-center gap-2 rounded-full border px-6 py-3.5 text-sm font-semibold transition hover:-translate-y-0.5"
               >
-                hello@nexgenfounders.com
+                hello@hanova.com
               </a>
             </div>
           </div>

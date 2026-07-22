@@ -101,7 +101,7 @@ export function Investors() {
       name: "James Chen",
       title: "Co-founder, Momentum Ventures",
       quote:
-        "Every founder I work with gets referred to NexGen. They deliver consistently and think like founders.",
+        "Every founder I work with gets referred to Hanova. They deliver consistently and think like founders.",
       image: "https://i.pravatar.cc/64?img=2",
       link: "#",
     },
@@ -109,14 +109,14 @@ export function Investors() {
       name: "Amelia Rodriguez",
       title: "GP, Founder Collective",
       quote:
-        "The quality of execution is exceptional. NexGen turns complex visions into market-ready products.",
+        "The quality of execution is exceptional. Hanova turns complex visions into market-ready products.",
       image: "https://i.pravatar.cc/64?img=3",
       link: "#",
     },
     {
       name: "Michael Park",
       title: "Managing Director, Tech Impact",
-      quote: "Long-term partnerships matter. NexGen shows up for their clients beyond launch day.",
+      quote: "Long-term partnerships matter. Hanova shows up for their clients beyond launch day.",
       image: "https://i.pravatar.cc/64?img=4",
       link: "#",
     },

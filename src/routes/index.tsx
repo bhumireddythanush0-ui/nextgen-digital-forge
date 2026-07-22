@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { WhatIsHanova } from "@/components/site/WhatIsHanova";
+import { AboutFounders } from "@/components/site/AboutFounders";
 import { StartupJourney } from "@/components/site/StartupJourney";
 import { Hubs } from "@/components/site/Hubs";
 import { UpcomingMeetup } from "@/components/site/UpcomingMeetup";
@@ -22,12 +23,22 @@ function HomePage() {
 
       <main>
         <Hero />
+
         <WhatIsHanova />
+
+        {/* Founders appear here */}
+        <AboutFounders />
+
         <StartupJourney />
+
         <Hubs />
+
         <UpcomingMeetup />
+
         <Partners />
+
         <CommunityStartupCTA />
+
         <Contact />
       </main>
 

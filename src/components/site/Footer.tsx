@@ -8,7 +8,7 @@ export function Footer() {
               <span className="h-2.5 w-2.5 rounded-full bg-white" />
             </span>
             <span className="text-sm font-bold tracking-tight">
-              <span className="text-brand">NexGen</span> Founders
+              <span className="text-brand">Hanova</span> 
             </span>
           </div>
           <nav className="flex flex-wrap gap-6 text-sm text-muted-foreground">

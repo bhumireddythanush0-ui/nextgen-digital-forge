@@ -1,390 +1,178 @@
-"use client";
+import {
+  ArrowUpRight,
+  BadgeCheck,
+  Quote,
+  Sparkles,
+} from "lucide-react";
 
-import { Award, Eye, Handshake, Lightbulb, Linkedin, Mail, Shield, Users } from "lucide-react";
-
-import { type ReactNode, useEffect, useRef, useState } from "react";
-
-interface FounderCardProps {
-  name: string;
-  role: string;
-  bio: string;
-  image: string;
-  socials: {
-    linkedin: string;
-    email: string;
-  };
-}
-
-function FounderCard({ name, role, bio, image, socials }: FounderCardProps) {
-  return (
-    <div className="overflow-hidden rounded-3xl border bg-white soft-shadow transition-all duration-500 hover:card-shadow">
-      <div className="aspect-square overflow-hidden bg-gradient-to-br from-brand/20 to-foreground/10">
-        <img
-          src={image}
-          alt={`${name} - ${role}`}
-          className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-        />
-      </div>
-
-      <div className="p-7">
-        <h3 className="text-xl font-bold text-foreground">{name}</h3>
-
-        <p className="mt-1 text-sm font-semibold text-brand">{role}</p>
-
-        <p className="mt-4 text-sm leading-relaxed text-foreground/70">{bio}</p>
-
-        <div className="mt-6 flex gap-3">
-          <a
-            href={socials.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${name} LinkedIn profile`}
-            className="flex flex-1 items-center justify-center rounded-lg bg-foreground/5 p-2.5 text-foreground transition-all duration-300 hover:bg-brand hover:text-white"
-          >
-            <Linkedin className="h-5 w-5" />
-          </a>
-
-          <a
-            href={`mailto:${socials.email}`}
-            aria-label={`Email ${name}`}
-            className="flex flex-1 items-center justify-center rounded-lg bg-foreground/5 p-2.5 text-foreground transition-all duration-300 hover:bg-brand hover:text-white"
-          >
-            <Mail className="h-5 w-5" />
-          </a>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-interface TimelineItemProps {
-  year: string;
-  title: string;
-  index: number;
-}
-
-function TimelineItem({ year, title, index }: TimelineItemProps) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const currentElement = ref.current;
-
-    if (!currentElement) {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      {
-        threshold: 0.5,
-      },
-    );
-
-    observer.observe(currentElement);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className={`transform transition-all duration-700 ${
-        isVisible ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"
-      }`}
-      style={{
-        transitionDelay: `${index * 100}ms`,
-      }}
-    >
-      <div className="flex items-start gap-6">
-        <div className="flex flex-col items-center">
-          <div className="mt-2 h-3 w-3 rounded-full bg-brand" />
-
-          {index < 3 && <div className="mt-3 h-16 w-0.5 bg-gradient-to-b from-brand to-brand/30" />}
-        </div>
-
-        <div className="pb-6">
-          <div className="text-sm font-semibold text-brand">{year}</div>
-
-          <div className="mt-1 text-lg font-bold text-foreground">{title}</div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-interface ValueCardProps {
-  icon: ReactNode;
-  title: string;
-  description: string;
-}
-
-function ValueCard({ icon, title, description }: ValueCardProps) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const currentElement = ref.current;
-
-    if (!currentElement) {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      {
-        threshold: 0.3,
-      },
-    );
-
-    observer.observe(currentElement);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className={`group transform rounded-2xl border bg-white/50 p-6 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:card-shadow ${
-        isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-      }`}
-    >
-      <div className="mb-3 text-brand transition-transform duration-300 group-hover:scale-110">
-        {icon}
-      </div>
-
-      <h3 className="font-bold text-foreground">{title}</h3>
-
-      <p className="mt-2 text-sm leading-relaxed text-foreground/70">{description}</p>
-    </div>
-  );
-}
-
-interface StatCardProps {
-  stat: string;
-  label: string;
-  index: number;
-}
-
-function StatCard({ stat, label, index }: StatCardProps) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const currentElement = ref.current;
-
-    if (!currentElement) {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      {
-        threshold: 0.3,
-      },
-    );
-
-    observer.observe(currentElement);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className={`transform rounded-2xl border bg-white p-8 text-center soft-shadow transition-all duration-500 hover:-translate-y-1 hover:card-shadow ${
-        isVisible ? "scale-100 opacity-100" : "scale-95 opacity-0"
-      }`}
-      style={{
-        transitionDelay: `${index * 100}ms`,
-      }}
-    >
-      <div className="text-4xl font-bold text-brand md:text-5xl">{stat}</div>
-
-      <p className="mt-3 text-sm text-foreground/70">{label}</p>
-    </div>
-  );
-}
+const founders = [
+  {
+    name: "Harsha",
+    role: "Co-founder & CEO",
+    image: "/images/cofounder-1.jpeg",
+    imageClassName:
+      "object-[center_24%] scale-[1.02] group-hover:scale-[1.055]",
+    description:
+      "Harsha leads Hanova’s founder strategy, partnerships, and ecosystem development. He works closely with founders to turn early ideas into focused and actionable startup journeys.",
+    expertise: [
+      "Founder strategy",
+      "Business partnerships",
+      "Ecosystem development",
+    ],
+  },
+  {
+  name: "Yaswanth",
+  role: "Co-founder & CTO",
+  image: "/images/cofounder-2.jpeg",
+  imageClassName:
+    "object-[center_48%] scale-[1.08] group-hover:scale-[1.11]",
+  description:
+    "Yaswanth leads technology and product development at Hanova. He helps founders transform validated ideas into reliable, scalable, and launch-ready digital products.",
+  expertise: [
+    "Product development",
+    "Technology strategy",
+    "Scalable digital systems",
+  ],
+},
+];
 
 export function AboutFounders() {
   return (
-    <section id="about-founders" className="relative py-20 md:py-32">
-      <div className="dotted-bg pointer-events-none absolute inset-0 opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_75%)]" />
+    <section
+      id="founders"
+      className="relative scroll-mt-28 overflow-hidden bg-white px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28"
+    >
+      {/* Background decorations */}
+      <div className="pointer-events-none absolute -left-40 top-20 h-80 w-80 rounded-full bg-blue-200/30 blur-[100px]" />
 
-      <div className="relative mx-auto max-w-6xl px-6">
-        {/* Heading */}
-        <div className="mb-16 md:mb-20">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-xs font-medium">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-            Our Story
-          </div>
+      <div className="pointer-events-none absolute -right-40 bottom-20 h-80 w-80 rounded-full bg-cyan-200/30 blur-[100px]" />
 
-          <h2 className="mb-6 text-4xl font-bold text-foreground md:text-6xl">
-            About the Founders
-          </h2>
+      <div className="relative mx-auto max-w-7xl">
+        {/* Introduction */}
+        <div className="grid gap-10 lg:grid-cols-[1fr_0.65fr] lg:items-end">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.15em] text-blue-700">
+              <Sparkles className="h-4 w-4" />
 
-          <p className="max-w-3xl text-lg leading-relaxed text-foreground/70">
-            Hanova  was born from a simple belief: businesses need more than developers.
-            They need strategic technology partners who understand their vision, work with urgency,
-            and build products that users love.
-          </p>
-        </div>
-
-        {/* Founders */}
-        <div className="mb-20 grid gap-12 md:mb-28 md:grid-cols-2">
-          <FounderCard
-            name="Harsha"
-            role="Co-Founder and CEO"
-            bio="Harsha Hanova with a founder-first vision. He focuses on product strategy, client relationships, business growth, and helping ambitious ideas become successful digital products."
-            image="/images/cofounder-1.jpeg"
-            socials={{
-              linkedin: "https://www.linkedin.com",
-              email: "alex@nexgen.com",
-            }}
-          />
-
-          <FounderCard
-            name="Yaswanth"
-            role="Co-Founder and CTO"
-            bio="Yaswanth technology and development at Hanova. She specializes in modern websites, scalable applications, automation systems, and creating reliable digital experiences."
-            image="/images/cofounder-2.jpeg"
-            socials={{
-              linkedin: "https://www.linkedin.com",
-              email: "sarah@nexgen.com",
-            }}
-          />
-        </div>
-
-        {/* Story */}
-        <div className="mb-20 md:mb-28">
-          <h3 className="mb-12 text-3xl font-bold text-foreground md:text-4xl">Our Story</h3>
-
-          <div className="grid gap-12 md:grid-cols-2">
-            <div>
-              <p className="mb-4 leading-relaxed text-foreground/80">
-                Hanova started when we realized that many agencies do not fully understand
-                the challenges businesses face. Clients often experience unclear communication,
-                missed deadlines, and solutions that do not solve their actual problems.
-              </p>
-
-              <p className="mb-4 leading-relaxed text-foreground/80">
-                We decided to build something different: a team that understands business goals,
-                communicates clearly, and delivers professional digital solutions on time.
-              </p>
-
-              <p className="leading-relaxed text-foreground/80">
-                Our mission is to become a trusted technology partner for businesses. We build
-                websites, applications, and automation systems that support real and measurable
-                growth.
-              </p>
+              The people behind Hanova
             </div>
 
-            <div className="border-l border-foreground/10 md:pl-8">
-              <TimelineItem year="2021" title="Company founded" index={0} />
+            <h2 className="mt-6 max-w-4xl text-3xl font-bold leading-tight tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">
+              Built by people who believe founders deserve{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                practical support.
+              </span>
+            </h2>
 
-              <TimelineItem year="2022" title="First major client partnership" index={1} />
+            <p className="mt-6 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
+              Hanova was created from a simple belief: ambitious founders need
+              more than advice. They need trusted people who understand their
+              vision, help them make clearer decisions, and support them from
+              idea to growth.
+            </p>
+          </div>
 
-              <TimelineItem year="2023" title="Expanded our team and services" index={2} />
+          {/* Founder quote */}
+          <div className="border-l-2 border-blue-600 pl-6">
+            <Quote className="h-7 w-7 text-blue-600" />
 
-              <TimelineItem year="2025" title="Delivered more than 50 projects" index={3} />
-            </div>
+            <p className="mt-4 text-xl font-bold leading-8 text-slate-900">
+              We want founders to leave every conversation with greater clarity
+              and a real next step.
+            </p>
+
+            <p className="mt-4 text-sm font-semibold text-slate-500">
+              The Hanova founding team
+            </p>
           </div>
         </div>
 
-        {/* Values */}
-        <div className="mb-20 md:mb-28">
-          <h3 className="mb-12 text-3xl font-bold text-foreground md:text-4xl">Our Core Values</h3>
+        {/* Founder profiles */}
+        <div className="mt-14 grid gap-6 lg:grid-cols-2">
+          {founders.map((founder, index) => (
+            <article
+              key={founder.name}
+              className="group overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-[0_30px_80px_-45px_rgba(15,23,42,0.45)] transition duration-300 hover:-translate-y-1 hover:border-blue-300"
+            >
+              {/* Founder image */}
+              <div className="relative h-[360px] overflow-hidden bg-slate-200 sm:h-[430px]">
+  <img
+    src={founder.image}
+    alt={`${founder.name}, ${founder.role} at Hanova`}
+    className={`h-full w-full object-cover transition-transform duration-700 ease-out ${founder.imageClassName}`}
+  />
 
-          <div className="grid gap-6 md:grid-cols-3">
-            <ValueCard
-              icon={<Users className="h-6 w-6" />}
-              title="Client First"
-              description="Your success is our success. We prioritize your vision and business goals."
-            />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#07111f]/85 via-transparent to-transparent" />
 
-            <ValueCard
-              icon={<Lightbulb className="h-6 w-6" />}
-              title="Innovation"
-              description="We use modern technology to create effective and future-ready solutions."
-            />
+                {/* Name over image */}
+                <div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-8">
+                  <p className="text-xs font-bold uppercase tracking-[0.17em] text-blue-200">
+                    Founder 0{index + 1}
+                  </p>
 
-            <ValueCard
-              icon={<Eye className="h-6 w-6" />}
-              title="Transparency"
-              description="We maintain clear communication, honest feedback, and visible project timelines."
-            />
+                  <h3 className="mt-2 text-3xl font-bold text-white sm:text-4xl">
+                    {founder.name}
+                  </h3>
 
-            <ValueCard
-              icon={<Award className="h-6 w-6" />}
-              title="Excellence"
-              description="We focus on quality and pay attention to every detail, from design to deployment."
-            />
+                  <p className="mt-1 text-sm font-semibold text-white/75">
+                    {founder.role}
+                  </p>
+                </div>
+              </div>
 
-            <ValueCard
-              icon={<Shield className="h-6 w-6" />}
-              title="Reliability"
-              description="We provide dependable support and solutions that businesses can trust."
-            />
+              {/* Founder details */}
+              <div className="p-6 sm:p-8">
+                <p className="text-base leading-7 text-slate-600">
+                  {founder.description}
+                </p>
 
-            <ValueCard
-              icon={<Handshake className="h-6 w-6" />}
-              title="Long-Term Partnership"
-              description="We build lasting relationships and continue supporting our clients as they grow."
-            />
-          </div>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {founder.expertise.map((item) => (
+                    <span
+                      key={item}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-700"
+                    >
+                      <BadgeCheck className="h-3.5 w-3.5 text-blue-600" />
+
+                      {item}
+                    </span>
+                  ))}
+                </div>
+
+                <a
+                  href="#contact"
+                  className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-slate-950 transition hover:text-blue-600"
+                >
+                  Connect through Hanova
+
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </div>
+            </article>
+          ))}
         </div>
 
-        {/* Statistics */}
-        <div className="mb-20 md:mb-28">
-          <h3 className="mb-12 text-3xl font-bold text-foreground md:text-4xl">
-            Why Clients Trust Us
-          </h3>
+        {/* Closing CTA */}
+        <div className="mt-8 flex flex-col justify-between gap-6 overflow-hidden rounded-[26px] bg-[#07111f] px-6 py-7 text-white sm:flex-row sm:items-center sm:px-8">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.17em] text-cyan-300">
+              Founder-led support
+            </p>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <StatCard stat="50+" label="Projects Delivered" index={0} />
-
-            <StatCard stat="30+" label="Founders Partnered" index={1} />
-
-            <StatCard stat="4.9/5" label="Average Rating" index={2} />
-
-            <StatCard stat="100%" label="Client Satisfaction" index={3} />
+            <p className="mt-2 text-lg font-bold text-white">
+              Your startup will be understood by people—not processed by a
+              platform.
+            </p>
           </div>
-        </div>
 
-        {/* Quote */}
-        <div className="rounded-3xl border bg-gradient-to-br from-brand/10 to-transparent p-8 soft-shadow md:p-16">
-          <div className="mb-4 text-6xl text-brand/30">&ldquo;</div>
+          <a
+            href="/startups/register"
+            className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-slate-950 transition hover:bg-blue-50"
+          >
+            Introduce your startup
 
-          <p className="mb-6 text-2xl font-bold text-foreground md:text-3xl">
-            We do not just build websites—we build digital products that help businesses grow.
-          </p>
-
-          <p className="text-lg font-semibold text-foreground">
-            — Alex Johnson, Co-Founder and CEO
-          </p>
-
-          <p className="mt-2 text-foreground/60">A philosophy that guides everything we do.</p>
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
         </div>
       </div>
     </section>

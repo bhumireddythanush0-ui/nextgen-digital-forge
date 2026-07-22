@@ -81,7 +81,7 @@ export function Support() {
       icon: <Mail className="h-6 w-6" />,
       title: "Email Support",
       description: "Detailed responses to your technical and project questions.",
-      contact: "support@nexgen.com",
+      contact: "support@Hanova.com",
       response: "24-48 hours",
     },
     {

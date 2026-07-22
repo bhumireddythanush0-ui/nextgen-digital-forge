@@ -9,18 +9,54 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PartnersRouteImport } from './routes/partners'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as HubsIndexRouteImport } from './routes/hubs/index'
+import { Route as EventsIndexRouteImport } from './routes/events/index'
 import { Route as StartupsRegisterRouteImport } from './routes/startups/register'
+import { Route as HubsHubIdRouteImport } from './routes/hubs/$hubId'
+import { Route as EventsRegisterRouteImport } from './routes/events/register'
 import { Route as CommunityJoinRouteImport } from './routes/community/join'
 
+const PartnersRoute = PartnersRouteImport.update({
+  id: '/partners',
+  path: '/partners',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HubsIndexRoute = HubsIndexRouteImport.update({
+  id: '/hubs/',
+  path: '/hubs/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsIndexRoute = EventsIndexRouteImport.update({
+  id: '/events/',
+  path: '/events/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StartupsRegisterRoute = StartupsRegisterRouteImport.update({
   id: '/startups/register',
   path: '/startups/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HubsHubIdRoute = HubsHubIdRouteImport.update({
+  id: '/hubs/$hubId',
+  path: '/hubs/$hubId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsRegisterRoute = EventsRegisterRouteImport.update({
+  id: '/events/register',
+  path: '/events/register',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CommunityJoinRoute = CommunityJoinRouteImport.update({
@@ -31,36 +67,102 @@ const CommunityJoinRoute = CommunityJoinRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/partners': typeof PartnersRoute
   '/community/join': typeof CommunityJoinRoute
+  '/events/register': typeof EventsRegisterRoute
+  '/hubs/$hubId': typeof HubsHubIdRoute
   '/startups/register': typeof StartupsRegisterRoute
+  '/events/': typeof EventsIndexRoute
+  '/hubs/': typeof HubsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/partners': typeof PartnersRoute
   '/community/join': typeof CommunityJoinRoute
+  '/events/register': typeof EventsRegisterRoute
+  '/hubs/$hubId': typeof HubsHubIdRoute
   '/startups/register': typeof StartupsRegisterRoute
+  '/events': typeof EventsIndexRoute
+  '/hubs': typeof HubsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/partners': typeof PartnersRoute
   '/community/join': typeof CommunityJoinRoute
+  '/events/register': typeof EventsRegisterRoute
+  '/hubs/$hubId': typeof HubsHubIdRoute
   '/startups/register': typeof StartupsRegisterRoute
+  '/events/': typeof EventsIndexRoute
+  '/hubs/': typeof HubsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/community/join' | '/startups/register'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/partners'
+    | '/community/join'
+    | '/events/register'
+    | '/hubs/$hubId'
+    | '/startups/register'
+    | '/events/'
+    | '/hubs/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/community/join' | '/startups/register'
-  id: '__root__' | '/' | '/community/join' | '/startups/register'
+  to:
+    | '/'
+    | '/about'
+    | '/partners'
+    | '/community/join'
+    | '/events/register'
+    | '/hubs/$hubId'
+    | '/startups/register'
+    | '/events'
+    | '/hubs'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/partners'
+    | '/community/join'
+    | '/events/register'
+    | '/hubs/$hubId'
+    | '/startups/register'
+    | '/events/'
+    | '/hubs/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  PartnersRoute: typeof PartnersRoute
   CommunityJoinRoute: typeof CommunityJoinRoute
+  EventsRegisterRoute: typeof EventsRegisterRoute
+  HubsHubIdRoute: typeof HubsHubIdRoute
   StartupsRegisterRoute: typeof StartupsRegisterRoute
+  EventsIndexRoute: typeof EventsIndexRoute
+  HubsIndexRoute: typeof HubsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/partners': {
+      id: '/partners'
+      path: '/partners'
+      fullPath: '/partners'
+      preLoaderRoute: typeof PartnersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -68,11 +170,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/hubs/': {
+      id: '/hubs/'
+      path: '/hubs'
+      fullPath: '/hubs/'
+      preLoaderRoute: typeof HubsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events/': {
+      id: '/events/'
+      path: '/events'
+      fullPath: '/events/'
+      preLoaderRoute: typeof EventsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/startups/register': {
       id: '/startups/register'
       path: '/startups/register'
       fullPath: '/startups/register'
       preLoaderRoute: typeof StartupsRegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hubs/$hubId': {
+      id: '/hubs/$hubId'
+      path: '/hubs/$hubId'
+      fullPath: '/hubs/$hubId'
+      preLoaderRoute: typeof HubsHubIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events/register': {
+      id: '/events/register'
+      path: '/events/register'
+      fullPath: '/events/register'
+      preLoaderRoute: typeof EventsRegisterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/community/join': {
@@ -87,8 +217,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  PartnersRoute: PartnersRoute,
   CommunityJoinRoute: CommunityJoinRoute,
+  EventsRegisterRoute: EventsRegisterRoute,
+  HubsHubIdRoute: HubsHubIdRoute,
   StartupsRegisterRoute: StartupsRegisterRoute,
+  EventsIndexRoute: EventsIndexRoute,
+  HubsIndexRoute: HubsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

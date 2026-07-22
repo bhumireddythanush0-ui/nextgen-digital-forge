@@ -2,7 +2,7 @@ import { Star } from "lucide-react";
 
 const items = [
   {
-    quote: "NexGen shipped what our in-house team couldn't in a year. Feels like magic.",
+    quote: "Hanova shipped what our in-house team couldn't in a year. Feels like magic.",
     author: "Priya S.",
     role: "Founder, Vela",
     tilt: -3,
