@@ -14,10 +14,15 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as HubsIndexRouteImport } from './routes/hubs/index'
 import { Route as EventsIndexRouteImport } from './routes/events/index'
+import { Route as ChaptersIndexRouteImport } from './routes/chapters/index'
 import { Route as StartupsRegisterRouteImport } from './routes/startups/register'
+import { Route as MeetingsRegisterRouteImport } from './routes/meetings/register'
 import { Route as HubsHubIdRouteImport } from './routes/hubs/$hubId'
+import { Route as FoundersConnectRouteImport } from './routes/founders/connect'
 import { Route as EventsRegisterRouteImport } from './routes/events/register'
 import { Route as CommunityJoinRouteImport } from './routes/community/join'
+import { Route as ChaptersApplyRouteImport } from './routes/chapters/apply'
+import { Route as ChaptersChapterIdRouteImport } from './routes/chapters/$chapterId'
 
 const PartnersRoute = PartnersRouteImport.update({
   id: '/partners',
@@ -44,14 +49,29 @@ const EventsIndexRoute = EventsIndexRouteImport.update({
   path: '/events/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChaptersIndexRoute = ChaptersIndexRouteImport.update({
+  id: '/chapters/',
+  path: '/chapters/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StartupsRegisterRoute = StartupsRegisterRouteImport.update({
   id: '/startups/register',
   path: '/startups/register',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MeetingsRegisterRoute = MeetingsRegisterRouteImport.update({
+  id: '/meetings/register',
+  path: '/meetings/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HubsHubIdRoute = HubsHubIdRouteImport.update({
   id: '/hubs/$hubId',
   path: '/hubs/$hubId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FoundersConnectRoute = FoundersConnectRouteImport.update({
+  id: '/founders/connect',
+  path: '/founders/connect',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EventsRegisterRoute = EventsRegisterRouteImport.update({
@@ -64,15 +84,30 @@ const CommunityJoinRoute = CommunityJoinRouteImport.update({
   path: '/community/join',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChaptersApplyRoute = ChaptersApplyRouteImport.update({
+  id: '/chapters/apply',
+  path: '/chapters/apply',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChaptersChapterIdRoute = ChaptersChapterIdRouteImport.update({
+  id: '/chapters/$chapterId',
+  path: '/chapters/$chapterId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/partners': typeof PartnersRoute
+  '/chapters/$chapterId': typeof ChaptersChapterIdRoute
+  '/chapters/apply': typeof ChaptersApplyRoute
   '/community/join': typeof CommunityJoinRoute
   '/events/register': typeof EventsRegisterRoute
+  '/founders/connect': typeof FoundersConnectRoute
   '/hubs/$hubId': typeof HubsHubIdRoute
+  '/meetings/register': typeof MeetingsRegisterRoute
   '/startups/register': typeof StartupsRegisterRoute
+  '/chapters/': typeof ChaptersIndexRoute
   '/events/': typeof EventsIndexRoute
   '/hubs/': typeof HubsIndexRoute
 }
@@ -80,10 +115,15 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/partners': typeof PartnersRoute
+  '/chapters/$chapterId': typeof ChaptersChapterIdRoute
+  '/chapters/apply': typeof ChaptersApplyRoute
   '/community/join': typeof CommunityJoinRoute
   '/events/register': typeof EventsRegisterRoute
+  '/founders/connect': typeof FoundersConnectRoute
   '/hubs/$hubId': typeof HubsHubIdRoute
+  '/meetings/register': typeof MeetingsRegisterRoute
   '/startups/register': typeof StartupsRegisterRoute
+  '/chapters': typeof ChaptersIndexRoute
   '/events': typeof EventsIndexRoute
   '/hubs': typeof HubsIndexRoute
 }
@@ -92,10 +132,15 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/partners': typeof PartnersRoute
+  '/chapters/$chapterId': typeof ChaptersChapterIdRoute
+  '/chapters/apply': typeof ChaptersApplyRoute
   '/community/join': typeof CommunityJoinRoute
   '/events/register': typeof EventsRegisterRoute
+  '/founders/connect': typeof FoundersConnectRoute
   '/hubs/$hubId': typeof HubsHubIdRoute
+  '/meetings/register': typeof MeetingsRegisterRoute
   '/startups/register': typeof StartupsRegisterRoute
+  '/chapters/': typeof ChaptersIndexRoute
   '/events/': typeof EventsIndexRoute
   '/hubs/': typeof HubsIndexRoute
 }
@@ -105,10 +150,15 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/partners'
+    | '/chapters/$chapterId'
+    | '/chapters/apply'
     | '/community/join'
     | '/events/register'
+    | '/founders/connect'
     | '/hubs/$hubId'
+    | '/meetings/register'
     | '/startups/register'
+    | '/chapters/'
     | '/events/'
     | '/hubs/'
   fileRoutesByTo: FileRoutesByTo
@@ -116,10 +166,15 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/partners'
+    | '/chapters/$chapterId'
+    | '/chapters/apply'
     | '/community/join'
     | '/events/register'
+    | '/founders/connect'
     | '/hubs/$hubId'
+    | '/meetings/register'
     | '/startups/register'
+    | '/chapters'
     | '/events'
     | '/hubs'
   id:
@@ -127,10 +182,15 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/partners'
+    | '/chapters/$chapterId'
+    | '/chapters/apply'
     | '/community/join'
     | '/events/register'
+    | '/founders/connect'
     | '/hubs/$hubId'
+    | '/meetings/register'
     | '/startups/register'
+    | '/chapters/'
     | '/events/'
     | '/hubs/'
   fileRoutesById: FileRoutesById
@@ -139,10 +199,15 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   PartnersRoute: typeof PartnersRoute
+  ChaptersChapterIdRoute: typeof ChaptersChapterIdRoute
+  ChaptersApplyRoute: typeof ChaptersApplyRoute
   CommunityJoinRoute: typeof CommunityJoinRoute
   EventsRegisterRoute: typeof EventsRegisterRoute
+  FoundersConnectRoute: typeof FoundersConnectRoute
   HubsHubIdRoute: typeof HubsHubIdRoute
+  MeetingsRegisterRoute: typeof MeetingsRegisterRoute
   StartupsRegisterRoute: typeof StartupsRegisterRoute
+  ChaptersIndexRoute: typeof ChaptersIndexRoute
   EventsIndexRoute: typeof EventsIndexRoute
   HubsIndexRoute: typeof HubsIndexRoute
 }
@@ -184,6 +249,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EventsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/chapters/': {
+      id: '/chapters/'
+      path: '/chapters'
+      fullPath: '/chapters/'
+      preLoaderRoute: typeof ChaptersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/startups/register': {
       id: '/startups/register'
       path: '/startups/register'
@@ -191,11 +263,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StartupsRegisterRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/meetings/register': {
+      id: '/meetings/register'
+      path: '/meetings/register'
+      fullPath: '/meetings/register'
+      preLoaderRoute: typeof MeetingsRegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hubs/$hubId': {
       id: '/hubs/$hubId'
       path: '/hubs/$hubId'
       fullPath: '/hubs/$hubId'
       preLoaderRoute: typeof HubsHubIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/founders/connect': {
+      id: '/founders/connect'
+      path: '/founders/connect'
+      fullPath: '/founders/connect'
+      preLoaderRoute: typeof FoundersConnectRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/events/register': {
@@ -212,6 +298,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CommunityJoinRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/chapters/apply': {
+      id: '/chapters/apply'
+      path: '/chapters/apply'
+      fullPath: '/chapters/apply'
+      preLoaderRoute: typeof ChaptersApplyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chapters/$chapterId': {
+      id: '/chapters/$chapterId'
+      path: '/chapters/$chapterId'
+      fullPath: '/chapters/$chapterId'
+      preLoaderRoute: typeof ChaptersChapterIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -219,10 +319,15 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   PartnersRoute: PartnersRoute,
+  ChaptersChapterIdRoute: ChaptersChapterIdRoute,
+  ChaptersApplyRoute: ChaptersApplyRoute,
   CommunityJoinRoute: CommunityJoinRoute,
   EventsRegisterRoute: EventsRegisterRoute,
+  FoundersConnectRoute: FoundersConnectRoute,
   HubsHubIdRoute: HubsHubIdRoute,
+  MeetingsRegisterRoute: MeetingsRegisterRoute,
   StartupsRegisterRoute: StartupsRegisterRoute,
+  ChaptersIndexRoute: ChaptersIndexRoute,
   EventsIndexRoute: EventsIndexRoute,
   HubsIndexRoute: HubsIndexRoute,
 }

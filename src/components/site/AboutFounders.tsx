@@ -140,10 +140,10 @@ export function AboutFounders() {
                 </div>
 
                 <a
-                  href="#contact"
+                  href={"/founders/connect?founder=" + founder.name.toLowerCase()}
                   className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-slate-950 transition hover:text-blue-600"
                 >
-                  Connect through Hanova
+                  Book Meeting
 
                   <ArrowUpRight className="h-4 w-4" />
                 </a>

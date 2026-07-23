@@ -97,12 +97,12 @@ export function Hero() {
           </h1>
 
           <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Join a connected ecosystem of founders, mentors, investors, partners, and regional startup communities.
+            Join a connected ecosystem of founders, mentors, investors, partners,and regional startup communities.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="/community/join"
+              href="#contact"
               className="group inline-flex items-center gap-2 rounded-full bg-foreground py-3.5 pr-2 pl-6 text-sm font-semibold text-background transition hover:-translate-y-0.5 card-shadow"
             >
               Join Community
@@ -111,7 +111,7 @@ export function Hero() {
               </span>
             </a>
             <a
-              href="/startups/register"
+              href="#work"
               className="inline-flex items-center gap-2 rounded-full border bg-white px-6 py-3.5 text-sm font-semibold transition hover:-translate-y-0.5 soft-shadow"
             >
               Register Startup

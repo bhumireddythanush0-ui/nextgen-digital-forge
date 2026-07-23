@@ -1,277 +1,296 @@
 import { useEffect, useRef, useState } from "react";
-import { MapPin, Users, Lightbulb, ArrowRight, Plus } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Lightbulb,
+  MapPin,
+  Plus,
+  Rocket,
+  Users,
+} from "lucide-react";
 
-interface HubCardProps {
-  slug: string;
-  city: string;
-  tagline: string;
-  themes: string[];
-  description: string;
-  stats: {
-    startups: number;
-    mentors: number;
-  };
-  image: string;
+import { chapters, type Chapter } from "@/data/chapterData";
+
+type ChapterCardProps = Chapter & {
   delay: number;
-}
+};
 
-function HubCard({ slug, city, tagline, themes, description, stats, image, delay }: HubCardProps) {
-  const ref = useRef(null);
+function ChapterCard({
+  slug,
+  city,
+  tagline,
+  themes,
+  description,
+  stats,
+  image,
+  delay,
+}: ChapterCardProps) {
+  const ref = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.2 },
+      { threshold: 0.15 },
     );
+
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <div
+    <article
       ref={ref}
-      className={`flex flex-col rounded-3xl border bg-white overflow-hidden transition-all duration-700 transform ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      } ${isHovered ? "card-shadow" : "soft-shadow"}`}
-      style={{
-        transitionDelay: isVisible ? `${delay}ms` : "0ms",
-        borderColor: "rgba(0,0,0,0.08)",
-      }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      className={`flex transform flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white transition-all duration-700 ${
+        isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+      } ${isHovered ? "card-shadow -translate-y-1" : "soft-shadow"}`}
+      style={{ transitionDelay: isVisible ? `${delay}ms` : "0ms" }}
     >
-      {/* Image Container */}
       <div className="relative h-60 overflow-hidden bg-gradient-to-br from-brand/10 to-foreground/5">
         <img
           src={image}
-          alt={city}
-          className={`w-full h-full object-cover transition-transform duration-500 ${
+          alt={`Hanova ${city} Chapter`}
+          className={`h-full w-full object-cover transition-transform duration-700 ${
             isHovered ? "scale-105" : "scale-100"
           }`}
         />
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
-
-        {/* Location Badge */}
-        <div className="absolute top-4 right-4 flex items-center gap-1.5 rounded-full bg-white/80 backdrop-blur px-3 py-1.5 text-xs font-medium text-foreground shadow-md">
+        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/5 to-transparent" />
+        <div className="absolute right-4 top-4 flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-xs font-medium text-foreground shadow-md backdrop-blur">
           <MapPin className="h-3.5 w-3.5 text-brand" />
           Andhra Pradesh
         </div>
       </div>
 
-      {/* Content */}
-      <div className="flex flex-col flex-grow p-7">
-        {/* Header */}
+      <div className="flex flex-grow flex-col p-6 sm:p-7">
         <div className="mb-5">
-          <h3 className="text-2xl font-bold text-foreground">{city}</h3>
-          <p className="text-sm font-medium text-brand mt-1">{tagline}</p>
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand">
+            Hanova Chapter
+          </p>
+          <h3 className="mt-2 text-2xl font-bold text-foreground">
+            Hanova {city}
+          </h3>
+          <p className="mt-1 text-sm font-semibold text-brand">{tagline}</p>
         </div>
 
-        {/* Description */}
-        <p className="text-sm leading-relaxed text-foreground/70 mb-5">{description}</p>
+        <p className="mb-5 text-sm leading-7 text-foreground/70">
+          {description}
+        </p>
 
-        {/* Themes */}
         <div className="mb-6 flex flex-wrap gap-2">
           {themes.map((theme) => (
             <span
               key={theme}
-              className="inline-flex items-center gap-1 rounded-full bg-foreground/5 px-3 py-1 text-xs font-medium text-foreground/70"
+              className="rounded-full bg-foreground/5 px-3 py-1.5 text-xs font-semibold text-foreground/70"
             >
               {theme}
             </span>
           ))}
         </div>
 
-        {/* Stats */}
         <div className="mb-6 grid grid-cols-2 gap-4 border-t border-foreground/10 pt-5">
           <div>
-            <div className="text-lg font-bold text-foreground">{stats.startups}</div>
-            <div className="text-xs text-foreground/60">Active Startups</div>
+            <div className="text-lg font-bold text-foreground">
+              {stats.startups}
+            </div>
+            <div className="text-xs text-foreground/60">
+              Startups supported
+            </div>
           </div>
           <div>
-            <div className="text-lg font-bold text-foreground">{stats.mentors}</div>
-            <div className="text-xs text-foreground/60">Expert Mentors</div>
+            <div className="text-lg font-bold text-foreground">
+              {stats.mentors}
+            </div>
+            <div className="text-xs text-foreground/60">Local mentors</div>
           </div>
         </div>
 
-        {/* CTA Button */}
         <a
-          href={"/hubs/" + slug}
-          className="mt-auto group inline-flex items-center justify-center gap-2 w-full rounded-full bg-foreground py-2.5 text-sm font-semibold text-background transition-all duration-300 hover:-translate-y-0.5"
+          href={`/chapters/${slug}`}
+          className="group mt-auto inline-flex w-full items-center justify-center gap-2 rounded-full bg-foreground py-3 text-sm font-semibold text-background transition duration-300 hover:-translate-y-0.5 hover:bg-brand"
         >
-          Explore Hub
-          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          Explore Chapter
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
         </a>
       </div>
-    </div>
+    </article>
   );
 }
 
 export function Hubs() {
-  const hubs: HubCardProps[] = [
-    {
-      slug: "proddatur",
-      city: "Proddatur Hub",
-      tagline: "The Silk Road of Innovation",
-      themes: ["Technology", "Manufacturing", "Creator Economy"],
-      description:
-        "A growing ecosystem for startups, digital businesses, and creator-led companies inspired by the city's entrepreneurial culture.",
-      stats: {
-        startups: 142,
-        mentors: 38,
-      },
-      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop",
-      delay: 0,
-    },
-    {
-      slug: "anantapur",
-      city: "Anantapur Hub",
-      tagline: "Powering Deep-Tech Growth",
-      themes: ["Renewable Energy", "Deep Tech", "Sustainability"],
-      description:
-        "A future-focused hub connecting clean energy, technology, and ambitious founders building scalable solutions.",
-      stats: {
-        startups: 96,
-        mentors: 28,
-      },
-      image: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=400&fit=crop",
-      delay: 100,
-    },
-    {
-      slug: "kadapa",
-      city: "Kadapa Hub",
-      tagline: "Building Industrial Futures",
-      themes: ["Infrastructure", "Energy", "Industrial Innovation"],
-      description:
-        "A strong regional hub for infrastructure, industrial innovation, and businesses shaping tomorrow's economy.",
-      stats: {
-        startups: 118,
-        mentors: 34,
-      },
-      image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&h=400&fit=crop",
-      delay: 200,
-    },
-    {
-      slug: "kurnool",
-      city: "Kurnool Hub",
-      tagline: "Agritech Meets Innovation",
-      themes: ["Agritech", "Food Processing", "Rural Innovation"],
-      description:
-        "A practical innovation hub helping agriculture, food, and rural businesses grow through technology and mentorship.",
-      stats: {
-        startups: 87,
-        mentors: 25,
-      },
-      image: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=600&h=400&fit=crop",
-      delay: 300,
-    },
-  ];
-
   return (
     <section id="hubs" className="relative py-24 md:py-32">
       <div className="pointer-events-none absolute inset-0 dotted-bg opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_75%)]" />
 
       <div className="relative mx-auto max-w-6xl px-6">
-        {/* Header */}
-        <div className="mb-16 md:mb-20">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-xs font-medium">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand" /> OUR STARTUP HUBS
+        <div className="mb-14 md:mb-20">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-brand">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+            Hanova Chapters
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-6">
-            Innovation Begins Here.
+
+          <h2 className="mb-6 max-w-5xl text-4xl font-bold tracking-tight text-foreground md:text-6xl">
+            Building Startup Ecosystems Across Andhra Pradesh
           </h2>
-          <p className="text-lg text-foreground/70 max-w-3xl leading-relaxed">
-            Connect with founders, mentors, events, and startup support in your region.
+
+          <p className="max-w-4xl text-lg leading-8 text-foreground/70">
+            Hanova is expanding city by city, creating connected startup
+            chapters where founders, students, mentors, investors, businesses,
+            and innovators come together to build impactful startups.
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {hubs.map((hub) => (
-            <HubCard key={hub.city} {...hub} />
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {chapters.map((chapter, index) => (
+            <ChapterCard
+              key={chapter.slug}
+              {...chapter}
+              delay={index * 100}
+            />
           ))}
         </div>
 
-        {/* More Hubs Button */}
-        <div className="mt-12 md:mt-16 flex justify-center">
-          <a href="/hubs/" className="group relative px-8 py-3 rounded-xl overflow-hidden transition-all duration-500 hover:scale-105">
-            {/* Background layers */}
-            <div className="absolute inset-0 bg-gradient-to-r from-brand/10 via-brand/5 to-brand/10 backdrop-blur-sm border border-brand/30 rounded-xl" />
-            <div className="absolute inset-0 bg-gradient-to-r from-brand to-brand/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl" />
+        <div className="relative mt-12 overflow-hidden rounded-[30px] bg-[#081225] px-6 py-9 text-white shadow-[0_30px_85px_-50px_rgba(15,23,42,0.85)] sm:px-9 sm:py-11 lg:px-12">
+          <div className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-blue-500/25 blur-[90px]" />
+          <div className="pointer-events-none absolute -bottom-28 left-1/3 h-64 w-64 rounded-full bg-cyan-400/15 blur-[90px]" />
 
-            {/* Animated border glow */}
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-brand via-brand/50 to-brand rounded-xl blur-lg opacity-0 group-hover:opacity-75 transition-opacity duration-500 -z-10" />
-
-            {/* Content */}
-            <div className="relative flex items-center justify-center gap-2 text-base font-semibold">
-              <span className="text-brand group-hover:text-white transition-colors duration-300">
-                <Plus className="h-5 w-5 group-hover:rotate-90 group-hover:scale-125 transition-all duration-500" />
-              </span>
-              <span className="text-brand group-hover:text-white transition-colors duration-300 flex items-center gap-2">
-                Find Your Nearest Hub
-                <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-400" />
-              </span>
-            </div>
-
-            {/* Shine effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 translate-x-full group-hover:translate-x-0 transition-all duration-700 rounded-xl" />
-          </a>
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-16 md:mt-20 rounded-3xl border bg-gradient-to-br from-brand/10 to-transparent p-12 md:p-16 soft-shadow">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="relative grid gap-9 lg:grid-cols-[1fr_0.9fr] lg:items-center">
             <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                Ready to Join a Hub?
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.15em] text-cyan-200">
+                <span aria-hidden="true">🌟</span>
+                Start a local chapter
+              </div>
+
+              <h3 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl">
+                Want Hanova in Your City?
               </h3>
-              <p className="text-foreground/80 mb-6 leading-relaxed">
-                Connect with founders, mentors, and investors in your region. Access resources,
-                mentorship, and a community dedicated to your success.
+
+              <p className="mt-4 text-xl font-semibold text-white">
+                Don&apos;t see your city yet?
               </p>
-              <a href="/community/join" className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background transition hover:bg-foreground/90">
-                Get Started
+
+              <p className="mt-3 max-w-2xl leading-7 text-slate-300">
+                Become the founding leader of a Hanova Chapter and help build
+                your local startup ecosystem.
+              </p>
+
+              <a
+                href="/chapters/apply"
+                className="mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-bold text-slate-950 transition hover:bg-cyan-50"
+              >
+                <Rocket className="h-4 w-4 text-blue-600" />
+                Apply to Start a Hanova Chapter
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>
+
+            <div className="rounded-[24px] border border-white/10 bg-white/[0.07] p-6 backdrop-blur">
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-200">
+                Requirements
+              </p>
+
+              <div className="mt-5 grid gap-4">
+                {[
+                  "Passion for entrepreneurship",
+                  "Leadership mindset",
+                  "Ability to organize meetups",
+                  "Commitment to building founders",
+                  "Willingness to grow the local ecosystem",
+                ].map((requirement) => (
+                  <div
+                    key={requirement}
+                    className="flex items-start gap-3 text-sm font-medium text-slate-200"
+                  >
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-cyan-300" />
+                    <span>{requirement}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 flex justify-center md:mt-16">
+          <a
+            href="/chapters/"
+            className="group relative overflow-hidden rounded-xl px-8 py-3 transition-all duration-500 hover:scale-105"
+          >
+            <div className="absolute inset-0 rounded-xl border border-brand/30 bg-gradient-to-r from-brand/10 via-brand/5 to-brand/10 backdrop-blur-sm" />
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-brand to-brand/80 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <div className="relative flex items-center justify-center gap-2 text-base font-semibold text-brand transition-colors group-hover:text-white">
+              <Plus className="h-5 w-5 transition-transform duration-500 group-hover:rotate-90 group-hover:scale-125" />
+              Find Your Nearest Chapter
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </div>
+          </a>
+        </div>
+
+        <div className="mt-16 rounded-3xl border bg-gradient-to-br from-brand/10 to-transparent p-7 soft-shadow sm:p-10 md:mt-20 md:p-14">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <h3 className="text-2xl font-bold text-foreground md:text-3xl">
+                Ready to Join a Chapter?
+              </h3>
+              <p className="mb-6 mt-4 leading-7 text-foreground/80">
+                Connect with founders, mentors, and startup supporters in your
+                region. Access guidance, events, relationships, and a community
+                dedicated to helping founders move forward.
+              </p>
+              <a
+                href="/community/join"
+                className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background transition hover:bg-brand"
+              >
+                Join the Community
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+
             <div className="space-y-4">
-              <div className="rounded-2xl border border-brand/30 bg-white p-6">
-                <div className="flex items-start gap-3">
-                  <Lightbulb className="h-5 w-5 text-brand flex-shrink-0 mt-0.5" />
-                  <div>
-                    <div className="font-bold text-foreground">4 Regional Hubs</div>
-                    <p className="text-sm text-foreground/70 mt-1">Across Andhra Pradesh</p>
-                  </div>
-                </div>
-              </div>
-              <div className="rounded-2xl border border-brand/30 bg-white p-6">
-                <div className="flex items-start gap-3">
-                  <Users className="h-5 w-5 text-brand flex-shrink-0 mt-0.5" />
-                  <div>
-                    <div className="font-bold text-foreground">443+ Startups</div>
-                    <p className="text-sm text-foreground/70 mt-1">Growing every month</p>
-                  </div>
-                </div>
-              </div>
-              <div className="rounded-2xl border border-brand/30 bg-white p-6">
-                <div className="flex items-start gap-3">
-                  <MapPin className="h-5 w-5 text-brand flex-shrink-0 mt-0.5" />
-                  <div>
-                    <div className="font-bold text-foreground">125+ Mentors</div>
-                    <p className="text-sm text-foreground/70 mt-1">Industry experts</p>
-                  </div>
-                </div>
-              </div>
+              <SummaryItem
+                icon={Lightbulb}
+                title="4 Regional Chapters"
+                text="Across Andhra Pradesh"
+              />
+              <SummaryItem
+                icon={Users}
+                title="443+ Startups"
+                text="Growing every month"
+              />
+              <SummaryItem
+                icon={MapPin}
+                title="125+ Mentors"
+                text="Supporting regional founders"
+              />
             </div>
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function SummaryItem({
+  icon: Icon,
+  title,
+  text,
+}: {
+  icon: typeof MapPin;
+  title: string;
+  text: string;
+}) {
+  return (
+    <div className="rounded-2xl border border-brand/30 bg-white p-5 sm:p-6">
+      <div className="flex items-start gap-3">
+        <Icon className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
+        <div>
+          <div className="font-bold text-foreground">{title}</div>
+          <p className="mt-1 text-sm text-foreground/70">{text}</p>
+        </div>
+      </div>
+    </div>
   );
 }
