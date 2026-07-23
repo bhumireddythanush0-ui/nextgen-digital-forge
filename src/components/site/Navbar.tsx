@@ -49,8 +49,12 @@ export function Navbar() {
             onClick={closeMenu}
             className="flex shrink-0 items-center gap-2.5"
           >
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-600">
-              <span className="h-3 w-3 rounded-full bg-white" />
+            <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl bg-slate-950 p-1.5 shadow-sm">
+              <img
+                src="/images/hanova-mark.png"
+                alt="Hanova"
+                className="h-full w-full object-contain"
+              />
             </span>
 
             <span className="text-base font-bold tracking-tight text-slate-950">
