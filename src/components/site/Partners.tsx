@@ -1,41 +1,88 @@
 import {
-  Building2,
+  BriefcaseBusiness,
+  Calculator,
   Cpu,
-  GraduationCap,
+  HandCoins,
   Handshake,
+  Landmark,
+  Lightbulb,
+  Megaphone,
+  Newspaper,
+  Scale,
   UsersRound,
 } from "lucide-react";
 
 const partnerCategories = [
   {
-    title: "Incubation Partners",
-    description: "Startup incubation and founder development",
-    icon: Building2,
-  },
-  {
     title: "Technology Partners",
-    description: "Technology, product, and infrastructure support",
+    description:
+      "Technology, software, product development, cloud, and infrastructure support.",
     icon: Cpu,
   },
   {
-    title: "Education Partners",
-    description: "Colleges, universities, and learning communities",
-    icon: GraduationCap,
+    title: "Marketing Partners",
+    description:
+      "Branding, digital marketing, growth strategy, content, and customer acquisition.",
+    icon: Megaphone,
   },
   {
-    title: "Community Partners",
-    description: "Founder networks and regional communities",
+    title: "Legal Partners",
+    description:
+      "Legal guidance, company registration, agreements, contracts, and compliance.",
+    icon: Scale,
+  },
+  {
+    title: "CA Partners",
+    description:
+      "Accounting, taxation, auditing, financial reporting, and business compliance.",
+    icon: Calculator,
+  },
+  {
+    title: "IP Partners",
+    description:
+      "Trademark, patent, copyright, and intellectual property protection.",
+    icon: Lightbulb,
+  },
+  {
+    title: "Funding Partners",
+    description:
+      "Angel investment, venture capital, grants, and startup funding support.",
+    icon: HandCoins,
+  },
+  {
+    title: "Incubation Partners",
+    description:
+      "Startup incubation, mentorship, founder development, and acceleration.",
+    icon: BriefcaseBusiness,
+  },
+  {
+    title: "Hiring Partners",
+    description:
+      "Recruitment, talent acquisition, internships, and workforce development.",
     icon: UsersRound,
+  },
+  {
+    title: "Government Partners",
+    description:
+      "Government programs, startup schemes, policy support, and regional development.",
+    icon: Landmark,
+  },
+  {
+    title: "Media Partners",
+    description:
+      "Startup stories, public relations, event coverage, and media visibility.",
+    icon: Newspaper,
   },
 ];
 
 /*
-  Add real image paths when the client provides the logos.
+  Add real partner-logo paths when they are provided.
 
   Example:
+
   {
     name: "Partner name",
-    logo: "/images/partners/partner-1.png",
+    logo: "/images/partners/partner-name.png",
   }
 */
 
@@ -72,10 +119,10 @@ export function Partners() {
       id="partners"
       className="scroll-mt-28 overflow-hidden bg-white py-16 sm:py-20 lg:py-24"
     >
-      {/* Heading and categories */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-          <div>
+        <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
+          {/* Left content */}
+          <div className="lg:sticky lg:top-28">
             <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.15em] text-blue-700">
               <Handshake className="h-4 w-4" />
               Our partners
@@ -89,11 +136,19 @@ export function Partners() {
             </h2>
 
             <p className="mt-5 max-w-xl text-base leading-7 text-slate-600 sm:text-lg">
-              Hanova works with organizations that believe in founders,
-              regional innovation, and stronger startup communities.
+              Hanova works with organizations and professionals who believe in
+              founders, regional innovation, and stronger startup communities.
             </p>
+
+            <a
+              href="/partners"
+              className="mt-8 inline-flex min-h-12 items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition duration-300 hover:border-blue-500 hover:bg-blue-600 hover:text-white"
+            >
+              Become a partner
+            </a>
           </div>
 
+          {/* Partner category cards */}
           <div className="grid gap-4 sm:grid-cols-2">
             {partnerCategories.map((partner) => {
               const Icon = partner.icon;
@@ -101,9 +156,9 @@ export function Partners() {
               return (
                 <article
                   key={partner.title}
-                  className="flex gap-4 rounded-3xl border border-slate-200 bg-[#f8fafc] p-5 transition duration-300 hover:border-blue-300 hover:bg-blue-50/50"
+                  className="group flex gap-4 rounded-3xl border border-slate-200 bg-[#f8fafc] p-5 transition duration-300 hover:-translate-y-1 hover:border-blue-300 hover:bg-blue-50/50 hover:shadow-lg"
                 >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-slate-950 text-white">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-slate-950 text-white transition duration-300 group-hover:bg-blue-600">
                     <Icon className="h-5 w-5" />
                   </div>
 
@@ -123,29 +178,16 @@ export function Partners() {
         </div>
       </div>
 
-      {/* Continuously moving partner logos */}
-      <div className="partner-marquee relative mt-12 w-full overflow-hidden">
+      {/* Moving partner logos */}
+      <div className="partner-marquee relative mt-14 w-full overflow-hidden">
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-white to-transparent sm:w-28" />
 
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-white to-transparent sm:w-28" />
 
         <div className="partner-track flex w-max">
-          {/* First logo group */}
           <LogoGroup />
-
-          {/* Identical second group makes the movement seamless */}
           <LogoGroup hidden />
         </div>
-      </div>
-
-      {/* Partner CTA */}
-      <div className="mx-auto mt-10 max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-        <a
-          href="/partners"
-          className="inline-flex min-h-12 items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-blue-400 hover:text-blue-600"
-        >
-          Become a partner
-        </a>
       </div>
 
       <style>{`
@@ -197,7 +239,7 @@ function LogoGroup({ hidden = false }: LogoGroupProps) {
       {partnerLogos.map((partner, index) => (
         <div
           key={`${hidden ? "duplicate" : "original"}-${partner.name}-${index}`}
-          className="flex h-24 w-40 shrink-0 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 px-5 shadow-sm sm:h-28 sm:w-52"
+          className="flex h-24 w-40 shrink-0 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 px-5 shadow-sm transition hover:border-blue-200 hover:bg-white sm:h-28 sm:w-52"
         >
           {partner.logo ? (
             <img

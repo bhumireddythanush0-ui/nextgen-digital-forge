@@ -11,6 +11,10 @@ import { Partners } from "@/components/site/Partners";
 import { CommunityStartupCTA } from "@/components/site/CommunityStartupCTA";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
+import { SuccessStories } from "@/components/site/SuccessStories";
+import { FounderWall } from "@/components/site/FounderWall";
+import { StartupProgressTracker } from "@/components/site/StartupProgressTracker";
+import { AdminStageManager } from "@/components/site/AdminStageManager";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -30,6 +34,23 @@ function HomePage() {
         <AboutFounders />
 
         <StartupJourney />
+
+        <SuccessStories />
+
+        <StartupProgressTracker
+          startupName="Example Startup"
+          founderName="Example Founder"
+          currentStage="validation"
+          lastUpdated="Updated by the Hanova admin"
+        />
+        <FounderWall />
+
+        <StartupProgressTracker
+          startupName="Example Startup"
+          founderName="Example Founder"
+          currentStage="validation"
+          lastUpdated="Updated by the Hanova admin"
+        />
 
         <Hubs />
 
