@@ -56,16 +56,21 @@ function AboutPage() {
                   </span>
                 </h1>
                 <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">
-                  Hanova helps ambitious people move from an early idea to a
-                  stronger startup by connecting practical guidance,
-                  technology, community, regional hubs, events, and trusted
-                  ecosystem partners.
+                  Hanova helps ambitious people move from an early idea to a stronger startup by
+                  connecting practical guidance, technology, community, regional hubs, events, and
+                  trusted ecosystem partners.
                 </p>
                 <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                  <a href="/community/join" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-slate-950 px-7 text-sm font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-blue-600">
+                  <a
+                    href="/community/join"
+                    className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-slate-950 px-7 text-sm font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-blue-600"
+                  >
                     Join our community <ArrowRight className="h-4 w-4" />
                   </a>
-                  <a href="/startups/register" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-7 text-sm font-extrabold text-slate-950 transition hover:border-blue-300 hover:text-blue-700">
+                  <a
+                    href="/startups/register"
+                    className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-7 text-sm font-extrabold text-slate-950 transition hover:border-blue-300 hover:text-blue-700"
+                  >
                     Register your startup
                   </a>
                 </div>
@@ -75,7 +80,9 @@ function AboutPage() {
                 <div className="absolute -bottom-20 -left-16 h-56 w-56 rounded-full bg-pink-500/20 blur-[80px]" />
                 <div className="relative">
                   <HeartHandshake className="h-10 w-10 text-blue-300" />
-                  <p className="mt-8 text-xs font-black uppercase tracking-[0.18em] text-blue-300">Why we exist</p>
+                  <p className="mt-8 text-xs font-black uppercase tracking-[0.18em] text-blue-300">
+                    Why we exist
+                  </p>
                   <p className="mt-4 text-2xl font-black leading-9 sm:text-3xl">
                     Good founders should not have to build alone or guess what comes next.
                   </p>
@@ -85,7 +92,10 @@ function AboutPage() {
                       "Regional access instead of distant networks",
                       "Connected support instead of scattered services",
                     ].map((item) => (
-                      <div key={item} className="flex items-start gap-3 text-sm leading-6 text-slate-300">
+                      <div
+                        key={item}
+                        className="flex items-start gap-3 text-sm leading-6 text-slate-300"
+                      >
                         <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-cyan-300" />
                         {item}
                       </div>
@@ -100,12 +110,19 @@ function AboutPage() {
         <section className="px-4 py-20 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <div className="max-w-3xl">
-              <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-600">How Hanova helps</p>
-              <h2 className="mt-4 text-3xl font-black tracking-[-0.035em] sm:text-5xl">The right support at the right stage.</h2>
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-600">
+                How Hanova helps
+              </p>
+              <h2 className="mt-4 text-3xl font-black tracking-[-0.035em] sm:text-5xl">
+                The right support at the right stage.
+              </h2>
             </div>
             <div className="mt-10 grid gap-5 lg:grid-cols-3">
               {support.map(({ icon: Icon, title, text }) => (
-                <article key={title} className="rounded-[28px] border border-slate-200/80 bg-white p-7 shadow-[0_22px_65px_-45px_rgba(15,23,42,0.5)] transition hover:-translate-y-1 hover:border-blue-200">
+                <article
+                  key={title}
+                  className="rounded-[28px] border border-slate-200/80 bg-white p-7 shadow-[0_22px_65px_-45px_rgba(15,23,42,0.5)] transition hover:-translate-y-1 hover:border-blue-200"
+                >
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600">
                     <Icon className="h-6 w-6" />
                   </div>
@@ -121,20 +138,27 @@ function AboutPage() {
           <div className="mx-auto grid max-w-7xl overflow-hidden rounded-[34px] border border-slate-200 bg-white lg:grid-cols-2">
             <div className="p-7 sm:p-10 lg:p-14">
               <Network className="h-9 w-9 text-blue-600" />
-              <h2 className="mt-6 text-3xl font-black tracking-[-0.035em] sm:text-4xl">Who Hanova is for</h2>
+              <h2 className="mt-6 text-3xl font-black tracking-[-0.035em] sm:text-4xl">
+                Who Hanova is for
+              </h2>
               <p className="mt-5 leading-8 text-slate-600">
-                Hanova supports people exploring an idea, first-time founders,
-                early-stage startup teams, student innovators, and growing
-                businesses seeking stronger networks or product support.
+                Hanova supports people exploring an idea, first-time founders, early-stage startup
+                teams, student innovators, and growing businesses seeking stronger networks or
+                product support.
               </p>
             </div>
             <div className="bg-gradient-to-br from-blue-600 to-violet-700 p-7 text-white sm:p-10 lg:p-14">
-              <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-100">Our promise</p>
-              <p className="mt-5 text-2xl font-black leading-9 sm:text-3xl">
-                Every Hanova experience should help a founder gain clarity,
-                meet useful people, or take a meaningful next step.
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-100">
+                Our promise
               </p>
-              <a href="/hubs/" className="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-7 text-sm font-extrabold text-slate-950 transition hover:-translate-y-0.5">
+              <p className="mt-5 text-2xl font-black leading-9 sm:text-3xl">
+                Every Hanova experience should help a founder gain clarity, meet useful people, or
+                take a meaningful next step.
+              </p>
+              <a
+                href="/hubs/"
+                className="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-7 text-sm font-extrabold text-slate-950 transition hover:-translate-y-0.5"
+              >
                 Find your nearest hub <ArrowRight className="h-4 w-4" />
               </a>
             </div>

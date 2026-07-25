@@ -44,11 +44,7 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl">
         <div className="flex min-h-[64px] items-center justify-between rounded-full border border-slate-200/80 bg-white/90 px-4 shadow-[0_15px_45px_-25px_rgba(15,23,42,0.4)] backdrop-blur-xl sm:px-5">
           {/* Logo */}
-          <a
-            href="/"
-            onClick={closeMenu}
-            className="flex shrink-0 items-center gap-2.5"
-          >
+          <a href="/" onClick={closeMenu} className="flex shrink-0 items-center gap-2.5">
             <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl bg-slate-950 p-1.5 shadow-sm">
               <img
                 src="/images/hanova-mark.png"
@@ -57,9 +53,7 @@ export function Navbar() {
               />
             </span>
 
-            <span className="text-base font-bold tracking-tight text-slate-950">
-              Hanova
-            </span>
+            <span className="text-base font-bold tracking-tight text-slate-950">Hanova</span>
           </a>
 
           {/* Desktop navigation */}
@@ -91,11 +85,7 @@ export function Navbar() {
             onClick={() => setMenuOpen((current) => !current)}
             className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-slate-950 lg:hidden"
           >
-            {menuOpen ? (
-              <X className="h-5 w-5" />
-            ) : (
-              <Menu className="h-5 w-5" />
-            )}
+            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
 

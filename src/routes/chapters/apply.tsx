@@ -1,11 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import {
-  CheckCircle2,
-  MapPinned,
-  Rocket,
-  UsersRound,
-} from "lucide-react";
+import { CheckCircle2, MapPinned, Rocket, UsersRound } from "lucide-react";
 
 import { Footer } from "@/components/site/Footer";
 import { Navbar } from "@/components/site/Navbar";
@@ -32,13 +27,10 @@ function ChapterApplicationPage() {
             <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
               <CheckCircle2 className="h-8 w-8" />
             </div>
-            <h1 className="mt-6 text-3xl font-bold text-slate-950">
-              Chapter application received
-            </h1>
+            <h1 className="mt-6 text-3xl font-bold text-slate-950">Chapter application received</h1>
             <p className="mt-4 leading-7 text-slate-600">
-              Thank you for offering to build your city&apos;s founder
-              community. Hanova will review your leadership fit, local context,
-              and proposed first steps before contacting you.
+              Thank you for offering to build your city&apos;s founder community. Hanova will review
+              your leadership fit, local context, and proposed first steps before contacting you.
             </p>
             <a
               href="/chapters/"
@@ -72,14 +64,26 @@ function ChapterApplicationPage() {
                   Become a founding Hanova Chapter Leader
                 </h1>
                 <p className="mt-5 text-base leading-7 text-slate-300">
-                  Lead a trusted local community where founders, students,
-                  mentors, businesses, and innovators can meet and build.
+                  Lead a trusted local community where founders, students, mentors, businesses, and
+                  innovators can meet and build.
                 </p>
                 <div className="mt-8 space-y-4 text-sm text-slate-300">
-                  <p className="flex gap-3"><CheckCircle2 className="h-5 w-5 shrink-0 text-cyan-300" /> Organize useful founder meetups</p>
-                  <p className="flex gap-3"><CheckCircle2 className="h-5 w-5 shrink-0 text-cyan-300" /> Build local mentor and partner relationships</p>
-                  <p className="flex gap-3"><CheckCircle2 className="h-5 w-5 shrink-0 text-cyan-300" /> Represent Hanova responsibly in your city</p>
-                  <p className="flex gap-3"><CheckCircle2 className="h-5 w-5 shrink-0 text-cyan-300" /> Help local founders take meaningful next steps</p>
+                  <p className="flex gap-3">
+                    <CheckCircle2 className="h-5 w-5 shrink-0 text-cyan-300" /> Organize useful
+                    founder meetups
+                  </p>
+                  <p className="flex gap-3">
+                    <CheckCircle2 className="h-5 w-5 shrink-0 text-cyan-300" /> Build local mentor
+                    and partner relationships
+                  </p>
+                  <p className="flex gap-3">
+                    <CheckCircle2 className="h-5 w-5 shrink-0 text-cyan-300" /> Represent Hanova
+                    responsibly in your city
+                  </p>
+                  <p className="flex gap-3">
+                    <CheckCircle2 className="h-5 w-5 shrink-0 text-cyan-300" /> Help local founders
+                    take meaningful next steps
+                  </p>
                 </div>
               </div>
             </aside>
@@ -92,26 +96,75 @@ function ChapterApplicationPage() {
                 Tell us about you and your city
               </h2>
               <p className="mt-3 text-sm leading-6 text-slate-600">
-                Hanova uses this information to understand your leadership
-                intent, local network, and ability to build a consistent
-                founder community.
+                Hanova uses this information to understand your leadership intent, local network,
+                and ability to build a consistent founder community.
               </p>
 
               <form onSubmit={handleSubmit} className="mt-8 grid gap-5">
                 <div className="grid gap-5 sm:grid-cols-2">
-                  <Field id="chapter-name" name="name" label="Full name" type="text" placeholder="Enter your full name" />
-                  <Field id="chapter-phone" name="phone" label="Phone number" type="tel" placeholder="+91 98765 43210" />
+                  <Field
+                    id="chapter-name"
+                    name="name"
+                    label="Full name"
+                    type="text"
+                    placeholder="Enter your full name"
+                  />
+                  <Field
+                    id="chapter-phone"
+                    name="phone"
+                    label="Phone number"
+                    type="tel"
+                    placeholder="+91 98765 43210"
+                  />
                 </div>
-                <Field id="chapter-email" name="email" label="Email address" type="email" placeholder="you@example.com" />
+                <Field
+                  id="chapter-email"
+                  name="email"
+                  label="Email address"
+                  type="email"
+                  placeholder="you@example.com"
+                />
                 <div className="grid gap-5 sm:grid-cols-2">
-                  <Field id="chapter-city" name="city" label="City" type="text" placeholder="City for the proposed chapter" />
-                  <Field id="chapter-district" name="district" label="District" type="text" placeholder="Enter your district" />
+                  <Field
+                    id="chapter-city"
+                    name="city"
+                    label="City"
+                    type="text"
+                    placeholder="City for the proposed chapter"
+                  />
+                  <Field
+                    id="chapter-district"
+                    name="district"
+                    label="District"
+                    type="text"
+                    placeholder="Enter your district"
+                  />
                 </div>
                 <div className="grid gap-5 sm:grid-cols-2">
-                  <Field id="chapter-profession" name="profession" label="Profession or role" type="text" placeholder="Founder, student, professional..." />
-                  <Field id="chapter-organization" name="organization" label="Organization or college" type="text" placeholder="Optional" required={false} />
+                  <Field
+                    id="chapter-profession"
+                    name="profession"
+                    label="Profession or role"
+                    type="text"
+                    placeholder="Founder, student, professional..."
+                  />
+                  <Field
+                    id="chapter-organization"
+                    name="organization"
+                    label="Organization or college"
+                    type="text"
+                    placeholder="Optional"
+                    required={false}
+                  />
                 </div>
-                <Field id="chapter-linkedin" name="linkedin" label="LinkedIn profile" type="url" placeholder="Optional" required={false} />
+                <Field
+                  id="chapter-linkedin"
+                  name="linkedin"
+                  label="LinkedIn profile"
+                  type="url"
+                  placeholder="Optional"
+                  required={false}
+                />
 
                 <SelectField
                   id="chapter-experience"
@@ -156,14 +209,20 @@ function ChapterApplicationPage() {
                   label="How would you organize the first meetup?"
                   placeholder="Describe the audience, topic, possible venue, local supporters, and how you would invite people."
                 />
-                <Field id="chapter-reach" name="community_reach" label="Existing local network or community reach" type="text" placeholder="Optional: approximate people, groups, colleges, or organizations" required={false} />
+                <Field
+                  id="chapter-reach"
+                  name="community_reach"
+                  label="Existing local network or community reach"
+                  type="text"
+                  placeholder="Optional: approximate people, groups, colleges, or organizations"
+                  required={false}
+                />
 
                 <label className="flex items-start gap-3 rounded-2xl bg-slate-50 p-4">
                   <input type="checkbox" required className="mt-1 h-4 w-4 accent-blue-600" />
                   <span className="text-xs leading-5 text-slate-600">
-                    I understand that a chapter leader must represent Hanova
-                    responsibly, organize consistent activities, and prioritize
-                    genuine value for founders.
+                    I understand that a chapter leader must represent Hanova responsibly, organize
+                    consistent activities, and prioritize genuine value for founders.
                   </span>
                 </label>
 
@@ -225,7 +284,9 @@ function SelectField({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="text-sm font-semibold text-slate-900">{label}</label>
+      <label htmlFor={id} className="text-sm font-semibold text-slate-900">
+        {label}
+      </label>
       <select
         id={id}
         name={name}
@@ -233,9 +294,13 @@ function SelectField({
         defaultValue=""
         className="mt-2 min-h-12 w-full rounded-2xl border border-slate-300 bg-white px-4 text-base outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
       >
-        <option value="" disabled>Select an option</option>
+        <option value="" disabled>
+          Select an option
+        </option>
         {options.map(([value, text]) => (
-          <option key={value} value={value}>{text}</option>
+          <option key={value} value={value}>
+            {text}
+          </option>
         ))}
       </select>
     </div>
@@ -255,7 +320,9 @@ function TextArea({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="text-sm font-semibold text-slate-900">{label}</label>
+      <label htmlFor={id} className="text-sm font-semibold text-slate-900">
+        {label}
+      </label>
       <textarea
         id={id}
         name={name}

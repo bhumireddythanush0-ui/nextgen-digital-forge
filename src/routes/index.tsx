@@ -14,7 +14,6 @@ import { Footer } from "@/components/site/Footer";
 import { SuccessStories } from "@/components/site/SuccessStories";
 import { FounderWall } from "@/components/site/FounderWall";
 import { StartupProgressTracker } from "@/components/site/StartupProgressTracker";
-import { AdminStageManager } from "@/components/site/AdminStageManager";
 import { ByTheNumbers } from "@/components/site/ByTheNumbers";
 
 export const Route = createFileRoute("/")({

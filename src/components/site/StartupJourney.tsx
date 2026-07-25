@@ -17,11 +17,7 @@ const journeySteps = [
     emoji: "💡",
     label: "Discover",
     title: "Have an idea? Start here.",
-    points: [
-      "Identify a real problem",
-      "Find your target audience",
-      "Validate your assumptions",
-    ],
+    points: ["Identify a real problem", "Find your target audience", "Validate your assumptions"],
     cta: "Validate Your Idea",
     href: "/community/join",
     icon: Lightbulb,
@@ -32,12 +28,7 @@ const journeySteps = [
     emoji: "🔍",
     label: "Validate",
     title: "Make sure people want your solution.",
-    points: [
-      "Customer interviews",
-      "Market research",
-      "Competitor analysis",
-      "Problem validation",
-    ],
+    points: ["Customer interviews", "Market research", "Competitor analysis", "Problem validation"],
     cta: "Join Validation Session",
     href: "/events/",
     icon: SearchCheck,
@@ -59,12 +50,7 @@ const journeySteps = [
     emoji: "🚀",
     label: "Launch",
     title: "Get your first users and customers.",
-    points: [
-      "Go-to-market strategy",
-      "Marketing",
-      "Sales",
-      "Feedback collection",
-    ],
+    points: ["Go-to-market strategy", "Marketing", "Sales", "Feedback collection"],
     cta: "Launch Your Startup",
     href: "/startups/register",
     icon: Rocket,
@@ -86,12 +72,7 @@ const journeySteps = [
     emoji: "💰",
     label: "Fund",
     title: "Become investment-ready.",
-    points: [
-      "Pitch deck",
-      "Investor preparation",
-      "Demo Day",
-      "Angel investor connections",
-    ],
+    points: ["Pitch deck", "Investor preparation", "Demo Day", "Angel investor connections"],
     cta: "Raise Investment",
     href: "/founders/connect",
     icon: CircleDollarSign,
@@ -158,7 +139,9 @@ export function StartupJourney() {
                     (lastCard ? "sm:col-span-2 xl:col-span-2" : "")
                   }
                 >
-                  <div className={"absolute inset-x-0 top-0 h-px bg-gradient-to-r " + step.accent} />
+                  <div
+                    className={"absolute inset-x-0 top-0 h-px bg-gradient-to-r " + step.accent}
+                  />
 
                   <div className="flex items-center justify-between">
                     <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-blue-300/25 bg-[#0b1728] text-blue-200 shadow-[0_0_26px_rgba(37,99,235,0.25)] transition group-hover:scale-105 group-hover:bg-blue-600 group-hover:text-white">
@@ -174,9 +157,7 @@ export function StartupJourney() {
                     Stage {step.number} · {step.emoji} {step.label}
                   </p>
 
-                  <h3 className="mt-3 text-xl font-bold leading-7 text-white">
-                    {step.title}
-                  </h3>
+                  <h3 className="mt-3 text-xl font-bold leading-7 text-white">{step.title}</h3>
 
                   <ul className="mt-5 space-y-3">
                     {step.points.map((point) => (

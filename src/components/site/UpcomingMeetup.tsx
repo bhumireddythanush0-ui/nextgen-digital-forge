@@ -1,10 +1,4 @@
-import {
-  CalendarDays,
-  Clock3,
-  MapPin,
-  TicketCheck,
-  Users,
-} from "lucide-react";
+import { CalendarDays, Clock3, MapPin, TicketCheck, Users } from "lucide-react";
 
 const eventDetails = {
   status: "Upcoming meetup",
@@ -38,8 +32,8 @@ export function UpcomingMeetup() {
           </h2>
 
           <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
-            Join the next Hanova meetup and connect with people building the
-            region’s startup ecosystem.
+            Join the next Hanova meetup and connect with people building the region’s startup
+            ecosystem.
           </p>
         </div>
 
@@ -63,29 +57,13 @@ export function UpcomingMeetup() {
               </p>
 
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                <EventInformation
-                  icon={CalendarDays}
-                  label="Date"
-                  value={eventDetails.date}
-                />
+                <EventInformation icon={CalendarDays} label="Date" value={eventDetails.date} />
 
-                <EventInformation
-                  icon={Clock3}
-                  label="Time"
-                  value={eventDetails.time}
-                />
+                <EventInformation icon={Clock3} label="Time" value={eventDetails.time} />
 
-                <EventInformation
-                  icon={MapPin}
-                  label="Venue"
-                  value={eventDetails.location}
-                />
+                <EventInformation icon={MapPin} label="Venue" value={eventDetails.location} />
 
-                <EventInformation
-                  icon={Users}
-                  label="Location"
-                  value={eventDetails.city}
-                />
+                <EventInformation icon={Users} label="Location" value={eventDetails.city} />
               </div>
             </div>
 
@@ -97,13 +75,11 @@ export function UpcomingMeetup() {
                 Registration
               </p>
 
-              <h4 className="mt-3 text-2xl font-bold">
-                Reserve your place at the next meetup
-              </h4>
+              <h4 className="mt-3 text-2xl font-bold">Reserve your place at the next meetup</h4>
 
               <p className="mt-4 text-sm leading-7 text-slate-300">
-                Register your interest now. Hanova will notify you when the
-                final date, venue, and agenda are announced.
+                Register your interest now. Hanova will notify you when the final date, venue, and
+                agenda are announced.
               </p>
 
               <div className="mt-8 grid gap-3">
@@ -135,18 +111,12 @@ type EventInformationProps = {
   value: string;
 };
 
-function EventInformation({
-  icon: Icon,
-  label,
-  value,
-}: EventInformationProps) {
+function EventInformation({ icon: Icon, label, value }: EventInformationProps) {
   return (
     <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-4">
       <Icon className="h-5 w-5 text-blue-300" />
 
-      <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-slate-500">
-        {label}
-      </p>
+      <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-slate-500">{label}</p>
 
       <p className="mt-1 text-sm font-medium text-white">{value}</p>
     </div>

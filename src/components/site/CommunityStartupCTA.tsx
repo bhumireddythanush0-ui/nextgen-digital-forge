@@ -34,13 +34,11 @@ export function CommunityStartupCTA() {
                 For individuals
               </p>
 
-              <h3 className="mt-3 text-3xl font-bold">
-                Join our community
-              </h3>
+              <h3 className="mt-3 text-3xl font-bold">Join our community</h3>
 
               <p className="mt-5 max-w-xl text-base leading-7 text-blue-100">
-                Connect with founders, mentors, professionals, students, and
-                startup enthusiasts from across the region.
+                Connect with founders, mentors, professionals, students, and startup enthusiasts
+                from across the region.
               </p>
 
               <ul className="mt-6 space-y-3 text-sm text-blue-50">
@@ -71,13 +69,11 @@ export function CommunityStartupCTA() {
                 For founders
               </p>
 
-              <h3 className="mt-3 text-3xl font-bold">
-                Register your startup
-              </h3>
+              <h3 className="mt-3 text-3xl font-bold">Register your startup</h3>
 
               <p className="mt-5 max-w-xl text-base leading-7 text-slate-300">
-                Showcase your startup and become discoverable to mentors,
-                ecosystem partners, communities, and potential investors.
+                Showcase your startup and become discoverable to mentors, ecosystem partners,
+                communities, and potential investors.
               </p>
 
               <ul className="mt-6 space-y-3 text-sm text-slate-300">

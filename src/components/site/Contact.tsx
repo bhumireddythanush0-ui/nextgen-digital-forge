@@ -45,8 +45,8 @@ export function Contact() {
                 </h2>
 
                 <p className="mt-5 text-base leading-7 text-slate-300">
-                  Have a question, partnership idea, startup, or community
-                  opportunity? Send us a message.
+                  Have a question, partnership idea, startup, or community opportunity? Send us a
+                  message.
                 </p>
 
                 <div className="mt-10 space-y-5">
@@ -64,9 +64,7 @@ export function Contact() {
                             {detail.title}
                           </p>
 
-                          <p className="mt-1 text-sm text-slate-200">
-                            {detail.value}
-                          </p>
+                          <p className="mt-1 text-sm text-slate-200">{detail.value}</p>
                         </div>
                       </div>
                     );
@@ -77,10 +75,7 @@ export function Contact() {
 
             {/* Contact form */}
             <div className="p-6 sm:p-10 lg:p-12">
-              <form
-                className="grid gap-5"
-                onSubmit={(event) => event.preventDefault()}
-              >
+              <form className="grid gap-5" onSubmit={(event) => event.preventDefault()}>
                 <div className="grid gap-5 sm:grid-cols-2">
                   <FormField
                     id="contact-name"
@@ -105,10 +100,7 @@ export function Contact() {
                 />
 
                 <div>
-                  <label
-                    htmlFor="contact-message"
-                    className="text-sm font-semibold text-slate-900"
-                  >
+                  <label htmlFor="contact-message" className="text-sm font-semibold text-slate-900">
                     Message
                   </label>
 
@@ -128,8 +120,6 @@ export function Contact() {
                 >
                   Send message
                 </button>
-
-
               </form>
             </div>
           </div>

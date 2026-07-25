@@ -37,14 +37,8 @@ export const chapters: Chapter[] = [
     tagline: "Building founders locally",
     description:
       "A connected city chapter bringing founders, students, mentors, businesses, and innovators together to build impactful startups.",
-    themes: [
-      "Weekly Meetups",
-      "Local Mentors",
-      "Startup Guidance",
-      "College Network",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=900&h=600&fit=crop",
+    themes: ["Weekly Meetups", "Local Mentors", "Startup Guidance", "College Network"],
+    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=900&h=600&fit=crop",
     stats: { startups: 142, mentors: 38 },
   },
   {
@@ -55,13 +49,8 @@ export const chapters: Chapter[] = [
     tagline: "Powering deep-tech growth",
     description:
       "A future-focused chapter connecting clean energy, technology, and ambitious founders building scalable solutions.",
-    themes: [
-      "Founder Network",
-      "Industry Connections",
-      "Innovation Programs",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=900&h=600&fit=crop",
+    themes: ["Founder Network", "Industry Connections", "Innovation Programs"],
+    image: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=900&h=600&fit=crop",
     stats: { startups: 96, mentors: 28 },
   },
   {
@@ -72,14 +61,8 @@ export const chapters: Chapter[] = [
     tagline: "Building industrial futures",
     description:
       "A growing chapter connecting local founders with practical guidance, technology support, peer learning, and regional opportunities.",
-    themes: [
-      "Weekly Meetups",
-      "Local Mentors",
-      "Startup Guidance",
-      "College Network",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=900&h=600&fit=crop",
+    themes: ["Weekly Meetups", "Local Mentors", "Startup Guidance", "College Network"],
+    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=900&h=600&fit=crop",
     stats: { startups: 118, mentors: 34 },
   },
   {
@@ -90,13 +73,8 @@ export const chapters: Chapter[] = [
     tagline: "Agritech meets innovation",
     description:
       "A practical innovation chapter helping agriculture, food, rural businesses, and new founders grow through community and mentorship.",
-    themes: [
-      "Startup Community",
-      "Business Support",
-      "Regional Networking",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=900&h=600&fit=crop",
+    themes: ["Startup Community", "Business Support", "Regional Networking"],
+    image: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=900&h=600&fit=crop",
     stats: { startups: 87, mentors: 25 },
   },
 ];
@@ -193,9 +171,7 @@ export function getChapter(slug: string) {
 }
 
 export function getChapterMeetings(slug: string) {
-  return chapterMeetings.filter(
-    (meeting) => meeting.chapterSlug === slug,
-  );
+  return chapterMeetings.filter((meeting) => meeting.chapterSlug === slug);
 }
 
 export function getMeeting(id: string) {

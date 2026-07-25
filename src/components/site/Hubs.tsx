@@ -1,13 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import {
-  ArrowRight,
-  CheckCircle2,
-  Lightbulb,
-  MapPin,
-  Plus,
-  Rocket,
-  Users,
-} from "lucide-react";
+import { ArrowRight, CheckCircle2, Lightbulb, MapPin, Plus, Rocket, Users } from "lucide-react";
 
 import { chapters, type Chapter } from "@/data/chapterData";
 
@@ -68,18 +60,12 @@ function ChapterCard({
 
       <div className="flex flex-grow flex-col p-6 sm:p-7">
         <div className="mb-5">
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand">
-            Hanova Chapter
-          </p>
-          <h3 className="mt-2 text-2xl font-bold text-foreground">
-            Hanova {city}
-          </h3>
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand">Hanova Chapter</p>
+          <h3 className="mt-2 text-2xl font-bold text-foreground">Hanova {city}</h3>
           <p className="mt-1 text-sm font-semibold text-brand">{tagline}</p>
         </div>
 
-        <p className="mb-5 text-sm leading-7 text-foreground/70">
-          {description}
-        </p>
+        <p className="mb-5 text-sm leading-7 text-foreground/70">{description}</p>
 
         <div className="mb-6 flex flex-wrap gap-2">
           {themes.map((theme) => (
@@ -94,17 +80,11 @@ function ChapterCard({
 
         <div className="mb-6 grid grid-cols-2 gap-4 border-t border-foreground/10 pt-5">
           <div>
-            <div className="text-lg font-bold text-foreground">
-              {stats.startups}
-            </div>
-            <div className="text-xs text-foreground/60">
-              Startups supported
-            </div>
+            <div className="text-lg font-bold text-foreground">{stats.startups}</div>
+            <div className="text-xs text-foreground/60">Startups supported</div>
           </div>
           <div>
-            <div className="text-lg font-bold text-foreground">
-              {stats.mentors}
-            </div>
+            <div className="text-lg font-bold text-foreground">{stats.mentors}</div>
             <div className="text-xs text-foreground/60">Local mentors</div>
           </div>
         </div>
@@ -138,19 +118,15 @@ export function Hubs() {
           </h2>
 
           <p className="max-w-4xl text-lg leading-8 text-foreground/70">
-            Hanova is expanding city by city, creating connected startup
-            chapters where founders, students, mentors, investors, businesses,
-            and innovators come together to build impactful startups.
+            Hanova is expanding city by city, creating connected startup chapters where founders,
+            students, mentors, investors, businesses, and innovators come together to build
+            impactful startups.
           </p>
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {chapters.map((chapter, index) => (
-            <ChapterCard
-              key={chapter.slug}
-              {...chapter}
-              delay={index * 100}
-            />
+            <ChapterCard key={chapter.slug} {...chapter} delay={index * 100} />
           ))}
         </div>
 
@@ -169,13 +145,11 @@ export function Hubs() {
                 Want Hanova in Your City?
               </h3>
 
-              <p className="mt-4 text-xl font-semibold text-white">
-                Don&apos;t see your city yet?
-              </p>
+              <p className="mt-4 text-xl font-semibold text-white">Don&apos;t see your city yet?</p>
 
               <p className="mt-3 max-w-2xl leading-7 text-slate-300">
-                Become the founding leader of a Hanova Chapter and help build
-                your local startup ecosystem.
+                Become the founding leader of a Hanova Chapter and help build your local startup
+                ecosystem.
               </p>
 
               <a
@@ -236,9 +210,9 @@ export function Hubs() {
                 Ready to Join a Chapter?
               </h3>
               <p className="mb-6 mt-4 leading-7 text-foreground/80">
-                Connect with founders, mentors, and startup supporters in your
-                region. Access guidance, events, relationships, and a community
-                dedicated to helping founders move forward.
+                Connect with founders, mentors, and startup supporters in your region. Access
+                guidance, events, relationships, and a community dedicated to helping founders move
+                forward.
               </p>
               <a
                 href="/community/join"
@@ -255,16 +229,8 @@ export function Hubs() {
                 title="4 Regional Chapters"
                 text="Across Andhra Pradesh"
               />
-              <SummaryItem
-                icon={Users}
-                title="443+ Startups"
-                text="Growing every month"
-              />
-              <SummaryItem
-                icon={MapPin}
-                title="125+ Mentors"
-                text="Supporting regional founders"
-              />
+              <SummaryItem icon={Users} title="443+ Startups" text="Growing every month" />
+              <SummaryItem icon={MapPin} title="125+ Mentors" text="Supporting regional founders" />
             </div>
           </div>
         </div>

@@ -97,7 +97,8 @@ export function Hero() {
           </h1>
 
           <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Join a connected ecosystem of founders, mentors, investors, partners,and regional startup communities.
+            Join a connected ecosystem of founders, mentors, investors, partners,and regional
+            startup communities.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">

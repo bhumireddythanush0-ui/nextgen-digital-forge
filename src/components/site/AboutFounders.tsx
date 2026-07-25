@@ -1,39 +1,24 @@
-import {
-  ArrowUpRight,
-  BadgeCheck,
-  Quote,
-  Sparkles,
-} from "lucide-react";
+import { ArrowUpRight, BadgeCheck, Quote, Sparkles } from "lucide-react";
 
 const founders = [
   {
     name: "Harsha",
     role: "Co-founder & CEO",
     image: "/images/cofounder-1.jpeg",
-    imageClassName:
-      "object-[center_24%] scale-[1.02] group-hover:scale-[1.055]",
+    imageClassName: "object-[center_24%] scale-[1.02] group-hover:scale-[1.055]",
     description:
       "Harsha leads Hanova’s founder strategy, partnerships, and ecosystem development. He works closely with founders to turn early ideas into focused and actionable startup journeys.",
-    expertise: [
-      "Founder strategy",
-      "Business partnerships",
-      "Ecosystem development",
-    ],
+    expertise: ["Founder strategy", "Business partnerships", "Ecosystem development"],
   },
   {
-  name: "Yaswanth",
-  role: "Co-founder & CTO",
-  image: "/images/cofounder-2.jpeg",
-  imageClassName:
-    "object-[center_48%] scale-[1.08] group-hover:scale-[1.11]",
-  description:
-    "Yaswanth leads technology and product development at Hanova. He helps founders transform validated ideas into reliable, scalable, and launch-ready digital products.",
-  expertise: [
-    "Product development",
-    "Technology strategy",
-    "Scalable digital systems",
-  ],
-},
+    name: "Yaswanth",
+    role: "Co-founder & CTO",
+    image: "/images/cofounder-2.jpeg",
+    imageClassName: "object-[center_48%] scale-[1.08] group-hover:scale-[1.11]",
+    description:
+      "Yaswanth leads technology and product development at Hanova. He helps founders transform validated ideas into reliable, scalable, and launch-ready digital products.",
+    expertise: ["Product development", "Technology strategy", "Scalable digital systems"],
+  },
 ];
 
 export function AboutFounders() {
@@ -53,7 +38,6 @@ export function AboutFounders() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.15em] text-blue-700">
               <Sparkles className="h-4 w-4" />
-
               The people behind Hanova
             </div>
 
@@ -65,10 +49,9 @@ export function AboutFounders() {
             </h2>
 
             <p className="mt-6 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
-              Hanova was created from a simple belief: ambitious founders need
-              more than advice. They need trusted people who understand their
-              vision, help them make clearer decisions, and support them from
-              idea to growth.
+              Hanova was created from a simple belief: ambitious founders need more than advice.
+              They need trusted people who understand their vision, help them make clearer
+              decisions, and support them from idea to growth.
             </p>
           </div>
 
@@ -77,13 +60,11 @@ export function AboutFounders() {
             <Quote className="h-7 w-7 text-blue-600" />
 
             <p className="mt-4 text-xl font-bold leading-8 text-slate-900">
-              We want founders to leave every conversation with greater clarity
-              and a real next step.
+              We want founders to leave every conversation with greater clarity and a real next
+              step.
             </p>
 
-            <p className="mt-4 text-sm font-semibold text-slate-500">
-              The Hanova founding team
-            </p>
+            <p className="mt-4 text-sm font-semibold text-slate-500">The Hanova founding team</p>
           </div>
         </div>
 
@@ -96,11 +77,11 @@ export function AboutFounders() {
             >
               {/* Founder image */}
               <div className="relative h-[360px] overflow-hidden bg-slate-200 sm:h-[430px]">
-  <img
-    src={founder.image}
-    alt={`${founder.name}, ${founder.role} at Hanova`}
-    className={`h-full w-full object-cover transition-transform duration-700 ease-out ${founder.imageClassName}`}
-  />
+                <img
+                  src={founder.image}
+                  alt={`${founder.name}, ${founder.role} at Hanova`}
+                  className={`h-full w-full object-cover transition-transform duration-700 ease-out ${founder.imageClassName}`}
+                />
 
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#07111f]/85 via-transparent to-transparent" />
 
@@ -110,21 +91,15 @@ export function AboutFounders() {
                     Founder 0{index + 1}
                   </p>
 
-                  <h3 className="mt-2 text-3xl font-bold text-white sm:text-4xl">
-                    {founder.name}
-                  </h3>
+                  <h3 className="mt-2 text-3xl font-bold text-white sm:text-4xl">{founder.name}</h3>
 
-                  <p className="mt-1 text-sm font-semibold text-white/75">
-                    {founder.role}
-                  </p>
+                  <p className="mt-1 text-sm font-semibold text-white/75">{founder.role}</p>
                 </div>
               </div>
 
               {/* Founder details */}
               <div className="p-6 sm:p-8">
-                <p className="text-base leading-7 text-slate-600">
-                  {founder.description}
-                </p>
+                <p className="text-base leading-7 text-slate-600">{founder.description}</p>
 
                 <div className="mt-6 flex flex-wrap gap-2">
                   {founder.expertise.map((item) => (
@@ -144,7 +119,6 @@ export function AboutFounders() {
                   className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-slate-950 transition hover:text-blue-600"
                 >
                   Book Meeting
-
                   <ArrowUpRight className="h-4 w-4" />
                 </a>
               </div>
@@ -160,8 +134,7 @@ export function AboutFounders() {
             </p>
 
             <p className="mt-2 text-lg font-bold text-white">
-              Your startup will be understood by people—not processed by a
-              platform.
+              Your startup will be understood by people—not processed by a platform.
             </p>
           </div>
 
@@ -170,7 +143,6 @@ export function AboutFounders() {
             className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-slate-950 transition hover:bg-blue-50"
           >
             Introduce your startup
-
             <ArrowUpRight className="h-4 w-4" />
           </a>
         </div>

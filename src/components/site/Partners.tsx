@@ -15,62 +15,52 @@ import {
 const partnerCategories = [
   {
     title: "Technology Partners",
-    description:
-      "Technology, software, product development, cloud, and infrastructure support.",
+    description: "Technology, software, product development, cloud, and infrastructure support.",
     icon: Cpu,
   },
   {
     title: "Marketing Partners",
-    description:
-      "Branding, digital marketing, growth strategy, content, and customer acquisition.",
+    description: "Branding, digital marketing, growth strategy, content, and customer acquisition.",
     icon: Megaphone,
   },
   {
     title: "Legal Partners",
-    description:
-      "Legal guidance, company registration, agreements, contracts, and compliance.",
+    description: "Legal guidance, company registration, agreements, contracts, and compliance.",
     icon: Scale,
   },
   {
     title: "CA Partners",
-    description:
-      "Accounting, taxation, auditing, financial reporting, and business compliance.",
+    description: "Accounting, taxation, auditing, financial reporting, and business compliance.",
     icon: Calculator,
   },
   {
     title: "IP Partners",
-    description:
-      "Trademark, patent, copyright, and intellectual property protection.",
+    description: "Trademark, patent, copyright, and intellectual property protection.",
     icon: Lightbulb,
   },
   {
     title: "Funding Partners",
-    description:
-      "Angel investment, venture capital, grants, and startup funding support.",
+    description: "Angel investment, venture capital, grants, and startup funding support.",
     icon: HandCoins,
   },
   {
     title: "Incubation Partners",
-    description:
-      "Startup incubation, mentorship, founder development, and acceleration.",
+    description: "Startup incubation, mentorship, founder development, and acceleration.",
     icon: BriefcaseBusiness,
   },
   {
     title: "Hiring Partners",
-    description:
-      "Recruitment, talent acquisition, internships, and workforce development.",
+    description: "Recruitment, talent acquisition, internships, and workforce development.",
     icon: UsersRound,
   },
   {
     title: "Government Partners",
-    description:
-      "Government programs, startup schemes, policy support, and regional development.",
+    description: "Government programs, startup schemes, policy support, and regional development.",
     icon: Landmark,
   },
   {
     title: "Media Partners",
-    description:
-      "Startup stories, public relations, event coverage, and media visibility.",
+    description: "Startup stories, public relations, event coverage, and media visibility.",
     icon: Newspaper,
   },
 ];
@@ -136,8 +126,8 @@ export function Partners() {
             </h2>
 
             <p className="mt-5 max-w-xl text-base leading-7 text-slate-600 sm:text-lg">
-              Hanova works with organizations and professionals who believe in
-              founders, regional innovation, and stronger startup communities.
+              Hanova works with organizations and professionals who believe in founders, regional
+              innovation, and stronger startup communities.
             </p>
 
             <a
@@ -163,13 +153,9 @@ export function Partners() {
                   </div>
 
                   <div>
-                    <h3 className="font-bold text-slate-950">
-                      {partner.title}
-                    </h3>
+                    <h3 className="font-bold text-slate-950">{partner.title}</h3>
 
-                    <p className="mt-2 text-sm leading-6 text-slate-600">
-                      {partner.description}
-                    </p>
+                    <p className="mt-2 text-sm leading-6 text-slate-600">{partner.description}</p>
                   </div>
                 </article>
               );
@@ -232,10 +218,7 @@ type LogoGroupProps = {
 
 function LogoGroup({ hidden = false }: LogoGroupProps) {
   return (
-    <div
-      className="flex shrink-0 gap-3 pr-3 sm:gap-4 sm:pr-4"
-      aria-hidden={hidden}
-    >
+    <div className="flex shrink-0 gap-3 pr-3 sm:gap-4 sm:pr-4" aria-hidden={hidden}>
       {partnerLogos.map((partner, index) => (
         <div
           key={`${hidden ? "duplicate" : "original"}-${partner.name}-${index}`}

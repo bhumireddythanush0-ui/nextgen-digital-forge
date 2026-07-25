@@ -66,9 +66,8 @@ export function SuccessStories() {
           </h2>
 
           <p className="mt-5 text-base leading-7 text-slate-300 sm:text-lg">
-            Discover how founders can transform early ideas into validated
-            products, growing startups, and meaningful businesses with support
-            from the Hanova ecosystem.
+            Discover how founders can transform early ideas into validated products, growing
+            startups, and meaningful businesses with support from the Hanova ecosystem.
           </p>
         </div>
 
@@ -85,21 +84,15 @@ export function SuccessStories() {
                       Example founder journey
                     </div>
 
-                    <h3 className="mt-5 text-2xl font-bold sm:text-3xl">
-                      {story.startup}
-                    </h3>
+                    <h3 className="mt-5 text-2xl font-bold sm:text-3xl">{story.startup}</h3>
 
-                    <p className="mt-2 font-semibold text-blue-300">
-                      {story.founder}
-                    </p>
+                    <p className="mt-2 font-semibold text-blue-300">{story.founder}</p>
 
                     <p className="mt-2 text-sm text-slate-400">
                       {story.city} · {story.industry}
                     </p>
 
-                    <p className="mt-5 leading-7 text-slate-300">
-                      {story.description}
-                    </p>
+                    <p className="mt-5 leading-7 text-slate-300">{story.description}</p>
                   </div>
 
                   <div className="mt-8 flex flex-wrap gap-3">
@@ -136,9 +129,7 @@ export function SuccessStories() {
                               Milestone {String(index + 1).padStart(2, "0")}
                             </p>
 
-                            <h4 className="mt-1 font-bold text-white">
-                              {milestone.title}
-                            </h4>
+                            <h4 className="mt-1 font-bold text-white">{milestone.title}</h4>
 
                             <p className="mt-1 text-sm leading-6 text-slate-400">
                               {milestone.description}
@@ -161,8 +152,8 @@ export function SuccessStories() {
         </div>
 
         <p className="mt-5 text-center text-xs leading-5 text-slate-500">
-          The founder name, funding, and revenue shown above are example content.
-          Replace them only with verified founder information.
+          The founder name, funding, and revenue shown above are example content. Replace them only
+          with verified founder information.
         </p>
       </div>
     </section>

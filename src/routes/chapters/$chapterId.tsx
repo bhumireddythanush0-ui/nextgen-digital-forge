@@ -1,12 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import {
-  ArrowLeft,
-  ArrowRight,
-  CalendarDays,
-  Clock3,
-  MapPin,
-  UsersRound,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight, CalendarDays, Clock3, MapPin, UsersRound } from "lucide-react";
 
 import { Footer } from "@/components/site/Footer";
 import { Navbar } from "@/components/site/Navbar";
@@ -37,15 +30,13 @@ const meetingSections: Array<{
     status: "upcoming",
     eyebrow: "Plan your next connection",
     title: "Upcoming meetings",
-    description:
-      "Reserve your place and meet founders, mentors, and ecosystem supporters.",
+    description: "Reserve your place and meet founders, mentors, and ecosystem supporters.",
   },
   {
     status: "past",
     eyebrow: "Chapter history",
     title: "Previous meetings",
-    description:
-      "See how the local founder community has been learning and connecting.",
+    description: "See how the local founder community has been learning and connecting.",
   },
 ];
 
@@ -58,9 +49,7 @@ function ChapterDetailPage() {
       <div className="min-h-screen bg-[#fbfbfd]">
         <Navbar />
         <main className="px-4 pb-24 pt-36 text-center">
-          <h1 className="text-4xl font-black text-slate-950">
-            Chapter not found
-          </h1>
+          <h1 className="text-4xl font-black text-slate-950">Chapter not found</h1>
           <p className="mt-4 text-slate-600">
             This chapter may have moved or is not available yet.
           </p>
@@ -117,9 +106,7 @@ function ChapterDetailPage() {
                   <h1 className="mt-7 text-4xl font-black tracking-[-0.045em] sm:text-6xl">
                     Hanova {chapter.city} Chapter
                   </h1>
-                  <p className="mt-3 text-xl font-bold text-cyan-200">
-                    {chapter.tagline}
-                  </p>
+                  <p className="mt-3 text-xl font-bold text-cyan-200">{chapter.tagline}</p>
                   <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
                     {chapter.description}
                   </p>
@@ -140,21 +127,15 @@ function ChapterDetailPage() {
                   Chapter activity
                 </p>
                 <p className="mt-3 text-2xl font-black">
-                  {
-                    meetings.filter(
-                      (meeting) => meeting.status === "upcoming",
-                    ).length
-                  }{" "}
-                  upcoming meeting
-                  {meetings.filter(
-                    (meeting) => meeting.status === "upcoming",
-                  ).length === 1
+                  {meetings.filter((meeting) => meeting.status === "upcoming").length} upcoming
+                  meeting
+                  {meetings.filter((meeting) => meeting.status === "upcoming").length === 1
                     ? ""
                     : "s"}
                 </p>
                 <p className="mt-4 leading-7 text-slate-300">
-                  Chapter programming grows around the needs of local founders
-                  and the strength of regional partners.
+                  Chapter programming grows around the needs of local founders and the strength of
+                  regional partners.
                 </p>
               </div>
             </div>
@@ -173,12 +154,8 @@ function ChapterDetailPage() {
                   </p>
                   <div className="mt-2 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
                     <div>
-                      <h2 className="text-3xl font-black tracking-[-0.035em]">
-                        {section.title}
-                      </h2>
-                      <p className="mt-2 text-slate-600">
-                        {section.description}
-                      </p>
+                      <h2 className="text-3xl font-black tracking-[-0.035em]">{section.title}</h2>
+                      <p className="mt-2 text-slate-600">{section.description}</p>
                     </div>
                     <span className="text-sm font-bold text-slate-500">
                       {sectionMeetings.length}{" "}
@@ -189,10 +166,7 @@ function ChapterDetailPage() {
                   {sectionMeetings.length > 0 ? (
                     <div className="mt-7 grid gap-5 lg:grid-cols-2">
                       {sectionMeetings.map((meeting) => (
-                        <MeetingCard
-                          key={meeting.id}
-                          meeting={meeting}
-                        />
+                        <MeetingCard key={meeting.id} meeting={meeting} />
                       ))}
                     </div>
                   ) : (
@@ -238,9 +212,7 @@ function MeetingCard({ meeting }: { meeting: ChapterMeeting }) {
         </div>
 
         <h3 className="mt-5 text-2xl font-black">{meeting.title}</h3>
-        <p className="mt-3 leading-7 text-slate-600">
-          {meeting.description}
-        </p>
+        <p className="mt-3 leading-7 text-slate-600">{meeting.description}</p>
 
         <div className="mt-6 space-y-3 text-sm font-bold text-slate-700">
           <p className="flex items-center gap-2">

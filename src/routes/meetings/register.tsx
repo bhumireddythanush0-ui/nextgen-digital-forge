@@ -1,11 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import {
-  CalendarCheck2,
-  CheckCircle2,
-  Clock3,
-  MapPin,
-} from "lucide-react";
+import { CalendarCheck2, CheckCircle2, Clock3, MapPin } from "lucide-react";
 
 import { Footer } from "@/components/site/Footer";
 import { Navbar } from "@/components/site/Navbar";
@@ -13,8 +8,7 @@ import { getChapter, getMeeting } from "@/data/chapterData";
 
 export const Route = createFileRoute("/meetings/register")({
   validateSearch: (search: Record<string, unknown>) => ({
-    meeting:
-      typeof search.meeting === "string" ? search.meeting : "",
+    meeting: typeof search.meeting === "string" ? search.meeting : "",
   }),
   component: MeetingRegistrationPage,
 });
@@ -22,9 +16,7 @@ export const Route = createFileRoute("/meetings/register")({
 function MeetingRegistrationPage() {
   const { meeting: meetingId } = Route.useSearch();
   const selectedMeeting = getMeeting(meetingId);
-  const chapter = selectedMeeting
-    ? getChapter(selectedMeeting.chapterSlug)
-    : undefined;
+  const chapter = selectedMeeting ? getChapter(selectedMeeting.chapterSlug) : undefined;
   const [submitted, setSubmitted] = useState(false);
 
   if (!selectedMeeting || selectedMeeting.status !== "upcoming") {
@@ -33,12 +25,9 @@ function MeetingRegistrationPage() {
         <Navbar />
         <main className="px-4 pb-24 pt-36 text-center">
           <CalendarCheck2 className="mx-auto h-12 w-12 text-blue-600" />
-          <h1 className="mt-5 text-4xl font-black">
-            Meeting registration unavailable
-          </h1>
+          <h1 className="mt-5 text-4xl font-black">Meeting registration unavailable</h1>
           <p className="mx-auto mt-4 max-w-xl leading-7 text-slate-600">
-            Select an upcoming meeting from a Hanova Chapter before opening
-            the registration form.
+            Select an upcoming meeting from a Hanova Chapter before opening the registration form.
           </p>
           <a
             href="/chapters/"
@@ -75,9 +64,7 @@ function MeetingRegistrationPage() {
                 <h1 className="mt-4 text-3xl font-black leading-tight sm:text-4xl">
                   {selectedMeeting.title}
                 </h1>
-                <p className="mt-4 leading-7 text-slate-300">
-                  Hanova {chapter?.city} Chapter
-                </p>
+                <p className="mt-4 leading-7 text-slate-300">Hanova {chapter?.city} Chapter</p>
 
                 <div className="mt-7 space-y-4 text-sm font-semibold text-slate-300">
                   <p className="flex gap-3">
@@ -102,12 +89,10 @@ function MeetingRegistrationPage() {
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
                     <CheckCircle2 className="h-8 w-8" />
                   </div>
-                  <h2 className="mt-6 text-3xl font-black">
-                    Registration received
-                  </h2>
+                  <h2 className="mt-6 text-3xl font-black">Registration received</h2>
                   <p className="mt-4 max-w-md leading-7 text-slate-600">
-                    Thank you. The Hanova team will contact you with meeting
-                    confirmation and final venue information.
+                    Thank you. The Hanova team will contact you with meeting confirmation and final
+                    venue information.
                   </p>
                   <a
                     href={`/chapters/${selectedMeeting.chapterSlug}`}
@@ -121,18 +106,12 @@ function MeetingRegistrationPage() {
                   <p className="text-xs font-black uppercase tracking-[0.16em] text-blue-600">
                     Your information
                   </p>
-                  <h2 className="mt-3 text-3xl font-black">
-                    Reserve your place
-                  </h2>
+                  <h2 className="mt-3 text-3xl font-black">Reserve your place</h2>
                   <p className="mt-3 leading-7 text-slate-600">
-                    Tell us who you are and what you want to gain from this
-                    meeting.
+                    Tell us who you are and what you want to gain from this meeting.
                   </p>
 
-                  <form
-                    onSubmit={handleSubmit}
-                    className="mt-8 grid gap-5"
-                  >
+                  <form onSubmit={handleSubmit} className="mt-8 grid gap-5">
                     <Field
                       id="meeting-name"
                       name="name"
@@ -167,10 +146,7 @@ function MeetingRegistrationPage() {
                     />
 
                     <div>
-                      <label
-                        htmlFor="meeting-role"
-                        className="text-sm font-bold text-slate-900"
-                      >
+                      <label htmlFor="meeting-role" className="text-sm font-bold text-slate-900">
                         You are joining as
                       </label>
                       <select
@@ -183,26 +159,17 @@ function MeetingRegistrationPage() {
                         <option value="" disabled>
                           Select your role
                         </option>
-                        <option value="aspiring-founder">
-                          Aspiring founder
-                        </option>
-                        <option value="startup-founder">
-                          Startup founder
-                        </option>
+                        <option value="aspiring-founder">Aspiring founder</option>
+                        <option value="startup-founder">Startup founder</option>
                         <option value="student">Student</option>
                         <option value="mentor">Mentor or professional</option>
                         <option value="investor">Investor</option>
-                        <option value="partner">
-                          Business or ecosystem partner
-                        </option>
+                        <option value="partner">Business or ecosystem partner</option>
                       </select>
                     </div>
 
                     <div>
-                      <label
-                        htmlFor="meeting-purpose"
-                        className="text-sm font-bold text-slate-900"
-                      >
+                      <label htmlFor="meeting-purpose" className="text-sm font-bold text-slate-900">
                         Purpose of attending
                       </label>
                       <textarea
@@ -216,14 +183,10 @@ function MeetingRegistrationPage() {
                     </div>
 
                     <label className="flex items-start gap-3 rounded-2xl bg-slate-50 p-4">
-                      <input
-                        type="checkbox"
-                        required
-                        className="mt-1 h-4 w-4 accent-blue-600"
-                      />
+                      <input type="checkbox" required className="mt-1 h-4 w-4 accent-blue-600" />
                       <span className="text-xs leading-5 text-slate-600">
-                        I agree that Hanova may contact me about this meeting
-                        and relevant Chapter updates.
+                        I agree that Hanova may contact me about this meeting and relevant Chapter
+                        updates.
                       </span>
                     </label>
 

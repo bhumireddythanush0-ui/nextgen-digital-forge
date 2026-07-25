@@ -1,12 +1,6 @@
 import { useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import {
-  ArrowRight,
-  Building2,
-  MapPin,
-  Search,
-  UsersRound,
-} from "lucide-react";
+import { ArrowRight, Building2, MapPin, Search, UsersRound } from "lucide-react";
 
 import { Footer } from "@/components/site/Footer";
 import { Navbar } from "@/components/site/Navbar";
@@ -24,13 +18,7 @@ function ChaptersPage() {
     if (!value) return chapters;
 
     return chapters.filter((chapter) =>
-      [
-        chapter.city,
-        chapter.district,
-        chapter.status,
-        chapter.tagline,
-        ...chapter.themes,
-      ]
+      [chapter.city, chapter.district, chapter.status, chapter.tagline, ...chapter.themes]
         .join(" ")
         .toLowerCase()
         .includes(value),
@@ -54,8 +42,8 @@ function ChaptersPage() {
                 Find a Hanova Chapter closer to home.
               </h1>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
-                Search by city, district, or startup focus. Open any chapter
-                to see previous, current, and upcoming meetings.
+                Search by city, district, or startup focus. Open any chapter to see previous,
+                current, and upcoming meetings.
               </p>
             </div>
           </div>
@@ -82,8 +70,8 @@ function ChaptersPage() {
               Explore locations
             </p>
             <h2 className="mt-2 text-3xl font-black tracking-[-0.035em]">
-              {filteredChapters.length}{" "}
-              {filteredChapters.length === 1 ? "chapter" : "chapters"} found
+              {filteredChapters.length} {filteredChapters.length === 1 ? "chapter" : "chapters"}{" "}
+              found
             </h2>
           </div>
 
@@ -113,15 +101,9 @@ function ChaptersPage() {
                   <p className="mt-7 text-xs font-black uppercase tracking-[0.15em] text-blue-600">
                     {chapter.district} district
                   </p>
-                  <h3 className="mt-2 text-2xl font-black">
-                    Hanova {chapter.city}
-                  </h3>
-                  <p className="mt-2 font-semibold text-blue-600">
-                    {chapter.tagline}
-                  </p>
-                  <p className="mt-3 flex-1 leading-7 text-slate-600">
-                    {chapter.description}
-                  </p>
+                  <h3 className="mt-2 text-2xl font-black">Hanova {chapter.city}</h3>
+                  <p className="mt-2 font-semibold text-blue-600">{chapter.tagline}</p>
+                  <p className="mt-3 flex-1 leading-7 text-slate-600">{chapter.description}</p>
 
                   <a
                     href={`/chapters/${chapter.slug}`}
@@ -136,12 +118,10 @@ function ChaptersPage() {
           ) : (
             <div className="mt-8 rounded-[28px] border border-dashed border-slate-300 bg-white p-10 text-center">
               <UsersRound className="mx-auto h-10 w-10 text-blue-600" />
-              <h2 className="mt-4 text-2xl font-black">
-                No matching chapter yet
-              </h2>
+              <h2 className="mt-4 text-2xl font-black">No matching chapter yet</h2>
               <p className="mx-auto mt-3 max-w-xl leading-7 text-slate-600">
-                Join the community and tell us your city. This helps Hanova
-                understand where a new chapter is needed.
+                Join the community and tell us your city. This helps Hanova understand where a new
+                chapter is needed.
               </p>
               <a
                 href="/community/join"

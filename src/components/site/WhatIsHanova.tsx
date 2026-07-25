@@ -1,10 +1,4 @@
-import {
-  Compass,
-  Handshake,
-  Network,
-  Rocket,
-  Users,
-} from "lucide-react";
+import { Compass, Handshake, Network, Rocket, Users } from "lucide-react";
 
 const ecosystemFeatures = [
   {
@@ -56,15 +50,13 @@ export function WhatIsHanova() {
             </h2>
 
             <p className="mt-6 text-base leading-8 text-slate-600 sm:text-lg">
-              Hanova helps people transform ideas into growing startups by
-              connecting them with community, guidance, mentors, technology,
-              partners, events, and regional startup hubs.
+              Hanova helps people transform ideas into growing startups by connecting them with
+              community, guidance, mentors, technology, partners, events, and regional startup hubs.
             </p>
 
             <p className="mt-4 text-base leading-8 text-slate-600">
-              Whether you are exploring an idea, building your first product,
-              or preparing to grow, Hanova helps you find the right people and
-              support for your next step.
+              Whether you are exploring an idea, building your first product, or preparing to grow,
+              Hanova helps you find the right people and support for your next step.
             </p>
 
             <a
@@ -91,13 +83,9 @@ export function WhatIsHanova() {
                     <Icon className="h-5 w-5" />
                   </div>
 
-                  <h3 className="mt-5 text-lg font-bold text-slate-950">
-                    {feature.title}
-                  </h3>
+                  <h3 className="mt-5 text-lg font-bold text-slate-950">{feature.title}</h3>
 
-                  <p className="mt-3 text-sm leading-6 text-slate-600">
-                    {feature.description}
-                  </p>
+                  <p className="mt-3 text-sm leading-6 text-slate-600">{feature.description}</p>
                 </article>
               );
             })}

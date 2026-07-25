@@ -1,11 +1,4 @@
-import {
-  Banknote,
-  Check,
-  CircleDollarSign,
-  Lightbulb,
-  Rocket,
-  SearchCheck,
-} from "lucide-react";
+import { Banknote, Check, CircleDollarSign, Lightbulb, Rocket, SearchCheck } from "lucide-react";
 
 const stages = [
   {
@@ -53,15 +46,10 @@ export function StartupProgressTracker({
   currentStage = "validation",
   lastUpdated = "Recently updated",
 }: StartupProgressTrackerProps) {
-  const currentStageIndex = stages.findIndex(
-    (stage) => stage.id === currentStage,
-  );
+  const currentStageIndex = stages.findIndex((stage) => stage.id === currentStage);
 
   return (
-    <section
-      id="startup-progress"
-      className="scroll-mt-28 bg-slate-50 py-16 sm:py-20 lg:py-24"
-    >
+    <section id="startup-progress" className="scroll-mt-28 bg-slate-50 py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="rounded-[32px] border border-slate-200 bg-white p-6 shadow-sm sm:p-8 lg:p-10">
           <div className="flex flex-col justify-between gap-6 border-b border-slate-200 pb-8 md:flex-row md:items-end">
@@ -75,8 +63,8 @@ export function StartupProgressTracker({
               </h2>
 
               <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
-                Follow each stage of your startup journey as the Hanova team
-                reviews your progress and updates your current milestone.
+                Follow each stage of your startup journey as the Hanova team reviews your progress
+                and updates your current milestone.
               </p>
             </div>
 
@@ -87,9 +75,7 @@ export function StartupProgressTracker({
 
               <p className="mt-1 text-lg font-bold">{startupName}</p>
 
-              <p className="mt-1 text-sm text-slate-400">
-                Founder: {founderName}
-              </p>
+              <p className="mt-1 text-sm text-slate-400">Founder: {founderName}</p>
             </div>
           </div>
 
@@ -120,11 +106,7 @@ export function StartupProgressTracker({
                             : "bg-slate-200 text-slate-500"
                       }`}
                     >
-                      {isCompleted ? (
-                        <Check className="h-5 w-5" />
-                      ) : (
-                        <Icon className="h-5 w-5" />
-                      )}
+                      {isCompleted ? <Check className="h-5 w-5" /> : <Icon className="h-5 w-5" />}
                     </div>
 
                     <p
@@ -139,13 +121,9 @@ export function StartupProgressTracker({
                       Stage {String(index + 1).padStart(2, "0")}
                     </p>
 
-                    <h3 className="mt-2 text-xl font-bold text-slate-950">
-                      {stage.title}
-                    </h3>
+                    <h3 className="mt-2 text-xl font-bold text-slate-950">{stage.title}</h3>
 
-                    <p className="mt-3 text-sm leading-6 text-slate-600">
-                      {stage.description}
-                    </p>
+                    <p className="mt-3 text-sm leading-6 text-slate-600">{stage.description}</p>
 
                     <div className="mt-5">
                       {isCompleted && (
@@ -178,9 +156,7 @@ export function StartupProgressTracker({
 
           <div className="mt-8 flex flex-col justify-between gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:flex-row sm:items-center">
             <div>
-              <p className="text-sm font-bold text-slate-950">
-                Last progress update
-              </p>
+              <p className="text-sm font-bold text-slate-950">Last progress update</p>
 
               <p className="mt-1 text-sm text-slate-500">{lastUpdated}</p>
             </div>

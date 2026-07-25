@@ -1,12 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import {
-  CalendarDays,
-  CheckCircle2,
-  Clock3,
-  MessageSquareText,
-  UsersRound,
-} from "lucide-react";
+import { CalendarDays, CheckCircle2, Clock3, MessageSquareText, UsersRound } from "lucide-react";
 
 import { Footer } from "@/components/site/Footer";
 import { Navbar } from "@/components/site/Navbar";
@@ -37,13 +31,10 @@ function FounderMeetingPage() {
             <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
               <CheckCircle2 className="h-8 w-8" />
             </div>
-            <h1 className="mt-6 text-3xl font-bold text-slate-950">
-              Meeting request received
-            </h1>
+            <h1 className="mt-6 text-3xl font-bold text-slate-950">Meeting request received</h1>
             <p className="mt-4 leading-7 text-slate-600">
-              Thank you for telling us why you would like to connect. The
-              Hanova team will review your request and contact you about the
-              most useful next conversation.
+              Thank you for telling us why you would like to connect. The Hanova team will review
+              your request and contact you about the most useful next conversation.
             </p>
             <a
               href="/"
@@ -78,13 +69,25 @@ function FounderMeetingPage() {
                   Book a focused meeting with Hanova
                 </h1>
                 <p className="mt-5 text-base leading-7 text-slate-300">
-                  Tell the founders what you are building, what is blocking
-                  you, and what outcome would make the conversation valuable.
+                  Tell the founders what you are building, what is blocking you, and what outcome
+                  would make the conversation valuable.
                 </p>
                 <div className="mt-9 space-y-5">
-                  <Info icon={MessageSquareText} title="Purpose first" text="We review your context before scheduling." />
-                  <Info icon={CalendarDays} title="Right conversation" text="We connect you with the most relevant founder." />
-                  <Info icon={Clock3} title="Focused time" text="Meetings are planned around a clear outcome." />
+                  <Info
+                    icon={MessageSquareText}
+                    title="Purpose first"
+                    text="We review your context before scheduling."
+                  />
+                  <Info
+                    icon={CalendarDays}
+                    title="Right conversation"
+                    text="We connect you with the most relevant founder."
+                  />
+                  <Info
+                    icon={Clock3}
+                    title="Focused time"
+                    text="Meetings are planned around a clear outcome."
+                  />
                 </div>
               </div>
             </aside>
@@ -97,21 +100,52 @@ function FounderMeetingPage() {
                 Help us understand why you want to connect
               </h2>
               <p className="mt-3 text-sm leading-6 text-slate-600">
-                Complete the form honestly. It helps Hanova prepare a useful
-                conversation instead of a general introduction call.
+                Complete the form honestly. It helps Hanova prepare a useful conversation instead of
+                a general introduction call.
               </p>
 
               <form onSubmit={handleSubmit} className="mt-8 grid gap-5">
                 <div className="grid gap-5 sm:grid-cols-2">
-                  <Field id="meeting-name" name="name" label="Full name" type="text" placeholder="Enter your full name" />
-                  <Field id="meeting-phone" name="phone" label="Phone number" type="tel" placeholder="+91 98765 43210" />
+                  <Field
+                    id="meeting-name"
+                    name="name"
+                    label="Full name"
+                    type="text"
+                    placeholder="Enter your full name"
+                  />
+                  <Field
+                    id="meeting-phone"
+                    name="phone"
+                    label="Phone number"
+                    type="tel"
+                    placeholder="+91 98765 43210"
+                  />
                 </div>
 
-                <Field id="meeting-email" name="email" label="Email address" type="email" placeholder="you@example.com" />
+                <Field
+                  id="meeting-email"
+                  name="email"
+                  label="Email address"
+                  type="email"
+                  placeholder="you@example.com"
+                />
 
                 <div className="grid gap-5 sm:grid-cols-2">
-                  <Field id="meeting-city" name="city" label="City" type="text" placeholder="Enter your city" />
-                  <Field id="meeting-startup" name="startup_name" label="Startup or organization" type="text" placeholder="Optional" required={false} />
+                  <Field
+                    id="meeting-city"
+                    name="city"
+                    label="City"
+                    type="text"
+                    placeholder="Enter your city"
+                  />
+                  <Field
+                    id="meeting-startup"
+                    name="startup_name"
+                    label="Startup or organization"
+                    type="text"
+                    placeholder="Optional"
+                    required={false}
+                  />
                 </div>
 
                 <SelectField
@@ -169,7 +203,14 @@ function FounderMeetingPage() {
                 />
 
                 <div className="grid gap-5 sm:grid-cols-2">
-                  <Field id="meeting-date" name="preferred_date" label="Preferred date" type="date" placeholder="" required={false} />
+                  <Field
+                    id="meeting-date"
+                    name="preferred_date"
+                    label="Preferred date"
+                    type="date"
+                    placeholder=""
+                    required={false}
+                  />
                   <SelectField
                     id="meeting-time"
                     name="preferred_time"
@@ -186,8 +227,8 @@ function FounderMeetingPage() {
                 <label className="flex items-start gap-3 rounded-2xl bg-slate-50 p-4">
                   <input type="checkbox" required className="mt-1 h-4 w-4 accent-blue-600" />
                   <span className="text-xs leading-5 text-slate-600">
-                    I agree that Hanova may contact me about this meeting
-                    request and relevant founder-support opportunities.
+                    I agree that Hanova may contact me about this meeting request and relevant
+                    founder-support opportunities.
                   </span>
                 </label>
 
@@ -236,14 +277,7 @@ type FieldProps = {
   required?: boolean;
 };
 
-function Field({
-  id,
-  name,
-  label,
-  type,
-  placeholder,
-  required = true,
-}: FieldProps) {
+function Field({ id, name, label, type, placeholder, required = true }: FieldProps) {
   return (
     <div>
       <label htmlFor={id} className="text-sm font-semibold text-slate-900">
@@ -292,7 +326,9 @@ function SelectField({
       >
         <option value="">{required ? "Select an option" : "No preference"}</option>
         {options.map(([value, text]) => (
-          <option key={value} value={value}>{text}</option>
+          <option key={value} value={value}>
+            {text}
+          </option>
         ))}
       </select>
     </div>
@@ -312,7 +348,9 @@ function TextArea({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="text-sm font-semibold text-slate-900">{label}</label>
+      <label htmlFor={id} className="text-sm font-semibold text-slate-900">
+        {label}
+      </label>
       <textarea
         id={id}
         name={name}

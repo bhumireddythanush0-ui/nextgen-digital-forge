@@ -1,10 +1,4 @@
-import {
-  ArrowRight,
-  Building2,
-  MapPin,
-  Rocket,
-  UserRound,
-} from "lucide-react";
+import { ArrowRight, Building2, MapPin, Rocket, UserRound } from "lucide-react";
 
 const startupStages = [
   "All Startups",
@@ -19,8 +13,7 @@ const startups = [
   {
     name: "Startup One",
     founder: "Founder Name",
-    description:
-      "A short description explaining the problem this startup is solving.",
+    description: "A short description explaining the problem this startup is solving.",
     city: "Proddatur",
     industry: "SaaS",
     stage: "MVP",
@@ -29,8 +22,7 @@ const startups = [
   {
     name: "Startup Two",
     founder: "Founder Name",
-    description:
-      "A technology startup building practical solutions for regional businesses.",
+    description: "A technology startup building practical solutions for regional businesses.",
     city: "Kadapa",
     industry: "Technology",
     stage: "Idea Stage",
@@ -39,8 +31,7 @@ const startups = [
   {
     name: "Startup Three",
     founder: "Founder Name",
-    description:
-      "An early-stage company creating products for growing local communities.",
+    description: "An early-stage company creating products for growing local communities.",
     city: "Anantapur",
     industry: "Consumer",
     stage: "Early Revenue",
@@ -49,8 +40,7 @@ const startups = [
   {
     name: "Startup Four",
     founder: "Founder Name",
-    description:
-      "A founder-led business using innovation to solve an important market need.",
+    description: "A founder-led business using innovation to solve an important market need.",
     city: "Kurnool",
     industry: "Agritech",
     stage: "Growth Stage",
@@ -59,8 +49,7 @@ const startups = [
   {
     name: "Startup Five",
     founder: "Founder Name",
-    description:
-      "A digital platform helping customers access services more efficiently.",
+    description: "A digital platform helping customers access services more efficiently.",
     city: "Tirupati",
     industry: "Marketplace",
     stage: "MVP",
@@ -69,8 +58,7 @@ const startups = [
   {
     name: "Startup Six",
     founder: "Founder Name",
-    description:
-      "A new venture creating scalable products for businesses and communities.",
+    description: "A new venture creating scalable products for businesses and communities.",
     city: "Vijayawada",
     industry: "B2B",
     stage: "Funded",
@@ -80,10 +68,7 @@ const startups = [
 
 export function FounderWall() {
   return (
-    <section
-      id="founder-wall"
-      className="scroll-mt-28 bg-white py-16 sm:py-20 lg:py-24"
-    >
+    <section id="founder-wall" className="scroll-mt-28 bg-white py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
@@ -100,8 +85,8 @@ export function FounderWall() {
             </h2>
 
             <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
-              Explore founders and startups across different cities,
-              industries, and stages of growth within the Hanova ecosystem.
+              Explore founders and startups across different cities, industries, and stages of
+              growth within the Hanova ecosystem.
             </p>
           </div>
 
@@ -155,9 +140,7 @@ export function FounderWall() {
               </div>
 
               <div className="mt-6">
-                <h3 className="text-xl font-bold text-slate-950">
-                  {startup.name}
-                </h3>
+                <h3 className="text-xl font-bold text-slate-950">{startup.name}</h3>
 
                 <p className="mt-3 min-h-[72px] text-sm leading-6 text-slate-600">
                   {startup.description}
@@ -169,9 +152,7 @@ export function FounderWall() {
                   <UserRound className="h-4 w-4 text-blue-600" />
                   <span>
                     Founder:{" "}
-                    <strong className="font-semibold text-slate-900">
-                      {startup.founder}
-                    </strong>
+                    <strong className="font-semibold text-slate-900">{startup.founder}</strong>
                   </span>
                 </div>
 
@@ -215,8 +196,8 @@ export function FounderWall() {
         </div>
 
         <p className="mt-6 text-center text-xs leading-5 text-slate-400">
-          Startup names and founder details shown here are placeholders. Replace
-          them with approved startup information before publishing.
+          Startup names and founder details shown here are placeholders. Replace them with approved
+          startup information before publishing.
         </p>
       </div>
     </section>

@@ -29,13 +29,11 @@ function CommunityJoinPage() {
               <CheckCircle2 className="h-8 w-8" />
             </div>
 
-            <h1 className="mt-6 text-3xl font-bold text-slate-950">
-              Registration completed
-            </h1>
+            <h1 className="mt-6 text-3xl font-bold text-slate-950">Registration completed</h1>
 
             <p className="mt-4 leading-7 text-slate-600">
-              Thank you for joining the Hanova community. We will contact you
-              with community and meetup information.
+              Thank you for joining the Hanova community. We will contact you with community and
+              meetup information.
             </p>
 
             <a
@@ -77,8 +75,8 @@ function CommunityJoinPage() {
                 </h1>
 
                 <p className="mt-5 text-base leading-7 text-blue-100">
-                  Connect with founders, mentors, professionals, students, and
-                  startup enthusiasts across the region.
+                  Connect with founders, mentors, professionals, students, and startup enthusiasts
+                  across the region.
                 </p>
 
                 <div className="mt-8 space-y-4 text-sm text-blue-50">
@@ -168,10 +166,7 @@ function CommunityJoinPage() {
                 />
 
                 <div>
-                  <label
-                    htmlFor="community-stage"
-                    className="text-sm font-semibold text-slate-900"
-                  >
+                  <label htmlFor="community-stage" className="text-sm font-semibold text-slate-900">
                     Startup stage
                   </label>
 
@@ -204,15 +199,11 @@ function CommunityJoinPage() {
                 />
 
                 <label className="flex items-start gap-3 rounded-2xl bg-slate-50 p-4">
-                  <input
-                    type="checkbox"
-                    required
-                    className="mt-1 h-4 w-4 accent-blue-600"
-                  />
+                  <input type="checkbox" required className="mt-1 h-4 w-4 accent-blue-600" />
 
                   <span className="text-xs leading-5 text-slate-600">
-                    I agree that Hanova may contact me about community
-                    activities, startup opportunities, and upcoming events.
+                    I agree that Hanova may contact me about community activities, startup
+                    opportunities, and upcoming events.
                   </span>
                 </label>
 
@@ -242,21 +233,12 @@ type InputFieldProps = {
   required?: boolean;
 };
 
-function InputField({
-  id,
-  name,
-  label,
-  type,
-  placeholder,
-  required = true,
-}: InputFieldProps) {
+function InputField({ id, name, label, type, placeholder, required = true }: InputFieldProps) {
   return (
     <div>
       <label htmlFor={id} className="text-sm font-semibold text-slate-900">
         {label}
-        {!required && (
-          <span className="ml-1 font-normal text-slate-400">(optional)</span>
-        )}
+        {!required && <span className="ml-1 font-normal text-slate-400">(optional)</span>}
       </label>
 
       <input

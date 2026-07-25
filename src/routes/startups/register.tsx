@@ -34,8 +34,8 @@ function StartupRegistrationPage() {
             </h1>
 
             <p className="mt-4 leading-7 text-slate-600">
-              Thank you for registering your startup with Hanova. Our team will
-              review the information and contact you.
+              Thank you for registering your startup with Hanova. Our team will review the
+              information and contact you.
             </p>
 
             <a
@@ -77,8 +77,8 @@ function StartupRegistrationPage() {
                 </h1>
 
                 <p className="mt-5 text-base leading-7 text-slate-300">
-                  Create your startup profile and connect with mentors,
-                  partners, communities, and ecosystem opportunities.
+                  Create your startup profile and connect with mentors, partners, communities, and
+                  ecosystem opportunities.
                 </p>
 
                 <div className="mt-8 space-y-4 text-sm text-slate-300">
@@ -102,8 +102,8 @@ function StartupRegistrationPage() {
                 </h2>
 
                 <p className="mt-3 text-sm leading-6 text-slate-600">
-                  Provide accurate information so the Hanova team can
-                  understand and review your startup.
+                  Provide accurate information so the Hanova team can understand and review your
+                  startup.
                 </p>
               </div>
 
@@ -141,10 +141,7 @@ function StartupRegistrationPage() {
                 />
 
                 <div>
-                  <label
-                    htmlFor="startup-stage"
-                    className="text-sm font-semibold text-slate-900"
-                  >
+                  <label htmlFor="startup-stage" className="text-sm font-semibold text-slate-900">
                     Startup stage
                   </label>
 
@@ -205,10 +202,7 @@ function StartupRegistrationPage() {
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="pitch-deck"
-                    className="text-sm font-semibold text-slate-900"
-                  >
+                  <label htmlFor="pitch-deck" className="text-sm font-semibold text-slate-900">
                     Pitch deck
                   </label>
 
@@ -229,16 +223,11 @@ function StartupRegistrationPage() {
                 </div>
 
                 <label className="flex items-start gap-3 rounded-2xl bg-slate-50 p-4">
-                  <input
-                    type="checkbox"
-                    required
-                    className="mt-1 h-4 w-4 accent-blue-600"
-                  />
+                  <input type="checkbox" required className="mt-1 h-4 w-4 accent-blue-600" />
 
                   <span className="text-xs leading-5 text-slate-600">
-                    I confirm that the submitted startup information is
-                    accurate and that Hanova may contact me regarding this
-                    registration.
+                    I confirm that the submitted startup information is accurate and that Hanova may
+                    contact me regarding this registration.
                   </span>
                 </label>
 
@@ -268,22 +257,13 @@ type InputFieldProps = {
   required?: boolean;
 };
 
-function InputField({
-  id,
-  name,
-  label,
-  type,
-  placeholder,
-  required = true,
-}: InputFieldProps) {
+function InputField({ id, name, label, type, placeholder, required = true }: InputFieldProps) {
   return (
     <div>
       <label htmlFor={id} className="text-sm font-semibold text-slate-900">
         {label}
 
-        {!required && (
-          <span className="ml-1 font-normal text-slate-400">(optional)</span>
-        )}
+        {!required && <span className="ml-1 font-normal text-slate-400">(optional)</span>}
       </label>
 
       <input
@@ -305,12 +285,7 @@ type TextAreaFieldProps = {
   placeholder: string;
 };
 
-function TextAreaField({
-  id,
-  name,
-  label,
-  placeholder,
-}: TextAreaFieldProps) {
+function TextAreaField({ id, name, label, placeholder }: TextAreaFieldProps) {
   return (
     <div>
       <label htmlFor={id} className="text-sm font-semibold text-slate-900">
