@@ -15,6 +15,7 @@ import { SuccessStories } from "@/components/site/SuccessStories";
 import { FounderWall } from "@/components/site/FounderWall";
 import { StartupProgressTracker } from "@/components/site/StartupProgressTracker";
 import { AdminStageManager } from "@/components/site/AdminStageManager";
+import { ByTheNumbers } from "@/components/site/ByTheNumbers";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -37,12 +38,6 @@ function HomePage() {
 
         <SuccessStories />
 
-        <StartupProgressTracker
-          startupName="Example Startup"
-          founderName="Example Founder"
-          currentStage="validation"
-          lastUpdated="Updated by the Hanova admin"
-        />
         <FounderWall />
 
         <StartupProgressTracker
@@ -51,6 +46,8 @@ function HomePage() {
           currentStage="validation"
           lastUpdated="Updated by the Hanova admin"
         />
+
+        <ByTheNumbers />
 
         <Hubs />
 

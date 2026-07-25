@@ -129,9 +129,7 @@ export function Contact() {
                   Send message
                 </button>
 
-                <p className="text-xs leading-5 text-slate-500">
-                  Connect this form to Supabase before publishing the website.
-                </p>
+
               </form>
             </div>
           </div>
