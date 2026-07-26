@@ -16,7 +16,7 @@ const founders = [
     ],
   },
   {
-    name: "M.Yashwath",
+    name: "M.Yashwath Kumar Yadhav",
     role: "Co-founder & CTO",
     image: "/images/cofounder-2.jpeg",
     imageClassName: "object-[center_48%] scale-[1.08] group-hover:scale-[1.11]",
