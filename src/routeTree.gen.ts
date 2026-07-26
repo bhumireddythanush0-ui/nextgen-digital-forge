@@ -16,6 +16,8 @@ import { Route as HubsIndexRouteImport } from './routes/hubs/index'
 import { Route as EventsIndexRouteImport } from './routes/events/index'
 import { Route as ChaptersIndexRouteImport } from './routes/chapters/index'
 import { Route as StartupsRegisterRouteImport } from './routes/startups/register'
+import { Route as StartupsStartupSlugRouteImport } from './routes/startups/$startupSlug'
+import { Route as PartnerCategoryPartnerTypeRouteImport } from './routes/partner-category.$partnerType'
 import { Route as MeetingsRegisterRouteImport } from './routes/meetings/register'
 import { Route as HubsHubIdRouteImport } from './routes/hubs/$hubId'
 import { Route as FoundersConnectRouteImport } from './routes/founders/connect'
@@ -59,6 +61,17 @@ const StartupsRegisterRoute = StartupsRegisterRouteImport.update({
   path: '/startups/register',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StartupsStartupSlugRoute = StartupsStartupSlugRouteImport.update({
+  id: '/startups/$startupSlug',
+  path: '/startups/$startupSlug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartnerCategoryPartnerTypeRoute =
+  PartnerCategoryPartnerTypeRouteImport.update({
+    id: '/partner-category/$partnerType',
+    path: '/partner-category/$partnerType',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const MeetingsRegisterRoute = MeetingsRegisterRouteImport.update({
   id: '/meetings/register',
   path: '/meetings/register',
@@ -106,6 +119,8 @@ export interface FileRoutesByFullPath {
   '/founders/connect': typeof FoundersConnectRoute
   '/hubs/$hubId': typeof HubsHubIdRoute
   '/meetings/register': typeof MeetingsRegisterRoute
+  '/partner-category/$partnerType': typeof PartnerCategoryPartnerTypeRoute
+  '/startups/$startupSlug': typeof StartupsStartupSlugRoute
   '/startups/register': typeof StartupsRegisterRoute
   '/chapters/': typeof ChaptersIndexRoute
   '/events/': typeof EventsIndexRoute
@@ -122,6 +137,8 @@ export interface FileRoutesByTo {
   '/founders/connect': typeof FoundersConnectRoute
   '/hubs/$hubId': typeof HubsHubIdRoute
   '/meetings/register': typeof MeetingsRegisterRoute
+  '/partner-category/$partnerType': typeof PartnerCategoryPartnerTypeRoute
+  '/startups/$startupSlug': typeof StartupsStartupSlugRoute
   '/startups/register': typeof StartupsRegisterRoute
   '/chapters': typeof ChaptersIndexRoute
   '/events': typeof EventsIndexRoute
@@ -139,6 +156,8 @@ export interface FileRoutesById {
   '/founders/connect': typeof FoundersConnectRoute
   '/hubs/$hubId': typeof HubsHubIdRoute
   '/meetings/register': typeof MeetingsRegisterRoute
+  '/partner-category/$partnerType': typeof PartnerCategoryPartnerTypeRoute
+  '/startups/$startupSlug': typeof StartupsStartupSlugRoute
   '/startups/register': typeof StartupsRegisterRoute
   '/chapters/': typeof ChaptersIndexRoute
   '/events/': typeof EventsIndexRoute
@@ -157,6 +176,8 @@ export interface FileRouteTypes {
     | '/founders/connect'
     | '/hubs/$hubId'
     | '/meetings/register'
+    | '/partner-category/$partnerType'
+    | '/startups/$startupSlug'
     | '/startups/register'
     | '/chapters/'
     | '/events/'
@@ -173,6 +194,8 @@ export interface FileRouteTypes {
     | '/founders/connect'
     | '/hubs/$hubId'
     | '/meetings/register'
+    | '/partner-category/$partnerType'
+    | '/startups/$startupSlug'
     | '/startups/register'
     | '/chapters'
     | '/events'
@@ -189,6 +212,8 @@ export interface FileRouteTypes {
     | '/founders/connect'
     | '/hubs/$hubId'
     | '/meetings/register'
+    | '/partner-category/$partnerType'
+    | '/startups/$startupSlug'
     | '/startups/register'
     | '/chapters/'
     | '/events/'
@@ -206,6 +231,8 @@ export interface RootRouteChildren {
   FoundersConnectRoute: typeof FoundersConnectRoute
   HubsHubIdRoute: typeof HubsHubIdRoute
   MeetingsRegisterRoute: typeof MeetingsRegisterRoute
+  PartnerCategoryPartnerTypeRoute: typeof PartnerCategoryPartnerTypeRoute
+  StartupsStartupSlugRoute: typeof StartupsStartupSlugRoute
   StartupsRegisterRoute: typeof StartupsRegisterRoute
   ChaptersIndexRoute: typeof ChaptersIndexRoute
   EventsIndexRoute: typeof EventsIndexRoute
@@ -261,6 +288,20 @@ declare module '@tanstack/react-router' {
       path: '/startups/register'
       fullPath: '/startups/register'
       preLoaderRoute: typeof StartupsRegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/startups/$startupSlug': {
+      id: '/startups/$startupSlug'
+      path: '/startups/$startupSlug'
+      fullPath: '/startups/$startupSlug'
+      preLoaderRoute: typeof StartupsStartupSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/partner-category/$partnerType': {
+      id: '/partner-category/$partnerType'
+      path: '/partner-category/$partnerType'
+      fullPath: '/partner-category/$partnerType'
+      preLoaderRoute: typeof PartnerCategoryPartnerTypeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/meetings/register': {
@@ -326,6 +367,8 @@ const rootRouteChildren: RootRouteChildren = {
   FoundersConnectRoute: FoundersConnectRoute,
   HubsHubIdRoute: HubsHubIdRoute,
   MeetingsRegisterRoute: MeetingsRegisterRoute,
+  PartnerCategoryPartnerTypeRoute: PartnerCategoryPartnerTypeRoute,
+  StartupsStartupSlugRoute: StartupsStartupSlugRoute,
   StartupsRegisterRoute: StartupsRegisterRoute,
   ChaptersIndexRoute: ChaptersIndexRoute,
   EventsIndexRoute: EventsIndexRoute,

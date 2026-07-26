@@ -1,4 +1,9 @@
-import { Instagram, Linkedin, Youtube, Twitter } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  MessageCircle,
+  Youtube,
+} from "lucide-react";
 
 export function Footer() {
   return (
@@ -17,34 +22,47 @@ export function Footer() {
             </div>
 
             <p className="mt-5 max-w-md leading-7 text-slate-400">
-              Building startup ecosystems across Andhra Pradesh by connecting founders, mentors,
-              investors, partners, and regional innovation communities.
+              Building startup ecosystems across Andhra Pradesh by connecting
+              founders, mentors, investors, partners, and regional innovation
+              communities.
             </p>
 
             <div className="mt-6 flex gap-4">
               <a
-                href="#"
-                className="rounded-full border border-slate-700 p-3 transition hover:border-blue-500 hover:bg-blue-600"
+                href="https://whatsapp.com/channel/0029Vb8BQzhLY6d63sKMjX1m"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp Channel"
+                className="rounded-full border border-slate-700 p-3 transition hover:border-green-500 hover:bg-green-600"
               >
-                <Linkedin size={18} />
+                <MessageCircle size={18} />
               </a>
 
               <a
-                href="#"
+                href="https://www.instagram.com/hanova_community?igsh=dWxyaWp1bHdsdDRl"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
                 className="rounded-full border border-slate-700 p-3 transition hover:border-pink-500 hover:bg-pink-500"
               >
                 <Instagram size={18} />
               </a>
 
               <a
-                href="#"
-                className="rounded-full border border-slate-700 p-3 transition hover:border-sky-500 hover:bg-sky-500"
+                href="https://www.facebook.com/share/1EcG1CLRZu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="rounded-full border border-slate-700 p-3 transition hover:border-blue-700 hover:bg-blue-700"
               >
-                <Twitter size={18} />
+                <Facebook size={18} />
               </a>
 
               <a
-                href="#"
+                href="https://youtube.com/@startuphubproddatur?si=rwhfpAl5y1o4-zkQ"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
                 className="rounded-full border border-slate-700 p-3 transition hover:border-red-500 hover:bg-red-600"
               >
                 <Youtube size={18} />
@@ -55,7 +73,7 @@ export function Footer() {
           {/* Company */}
 
           <div>
-            <h3 className="font-bold text-lg">Company</h3>
+            <h3 className="text-lg font-bold">Company</h3>
 
             <ul className="mt-5 space-y-3 text-slate-400">
               <li>
@@ -93,7 +111,7 @@ export function Footer() {
           {/* Community */}
 
           <div>
-            <h3 className="font-bold text-lg">Community</h3>
+            <h3 className="text-lg font-bold">Community</h3>
 
             <ul className="mt-5 space-y-3 text-slate-400">
               <li>
@@ -115,6 +133,42 @@ export function Footer() {
               </li>
 
               <li>
+                <a
+                  href="/partner-category/technology"
+                  className="hover:text-white"
+                >
+                  Technology Partners
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="/partner-category/marketing"
+                  className="hover:text-white"
+                >
+                  Marketing Partners
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="/partner-category/legal"
+                  className="hover:text-white"
+                >
+                  Legal Partners
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="/partner-category/funding"
+                  className="hover:text-white"
+                >
+                  Funding Partners
+                </a>
+              </li>
+
+              <li>
                 <a href="/volunteer" className="hover:text-white">
                   Become a Volunteer
                 </a>
@@ -131,7 +185,7 @@ export function Footer() {
           {/* Legal */}
 
           <div>
-            <h3 className="font-bold text-lg">Legal</h3>
+            <h3 className="text-lg font-bold">Legal</h3>
 
             <ul className="mt-5 space-y-3 text-slate-400">
               <li>
@@ -148,12 +202,15 @@ export function Footer() {
 
               <li>
                 <a href="/partners" className="hover:text-white">
-                  Partner
+                  All Partners
                 </a>
               </li>
 
               <li>
-                <a href="/contact" className="hover:text-white">
+                <a
+                  href="mailto:hello@hanova.in"
+                  className="hover:text-white"
+                >
                   hello@hanova.in
                 </a>
               </li>

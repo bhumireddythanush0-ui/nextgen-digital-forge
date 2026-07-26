@@ -1,250 +1,400 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, CalendarDays, Clock3, MapPin, UsersRound } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import {
+  ArrowLeft,
+  ArrowRight,
+  CalendarDays,
+  Clock3,
+  Linkedin,
+  MapPin,
+  UsersRound,
+} from "lucide-react";
 
 import { Footer } from "@/components/site/Footer";
 import { Navbar } from "@/components/site/Navbar";
-import {
-  getChapter,
-  getChapterMeetings,
-  type ChapterMeeting,
-  type MeetingStatus,
-} from "@/data/chapterData";
+import { getChapter, getChapterMeetings, type ChapterMeeting } from "@/data/chapterData";
 
 export const Route = createFileRoute("/chapters/$chapterId")({
-  component: ChapterDetailPage,
+  component: ChapterDetailsPage,
 });
 
-const meetingSections: Array<{
-  status: MeetingStatus;
-  eyebrow: string;
-  title: string;
-  description: string;
-}> = [
-  {
-    status: "current",
-    eyebrow: "Happening now",
-    title: "Current meetings",
-    description: "Sessions currently active in this chapter.",
-  },
-  {
-    status: "upcoming",
-    eyebrow: "Plan your next connection",
-    title: "Upcoming meetings",
-    description: "Reserve your place and meet founders, mentors, and ecosystem supporters.",
-  },
-  {
-    status: "past",
-    eyebrow: "Chapter history",
-    title: "Previous meetings",
-    description: "See how the local founder community has been learning and connecting.",
-  },
-];
-
-function ChapterDetailPage() {
+function ChapterDetailsPage() {
   const { chapterId } = Route.useParams();
   const chapter = getChapter(chapterId);
+  const meetings = getChapterMeetings(chapterId);
 
   if (!chapter) {
     return (
-      <div className="min-h-screen bg-[#fbfbfd]">
+      <>
         <Navbar />
-        <main className="px-4 pb-24 pt-36 text-center">
-          <h1 className="text-4xl font-black text-slate-950">Chapter not found</h1>
-          <p className="mt-4 text-slate-600">
-            This chapter may have moved or is not available yet.
-          </p>
-          <a
-            href="/chapters/"
-            className="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-slate-950 px-7 text-sm font-black text-white"
-          >
-            View all chapters
-          </a>
+
+        <main className="flex min-h-[70vh] items-center justify-center bg-slate-50 px-4 py-24">
+          <div className="max-w-xl text-center">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-600">
+              Hanova chapters
+            </p>
+
+            <h1 className="mt-4 text-4xl font-black tracking-tight text-slate-950">
+              Chapter not found
+            </h1>
+
+            <p className="mt-4 leading-7 text-slate-600">
+              The requested chapter is unavailable or may have been removed.
+            </p>
+
+            <Link
+              to="/chapters"
+              className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-blue-600 px-7 text-sm font-bold text-white transition hover:bg-blue-500"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              View all chapters
+            </Link>
+          </div>
         </main>
+
         <Footer />
-      </div>
+      </>
     );
   }
 
-  const meetings = getChapterMeetings(chapter.slug);
+  const currentMeetings = meetings.filter((meeting) => meeting.status === "current");
+
+  const upcomingMeetings = meetings.filter((meeting) => meeting.status === "upcoming");
+
+  const pastMeetings = meetings.filter((meeting) => meeting.status === "past");
 
   return (
-    <div className="min-h-screen bg-[#fbfbfd] text-slate-950">
+    <>
       <Navbar />
 
-      <main className="px-4 pb-24 pt-32 sm:px-6 sm:pt-36 lg:px-8">
-        <section className="mx-auto max-w-7xl">
-          <a
-            href="/chapters/"
-            className="inline-flex items-center gap-2 text-sm font-extrabold text-slate-600 hover:text-blue-600"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            All chapters
-          </a>
+      <main className="bg-white">
+        {/* Chapter hero */}
 
-          <div className="mt-6 overflow-hidden rounded-[32px] bg-[#081225] text-white sm:rounded-[36px]">
-            <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
-              <div className="relative p-7 sm:p-10 lg:p-14">
-                <div className="absolute -left-20 -top-20 h-72 w-72 rounded-full bg-blue-500/25 blur-[90px]" />
-                <div className="relative">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-black uppercase tracking-[0.15em] text-cyan-200">
-                      <MapPin className="h-4 w-4" />
-                      {chapter.district}
-                    </span>
-                    <span
-                      className={
-                        "rounded-full px-4 py-2 text-xs font-black uppercase tracking-[0.14em] " +
-                        (chapter.status === "Active"
-                          ? "bg-emerald-400/15 text-emerald-200"
-                          : "bg-amber-300/15 text-amber-200")
-                      }
-                    >
-                      {chapter.status}
-                    </span>
+        <section className="px-4 pb-10 pt-28 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl">
+            <Link
+              to="/chapters"
+              className="inline-flex items-center gap-2 text-sm font-bold text-slate-500 transition hover:text-blue-600"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              All chapters
+            </Link>
+
+            <div className="mt-8 overflow-hidden rounded-[32px] bg-slate-950 text-white shadow-2xl">
+              <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
+                <div className="relative overflow-hidden p-8 sm:p-12 lg:p-14">
+                  <div className="absolute inset-0 opacity-20">
+                    <img src={chapter.image} alt="" className="h-full w-full object-cover" />
                   </div>
 
-                  <h1 className="mt-7 text-4xl font-black tracking-[-0.045em] sm:text-6xl">
-                    Hanova {chapter.city} Chapter
-                  </h1>
-                  <p className="mt-3 text-xl font-bold text-cyan-200">{chapter.tagline}</p>
-                  <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-                    {chapter.description}
+                  <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/95 to-slate-950/75" />
+
+                  <div className="relative">
+                    <div className="flex flex-wrap gap-3">
+                      <span className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.15em] text-cyan-200">
+                        {chapter.district}
+                      </span>
+
+                      <span className="rounded-full border border-emerald-300/20 bg-emerald-300/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.15em] text-emerald-200">
+                        {chapter.status}
+                      </span>
+                    </div>
+
+                    <h1 className="mt-7 max-w-2xl text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl">
+                      Hanova {chapter.city} Chapter
+                    </h1>
+
+                    <p className="mt-4 text-lg font-bold text-cyan-300">{chapter.tagline}</p>
+
+                    <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+                      {chapter.description}
+                    </p>
+
+                    <Link
+                      to="/community/join"
+                      className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-white px-7 text-sm font-bold text-slate-950 transition hover:bg-cyan-300"
+                    >
+                      Join this chapter
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="border-t border-white/10 bg-gradient-to-br from-blue-950 to-slate-950 p-8 sm:p-12 lg:border-l lg:border-t-0">
+                  <UsersRound className="h-10 w-10 text-cyan-300" />
+
+                  <p className="mt-7 text-xs font-bold uppercase tracking-[0.18em] text-cyan-300">
+                    Chapter activity
                   </p>
 
-                  <a
-                    href="/community/join"
-                    className="mt-9 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-7 text-sm font-black text-slate-950"
-                  >
-                    Join this Chapter
-                    <ArrowRight className="h-4 w-4" />
-                  </a>
-                </div>
-              </div>
+                  <h2 className="mt-3 text-2xl font-black">
+                    {upcomingMeetings.length} upcoming{" "}
+                    {upcomingMeetings.length === 1 ? "meeting" : "meetings"}
+                  </h2>
 
-              <div className="border-t border-white/10 bg-gradient-to-br from-blue-600/20 to-violet-500/10 p-7 sm:p-10 lg:border-l lg:border-t-0 lg:p-12">
-                <UsersRound className="h-9 w-9 text-cyan-300" />
-                <p className="mt-6 text-xs font-black uppercase tracking-[0.16em] text-cyan-200">
-                  Chapter activity
-                </p>
-                <p className="mt-3 text-2xl font-black">
-                  {meetings.filter((meeting) => meeting.status === "upcoming").length} upcoming
-                  meeting
-                  {meetings.filter((meeting) => meeting.status === "upcoming").length === 1
-                    ? ""
-                    : "s"}
-                </p>
-                <p className="mt-4 leading-7 text-slate-300">
-                  Chapter programming grows around the needs of local founders and the strength of
-                  regional partners.
-                </p>
+                  <p className="mt-4 leading-7 text-slate-300">
+                    Chapter programming grows around the needs of local founders and the strength of
+                    regional partners.
+                  </p>
+
+                  <div className="mt-8 grid grid-cols-2 gap-4">
+                    <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                      <p className="text-2xl font-black">{chapter.stats.startups}</p>
+
+                      <p className="mt-1 text-sm text-slate-400">Startups</p>
+                    </div>
+
+                    <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                      <p className="text-2xl font-black">{chapter.stats.mentors}</p>
+
+                      <p className="mt-1 text-sm text-slate-400">Mentors</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+        </section>
 
-          <div className="mt-14 space-y-16">
-            {meetingSections.map((section) => {
-              const sectionMeetings = meetings.filter(
-                (meeting) => meeting.status === section.status,
-              );
+        {/* Chapter hosts */}
 
-              return (
-                <section key={section.status}>
-                  <p className="text-xs font-black uppercase tracking-[0.16em] text-blue-600">
-                    {section.eyebrow}
-                  </p>
-                  <div className="mt-2 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
-                    <div>
-                      <h2 className="text-3xl font-black tracking-[-0.035em]">{section.title}</h2>
-                      <p className="mt-2 text-slate-600">{section.description}</p>
-                    </div>
-                    <span className="text-sm font-bold text-slate-500">
-                      {sectionMeetings.length}{" "}
-                      {sectionMeetings.length === 1 ? "meeting" : "meetings"}
-                    </span>
+        <section className="border-b border-slate-200 bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+          <div className="mx-auto max-w-7xl">
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-blue-600">
+                <UsersRound className="h-4 w-4" />
+                Chapter leadership
+              </div>
+
+              <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">
+                Meet your chapter hosts
+              </h2>
+
+              <p className="mt-4 leading-7 text-slate-600">
+                Connect with the people coordinating local programs, founder meetups, mentor
+                sessions, and chapter activities.
+              </p>
+            </div>
+
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {chapter.hosts.map((host) => (
+                <article
+                  key={host.name}
+                  className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl"
+                >
+                  <div className="aspect-[4/3] overflow-hidden bg-slate-100">
+                    <img
+                      src={host.image}
+                      alt={`${host.name}, ${host.role}`}
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    />
                   </div>
 
-                  {sectionMeetings.length > 0 ? (
-                    <div className="mt-7 grid gap-5 lg:grid-cols-2">
-                      {sectionMeetings.map((meeting) => (
-                        <MeetingCard key={meeting.id} meeting={meeting} />
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="mt-7 rounded-[26px] border border-dashed border-slate-300 bg-white p-8 text-center">
-                      <CalendarDays className="mx-auto h-8 w-8 text-blue-600" />
-                      <p className="mt-3 font-bold text-slate-700">
-                        No {section.title.toLowerCase()} are listed yet.
-                      </p>
-                    </div>
-                  )}
-                </section>
-              );
-            })}
+                  <div className="p-6">
+                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">
+                      {host.role}
+                    </p>
+
+                    <h3 className="mt-2 text-xl font-black text-slate-950">{host.name}</h3>
+
+                    <p className="mt-3 text-sm leading-6 text-slate-600">{host.bio}</p>
+
+                    {host.linkedin && (
+                      <a
+                        href={host.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-blue-600 transition hover:text-blue-500"
+                      >
+                        <Linkedin className="h-4 w-4" />
+                        View LinkedIn
+                      </a>
+                    )}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Current meetings */}
+
+        <MeetingSection
+          label="Happening now"
+          title="Current meetings"
+          description="Sessions currently active in this chapter."
+          meetings={currentMeetings}
+          emptyMessage="There are no current meetings at this time."
+        />
+
+        {/* Upcoming meetings */}
+
+        <MeetingSection
+          label="Plan your next connection"
+          title="Upcoming meetings"
+          description="Reserve your place and meet founders, mentors, and ecosystem supporters."
+          meetings={upcomingMeetings}
+          emptyMessage="Upcoming meetings will be announced soon."
+          muted
+        />
+
+        {/* Past meetings */}
+
+        <MeetingSection
+          label="Chapter history"
+          title="Past meetings"
+          description="Previous founder sessions and community activities from this chapter."
+          meetings={pastMeetings}
+          emptyMessage="No previous meetings are listed yet."
+        />
+
+        {/* Themes */}
+
+        <section className="bg-slate-950 px-4 py-16 text-white sm:px-6 lg:px-8 lg:py-20">
+          <div className="mx-auto max-w-7xl">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-300">
+              Chapter focus
+            </p>
+
+            <h2 className="mt-4 max-w-2xl text-3xl font-black tracking-tight sm:text-4xl">
+              Programs built around the local founder community
+            </h2>
+
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {chapter.themes.map((theme) => (
+                <div key={theme} className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                  <p className="font-bold">{theme}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </main>
 
       <Footer />
-    </div>
+    </>
+  );
+}
+
+type MeetingSectionProps = {
+  label: string;
+  title: string;
+  description: string;
+  meetings: ChapterMeeting[];
+  emptyMessage: string;
+  muted?: boolean;
+};
+
+function MeetingSection({
+  label,
+  title,
+  description,
+  meetings,
+  emptyMessage,
+  muted = false,
+}: MeetingSectionProps) {
+  return (
+    <section
+      className={`px-4 py-16 sm:px-6 lg:px-8 lg:py-20 ${muted ? "bg-slate-50" : "bg-white"}`}
+    >
+      <div className="mx-auto max-w-7xl">
+        <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-600">{label}</p>
+
+            <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">
+              {title}
+            </h2>
+
+            <p className="mt-3 text-slate-600">{description}</p>
+          </div>
+
+          <p className="text-sm font-bold text-slate-500">
+            {meetings.length} {meetings.length === 1 ? "meeting" : "meetings"}
+          </p>
+        </div>
+
+        {meetings.length > 0 ? (
+          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {meetings.map((meeting) => (
+              <MeetingCard key={meeting.id} meeting={meeting} />
+            ))}
+          </div>
+        ) : (
+          <div className="mt-10 rounded-3xl border border-dashed border-slate-300 bg-white p-8 text-center text-slate-500">
+            {emptyMessage}
+          </div>
+        )}
+      </div>
+    </section>
   );
 }
 
 function MeetingCard({ meeting }: { meeting: ChapterMeeting }) {
-  const statusStyles: Record<MeetingStatus, string> = {
-    current: "bg-cyan-50 text-cyan-700",
-    upcoming: "bg-emerald-50 text-emerald-700",
-    past: "bg-slate-100 text-slate-600",
-  };
+  const statusLabel =
+    meeting.status === "current"
+      ? "Current"
+      : meeting.status === "upcoming"
+        ? "Upcoming"
+        : "Completed";
 
   return (
-    <article className="overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-[0_24px_65px_-50px_rgba(15,23,42,0.65)]">
-      <div className="h-1.5 bg-gradient-to-r from-blue-600 via-cyan-400 to-violet-500" />
-      <div className="p-6 sm:p-7">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <span className="rounded-full bg-blue-50 px-3 py-1.5 text-xs font-black uppercase tracking-[0.12em] text-blue-700">
-            {meeting.type}
-          </span>
-          <span
-            className={`rounded-full px-3 py-1.5 text-xs font-black capitalize ${statusStyles[meeting.status]}`}
-          >
-            {meeting.status}
-          </span>
-        </div>
+    <article className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl">
+      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-purple-500" />
 
-        <h3 className="mt-5 text-2xl font-black">{meeting.title}</h3>
-        <p className="mt-3 leading-7 text-slate-600">{meeting.description}</p>
+      <div className="flex items-start justify-between gap-4">
+        <span className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">
+          {meeting.type}
+        </span>
 
-        <div className="mt-6 space-y-3 text-sm font-bold text-slate-700">
-          <p className="flex items-center gap-2">
-            <CalendarDays className="h-4 w-4 text-blue-600" />
-            {meeting.displayDate}
-          </p>
-          <p className="flex items-center gap-2">
-            <Clock3 className="h-4 w-4 text-blue-600" />
-            {meeting.time}
-          </p>
-          <p className="flex items-start gap-2">
-            <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
-            {meeting.venue}
-          </p>
-        </div>
-
-        {meeting.status === "upcoming" ? (
-          <a
-            href={`/meetings/register?meeting=${meeting.id}`}
-            className="mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-slate-950 px-7 text-sm font-black text-white transition hover:bg-blue-600"
-          >
-            Register for Meeting
-            <ArrowRight className="h-4 w-4" />
-          </a>
-        ) : (
-          <p className="mt-7 text-sm font-bold text-slate-500">
-            {meeting.status === "current"
-              ? "This meeting is currently active."
-              : "This meeting has been completed."}
-          </p>
-        )}
+        <span
+          className={`rounded-full px-3 py-1 text-xs font-bold ${
+            meeting.status === "current"
+              ? "bg-emerald-100 text-emerald-700"
+              : meeting.status === "upcoming"
+                ? "bg-blue-100 text-blue-700"
+                : "bg-slate-100 text-slate-600"
+          }`}
+        >
+          {statusLabel}
+        </span>
       </div>
+
+      <h3 className="mt-6 text-xl font-black text-slate-950">{meeting.title}</h3>
+
+      <p className="mt-3 text-sm leading-6 text-slate-600">{meeting.description}</p>
+
+      <div className="mt-6 space-y-3 text-sm text-slate-600">
+        <div className="flex items-center gap-3">
+          <CalendarDays className="h-4 w-4 text-blue-600" />
+          <span>{meeting.displayDate}</span>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <Clock3 className="h-4 w-4 text-blue-600" />
+          <span>{meeting.time}</span>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <MapPin className="h-4 w-4 text-blue-600" />
+          <span>{meeting.venue}</span>
+        </div>
+      </div>
+
+      {meeting.status === "upcoming" && (
+        <Link
+          to="/events/register"
+          className="mt-7 inline-flex min-h-11 items-center gap-2 rounded-full bg-slate-950 px-5 text-sm font-bold text-white transition hover:bg-blue-600"
+        >
+          Register
+          <ArrowRight className="h-4 w-4" />
+        </Link>
+      )}
+
+      {meeting.status === "current" && (
+        <p className="mt-7 text-sm font-semibold text-emerald-700">
+          This meeting is currently active.
+        </p>
+      )}
     </article>
   );
 }

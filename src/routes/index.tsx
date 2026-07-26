@@ -14,7 +14,6 @@ import { Footer } from "@/components/site/Footer";
 import { SuccessStories } from "@/components/site/SuccessStories";
 import { FounderWall } from "@/components/site/FounderWall";
 import { StartupProgressTracker } from "@/components/site/StartupProgressTracker";
-import { ByTheNumbers } from "@/components/site/ByTheNumbers";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -45,8 +44,6 @@ function HomePage() {
           currentStage="validation"
           lastUpdated="Updated by the Hanova admin"
         />
-
-        <ByTheNumbers />
 
         <Hubs />
 

@@ -1,80 +1,7 @@
-import {
-  BriefcaseBusiness,
-  Calculator,
-  Cpu,
-  HandCoins,
-  Handshake,
-  Landmark,
-  Lightbulb,
-  Megaphone,
-  Newspaper,
-  Scale,
-  UsersRound,
-} from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { ArrowRight, Handshake } from "lucide-react";
 
-const partnerCategories = [
-  {
-    title: "Technology Partners",
-    description: "Technology, software, product development, cloud, and infrastructure support.",
-    icon: Cpu,
-  },
-  {
-    title: "Marketing Partners",
-    description: "Branding, digital marketing, growth strategy, content, and customer acquisition.",
-    icon: Megaphone,
-  },
-  {
-    title: "Legal Partners",
-    description: "Legal guidance, company registration, agreements, contracts, and compliance.",
-    icon: Scale,
-  },
-  {
-    title: "CA Partners",
-    description: "Accounting, taxation, auditing, financial reporting, and business compliance.",
-    icon: Calculator,
-  },
-  {
-    title: "IP Partners",
-    description: "Trademark, patent, copyright, and intellectual property protection.",
-    icon: Lightbulb,
-  },
-  {
-    title: "Funding Partners",
-    description: "Angel investment, venture capital, grants, and startup funding support.",
-    icon: HandCoins,
-  },
-  {
-    title: "Incubation Partners",
-    description: "Startup incubation, mentorship, founder development, and acceleration.",
-    icon: BriefcaseBusiness,
-  },
-  {
-    title: "Hiring Partners",
-    description: "Recruitment, talent acquisition, internships, and workforce development.",
-    icon: UsersRound,
-  },
-  {
-    title: "Government Partners",
-    description: "Government programs, startup schemes, policy support, and regional development.",
-    icon: Landmark,
-  },
-  {
-    title: "Media Partners",
-    description: "Startup stories, public relations, event coverage, and media visibility.",
-    icon: Newspaper,
-  },
-];
-
-/*
-  Add real partner-logo paths when they are provided.
-
-  Example:
-
-  {
-    name: "Partner name",
-    logo: "/images/partners/partner-name.png",
-  }
-*/
+import { partnerCategories } from "@/data/partnerData";
 
 const partnerLogos = [
   {
@@ -111,7 +38,6 @@ export function Partners() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
-          {/* Left content */}
           <div className="lg:sticky lg:top-28">
             <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.15em] text-blue-700">
               <Handshake className="h-4 w-4" />
@@ -130,41 +56,55 @@ export function Partners() {
               innovation, and stronger startup communities.
             </p>
 
-            <a
-              href="/partners"
-              className="mt-8 inline-flex min-h-12 items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition duration-300 hover:border-blue-500 hover:bg-blue-600 hover:text-white"
+            <Link
+              to="/partners"
+              className="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition duration-300 hover:border-blue-500 hover:bg-blue-600 hover:text-white"
             >
               Become a partner
-            </a>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
 
-          {/* Partner category cards */}
           <div className="grid gap-4 sm:grid-cols-2">
             {partnerCategories.map((partner) => {
               const Icon = partner.icon;
 
               return (
-                <article
-                  key={partner.title}
-                  className="group flex gap-4 rounded-3xl border border-slate-200 bg-[#f8fafc] p-5 transition duration-300 hover:-translate-y-1 hover:border-blue-300 hover:bg-blue-50/50 hover:shadow-lg"
+                <Link
+                  key={partner.slug}
+                  to="/partner-category/$partnerType"
+                  params={{
+                    partnerType: partner.slug,
+                  }}
+                  aria-label={`View ${partner.title}`}
+                  className="group flex gap-4 rounded-3xl border border-slate-200 bg-[#f8fafc] p-5 transition duration-300 hover:-translate-y-1 hover:border-blue-300 hover:bg-blue-50/50 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-100"
                 >
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-slate-950 text-white transition duration-300 group-hover:bg-blue-600">
                     <Icon className="h-5 w-5" />
                   </div>
 
-                  <div>
-                    <h3 className="font-bold text-slate-950">{partner.title}</h3>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-start justify-between gap-3">
+                      <h3 className="font-bold text-slate-950">{partner.title}</h3>
 
-                    <p className="mt-2 text-sm leading-6 text-slate-600">{partner.description}</p>
+                      <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-blue-600" />
+                    </div>
+
+                    <p className="mt-2 text-sm leading-6 text-slate-600">
+                      {partner.shortDescription}
+                    </p>
+
+                    <span className="mt-3 inline-block text-xs font-bold text-blue-600 opacity-0 transition group-hover:opacity-100">
+                      View partners
+                    </span>
                   </div>
-                </article>
+                </Link>
               );
             })}
           </div>
         </div>
       </div>
 
-      {/* Moving partner logos */}
       <div className="partner-marquee relative mt-14 w-full overflow-hidden">
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-white to-transparent sm:w-28" />
 

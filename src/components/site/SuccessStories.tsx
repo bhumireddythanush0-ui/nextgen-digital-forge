@@ -1,3 +1,5 @@
+import { Link } from "@tanstack/react-router";
+
 import {
   ArrowDown,
   Banknote,
@@ -10,36 +12,38 @@ import {
 
 const successStories = [
   {
-    founder: "Example Founder",
-    startup: "Example Startup",
+    founder: "Sohail",
+    startup: "Self Script",
+    slug: "self-script",
     city: "Proddatur",
-    industry: "Technology",
+    industry: "Education Technology",
     description:
-      "An example journey showing how a founder can move from an early idea to a growing startup through practical support.",
+      "Self Script is a founder journey showing how an early idea was validated with students, developed into an MVP, and introduced to its first paying users.",
     milestones: [
       {
-        title: "Started with an idea",
-        description: "Identified a meaningful customer problem.",
+        title: "Idea",
+        description: "Started with a clear idea and identified the problem to solve.",
         icon: Lightbulb,
       },
       {
-        title: "Validated the problem",
-        description: "Spoke with potential users and confirmed demand.",
+        title: "Validated with students",
+        description: "Spoke with students, collected feedback, and confirmed demand.",
         icon: SearchCheck,
       },
       {
-        title: "Built the MVP",
-        description: "Created and launched the first working product.",
+        title: "Built MVP",
+        description: "Created and tested the first usable version of the product.",
         icon: Rocket,
       },
       {
-        title: "Raised ₹5 Lakhs",
-        description: "Example funding milestone for demonstration.",
+        title: "First paying users",
+        description: "Converted early users into the startup’s first paying customers.",
         icon: Banknote,
       },
       {
-        title: "Reached ₹2 Lakhs/month",
-        description: "Example monthly revenue milestone.",
+        title: "Growing through Hanova",
+        description:
+          "Continues improving the product and growing through Hanova community support.",
         icon: TrendingUp,
       },
     ],
@@ -81,7 +85,7 @@ export function SuccessStories() {
                 <div className="flex flex-col justify-between">
                   <div>
                     <div className="inline-flex rounded-full border border-amber-300/30 bg-amber-300/10 px-3 py-1 text-xs font-semibold text-amber-200">
-                      Example founder journey
+                      Founder journey
                     </div>
 
                     <h3 className="mt-5 text-2xl font-bold sm:text-3xl">{story.startup}</h3>
@@ -96,20 +100,23 @@ export function SuccessStories() {
                   </div>
 
                   <div className="mt-8 flex flex-wrap gap-3">
-                    <a
-                      href="/startups"
+                    <Link
+                      to="/startups/$startupSlug"
+                      params={{
+                        startupSlug: story.slug,
+                      }}
                       className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-blue-100"
                     >
                       View startup
                       <ExternalLink className="h-4 w-4" />
-                    </a>
+                    </Link>
 
-                    <a
-                      href="/startups/register"
+                    <Link
+                      to="/startups/register"
                       className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/20 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-blue-300 hover:text-blue-300"
                     >
                       Share your story
-                    </a>
+                    </Link>
                   </div>
                 </div>
 
@@ -152,8 +159,7 @@ export function SuccessStories() {
         </div>
 
         <p className="mt-5 text-center text-xs leading-5 text-slate-500">
-          The founder name, funding, and revenue shown above are example content. Replace them only
-          with verified founder information.
+          Replace the founder and startup information only with verified details before publishing.
         </p>
       </div>
     </section>
