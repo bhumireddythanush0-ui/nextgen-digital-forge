@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import { Banknote, Check, CircleDollarSign, Lightbulb, Rocket, SearchCheck } from "lucide-react";
 
 const stages = [
@@ -45,7 +44,6 @@ export function StartupProgressTracker({
   founderName = "Founder Name",
 }: StartupProgressTrackerProps) {
   const storageKey = `hanova-startup-progress-${startupName}`;
-
   const [completedStages, setCompletedStages] = useState<string[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -68,21 +66,16 @@ export function StartupProgressTracker({
   }, [storageKey]);
 
   useEffect(() => {
-    if (!isLoaded) {
-      return;
-    }
-
+    if (!isLoaded) return;
     window.localStorage.setItem(storageKey, JSON.stringify(completedStages));
   }, [completedStages, isLoaded, storageKey]);
 
   function toggleStage(stageId: string) {
-    setCompletedStages((currentStages) => {
-      if (currentStages.includes(stageId)) {
-        return currentStages.filter((id) => id !== stageId);
-      }
-
-      return [...currentStages, stageId];
-    });
+    setCompletedStages((currentStages) =>
+      currentStages.includes(stageId)
+        ? currentStages.filter((id) => id !== stageId)
+        : [...currentStages, stageId],
+    );
   }
 
   function resetProgress() {
@@ -93,33 +86,32 @@ export function StartupProgressTracker({
   const progressPercentage = Math.round((completedCount / stages.length) * 100);
 
   return (
-    <section id="startup-progress" className="scroll-mt-28 bg-slate-50 py-16 sm:py-20 lg:py-24">
+    <section
+      id="startup-progress"
+      className="scroll-mt-28 overflow-hidden bg-slate-50 py-14 sm:py-20 lg:py-24"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="rounded-[32px] border border-slate-200 bg-white p-6 shadow-sm sm:p-8 lg:p-10">
+        <div className="rounded-[26px] border border-slate-200 bg-white p-5 shadow-sm sm:rounded-[32px] sm:p-8 lg:p-10">
           <div className="flex flex-col justify-between gap-6 border-b border-slate-200 pb-8 md:flex-row md:items-end">
             <div>
               <div className="inline-flex rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-blue-700">
                 Startup progress tracker
               </div>
-
               <h2 className="mt-5 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
                 Track your startup journey
               </h2>
-
               <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
                 Select each stage after your startup completes that milestone. Your progress is
                 saved automatically on this device.
               </p>
             </div>
 
-            <div className="rounded-2xl bg-slate-950 px-5 py-4 text-white">
+            <div className="w-full rounded-2xl bg-slate-950 px-5 py-4 text-white md:w-auto md:min-w-[230px]">
               <p className="text-xs font-bold uppercase tracking-[0.14em] text-blue-300">
                 Current startup
               </p>
-
-              <p className="mt-1 text-lg font-bold">{startupName}</p>
-
-              <p className="mt-1 text-sm text-slate-400">Founder: {founderName}</p>
+              <p className="mt-1 break-words text-lg font-bold">{startupName}</p>
+              <p className="mt-1 break-words text-sm text-slate-400">Founder: {founderName}</p>
             </div>
           </div>
 
@@ -127,32 +119,33 @@ export function StartupProgressTracker({
             <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
               <div>
                 <p className="text-sm font-bold text-slate-950">Journey progress</p>
-
                 <p className="mt-1 text-sm text-slate-500">
                   {completedCount} of {stages.length} stages completed
                 </p>
               </div>
-
               <p className="text-2xl font-black text-blue-600">{progressPercentage}%</p>
             </div>
 
             <div className="mt-4 h-3 overflow-hidden rounded-full bg-slate-200">
               <div
                 className="h-full rounded-full bg-gradient-to-r from-blue-600 to-cyan-400 transition-all duration-500"
-                style={{
-                  width: `${progressPercentage}%`,
-                }}
+                style={{ width: `${progressPercentage}%` }}
               />
             </div>
           </div>
 
-          <div className="mt-10 grid gap-4 lg:grid-cols-5">
+          <div className="mb-4 mt-9 flex items-center justify-between sm:hidden">
+            <p className="text-sm font-semibold text-slate-600">Swipe through stages</p>
+            <p className="text-xs font-bold uppercase tracking-wider text-blue-600">5 stages →</p>
+          </div>
+
+          <div className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 lg:mt-10 lg:grid-cols-5">
             {stages.map((stage, index) => {
               const Icon = stage.icon;
               const isCompleted = completedStages.includes(stage.id);
 
               return (
-                <div key={stage.id} className="relative">
+                <div key={stage.id} className="relative min-w-[82%] snap-start sm:min-w-0">
                   <button
                     type="button"
                     onClick={() => toggleStage(stage.id)}
@@ -191,9 +184,7 @@ export function StartupProgressTracker({
                     >
                       Stage {String(index + 1).padStart(2, "0")}
                     </p>
-
                     <h3 className="mt-2 text-xl font-bold text-slate-950">{stage.title}</h3>
-
                     <p className="mt-3 text-sm leading-6 text-slate-600">{stage.description}</p>
 
                     <div className="mt-5">
@@ -204,7 +195,7 @@ export function StartupProgressTracker({
                             : "bg-slate-200 text-slate-600"
                         }`}
                       >
-                        {isCompleted ? "Completed" : "Click to mark complete"}
+                        {isCompleted ? "Completed" : "Tap to mark complete"}
                       </span>
                     </div>
                   </button>
@@ -220,18 +211,17 @@ export function StartupProgressTracker({
           <div className="mt-8 flex flex-col justify-between gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:flex-row sm:items-center">
             <div>
               <p className="text-sm font-bold text-slate-950">Your progress</p>
-
               <p className="mt-1 text-sm text-slate-500">
                 Select or unselect a stage whenever your progress changes.
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
               {completedCount > 0 && (
                 <button
                   type="button"
                   onClick={resetProgress}
-                  className="inline-flex min-h-11 items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-red-300 hover:text-red-600"
+                  className="inline-flex min-h-11 w-full items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-red-300 hover:text-red-600 sm:w-auto"
                 >
                   Reset progress
                 </button>
@@ -239,7 +229,7 @@ export function StartupProgressTracker({
 
               <a
                 href="/contact"
-                className="inline-flex min-h-11 items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:border-blue-500 hover:text-blue-600"
+                className="inline-flex min-h-11 w-full items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:border-blue-500 hover:text-blue-600 sm:w-auto"
               >
                 Ask about your progress
               </a>

@@ -1,5 +1,4 @@
-@import "tailwindcss" source(none);
-@source "../src";
+@import "tailwindcss";
 @import "tw-animate-css";
 
 @theme inline {
@@ -45,18 +44,42 @@
 
 @layer base {
   * {
+    box-sizing: border-box;
     border-color: var(--color-border);
   }
+
   html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
     scroll-behavior: smooth;
   }
+
   body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     letter-spacing: -0.01em;
   }
+
+  img,
+  video,
+  svg {
+    max-width: 100%;
+  }
+
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    min-width: 0;
+  }
+
   h1,
   h2,
   h3,
@@ -65,6 +88,35 @@
     letter-spacing: -0.035em;
     font-weight: 800;
   }
+}
+
+@utility hide-scrollbar {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility mobile-card-row {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 1rem;
+  overscroll-behavior-inline: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility mobile-card {
+  min-width: min(84vw, 340px);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 @utility dotted-bg {
@@ -93,6 +145,7 @@
     transform: translateY(-12px) rotate(var(--tilt, 0deg));
   }
 }
+
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -103,6 +156,7 @@
     transform: translateY(0);
   }
 }
+
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -111,6 +165,7 @@
     transform: translateX(-50%);
   }
 }
+
 @keyframes shimmer {
   0% {
     transform: translateX(-100%);
@@ -123,12 +178,15 @@
 @utility animate-float {
   animation: float-y 6s ease-in-out infinite;
 }
+
 @utility animate-fade-up {
   animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
+
 @utility animate-marquee {
   animation: marquee 40s linear infinite;
 }
+
 @utility animate-shimmer {
   animation: shimmer 2s infinite;
 }
