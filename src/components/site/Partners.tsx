@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+﻿import { Link } from "@tanstack/react-router";
 import { ArrowRight, Handshake } from "lucide-react";
 
 import { partnerCategories } from "@/data/partnerData";
@@ -61,7 +61,7 @@ export function Partners() {
               </div>
             </div>
 
-            <div className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-5 pr-12 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 sm:pr-0">
+            <div className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-5 pr-20 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 sm:pr-0">
               {partnerCategories.map((partner) => {
                 const Icon = partner.icon;
 
@@ -71,7 +71,7 @@ export function Partners() {
                     to="/partner-category/$partnerType"
                     params={{ partnerType: partner.slug }}
                     aria-label={`View ${partner.title}`}
-                    className="group flex min-w-[72%] snap-start gap-3 rounded-[22px] border border-slate-200 bg-[#f8fafc] p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-300 hover:bg-blue-50/50 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-100 sm:min-w-0 sm:gap-4 sm:rounded-3xl sm:p-5"
+                    className="group flex w-[72vw] min-w-[72vw] max-w-[290px] snap-start gap-3 rounded-[22px] border border-slate-200 bg-[#f8fafc] p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-300 hover:bg-blue-50/50 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-100 sm:min-w-0 sm:gap-4 sm:rounded-3xl sm:p-5"
                   >
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-slate-950 text-white transition duration-300 group-hover:bg-blue-600 sm:h-12 sm:w-12">
                       <Icon className="h-5 w-5" />

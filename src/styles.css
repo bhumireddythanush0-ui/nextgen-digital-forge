@@ -100,8 +100,11 @@
 
 @utility mobile-card-row {
   display: flex;
-  gap: 1rem;
+  width: 100%;
+  gap: 0.75rem;
   overflow-x: auto;
+  padding-right: 4.5rem;
+  padding-bottom: 1rem;
   scroll-snap-type: x mandatory;
   scroll-padding-inline: 1rem;
   overscroll-behavior-inline: contain;
@@ -110,6 +113,41 @@
 
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+
+@utility mobile-card {
+  width: min(72vw, 290px);
+  min-width: min(72vw, 290px);
+  max-width: 290px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+@media (max-width: 380px) {
+  .mobile-card {
+    width: min(74vw, 275px);
+    min-width: min(74vw, 275px);
+    max-width: 275px;
+  }
+}
+
+@media (min-width: 640px) {
+  .mobile-card-row {
+    display: grid;
+    width: 100%;
+    gap: 1rem;
+    overflow: visible;
+    padding-right: 0;
+    padding-bottom: 0;
+    scroll-snap-type: none;
+  }
+
+  .mobile-card {
+    width: auto;
+    min-width: 0;
+    max-width: none;
   }
 }
 
