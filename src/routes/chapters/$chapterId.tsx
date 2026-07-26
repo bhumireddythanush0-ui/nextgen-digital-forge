@@ -381,13 +381,13 @@ function MeetingCard({ meeting }: { meeting: ChapterMeeting }) {
       </div>
 
       {meeting.status === "upcoming" && (
-        <Link
-          to="/events/register"
-          className="mt-7 inline-flex min-h-11 items-center gap-2 rounded-full bg-slate-950 px-5 text-sm font-bold text-white transition hover:bg-blue-600"
+        <a
+          href="/events/register"
+          className="mt-7 inline-flex min-h-11 items-center gap-2 rounded-full bg-slate-950 px-5 text-sm font-bold text-white"
         >
           Register
           <ArrowRight className="h-4 w-4" />
-        </Link>
+        </a>
       )}
 
       {meeting.status === "current" && (

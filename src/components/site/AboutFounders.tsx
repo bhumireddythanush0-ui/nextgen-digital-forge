@@ -5,8 +5,7 @@ const founders = [
     name: "Harsha",
     role: "Co-founder & CEO",
     image: "/images/cofounder-1.jpeg",
-    imageClassName:
-      "object-[center_24%] scale-[1.02] group-hover:scale-[1.055]",
+    imageClassName: "object-[center_24%] scale-[1.02] group-hover:scale-[1.055]",
     description:
       "Harsha is building Hanova into one of Andhra Pradesh's leading founder ecosystems. He works with entrepreneurs, investors, educational institutions, businesses, and ecosystem partners to help startups validate ideas, build products, raise opportunities, and scale sustainably.",
     expertise: [
@@ -20,15 +19,10 @@ const founders = [
     name: "Yaswanth",
     role: "Co-founder & CTO",
     image: "/images/cofounder-2.jpeg",
-    imageClassName:
-      "object-[center_48%] scale-[1.08] group-hover:scale-[1.11]",
+    imageClassName: "object-[center_48%] scale-[1.08] group-hover:scale-[1.11]",
     description:
       "Yaswanth leads technology and product development at Hanova. He helps founders transform validated ideas into reliable, scalable, and launch-ready digital products.",
-    expertise: [
-      "Product Development",
-      "Technology Strategy",
-      "Scalable Digital Systems",
-    ],
+    expertise: ["Product Development", "Technology Strategy", "Scalable Digital Systems"],
   },
 ];
 
@@ -60,10 +54,9 @@ export function AboutFounders() {
             </h2>
 
             <p className="mt-6 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
-              Hanova was created from a simple belief: ambitious founders need
-              more than advice. They need trusted people who understand their
-              vision, help them make clearer decisions, and support them from
-              idea to growth.
+              Hanova was created from a simple belief: ambitious founders need more than advice.
+              They need trusted people who understand their vision, help them make clearer
+              decisions, and support them from idea to growth.
             </p>
           </div>
 
@@ -72,13 +65,11 @@ export function AboutFounders() {
             <Quote className="h-7 w-7 text-blue-600" />
 
             <p className="mt-4 text-xl font-bold leading-8 text-slate-900">
-              We want founders to leave every conversation with greater clarity
-              and a real next step.
+              We want founders to leave every conversation with greater clarity and a real next
+              step.
             </p>
 
-            <p className="mt-4 text-sm font-semibold text-slate-500">
-              The Hanova founding team
-            </p>
+            <p className="mt-4 text-sm font-semibold text-slate-500">The Hanova founding team</p>
           </div>
         </div>
 
@@ -105,21 +96,15 @@ export function AboutFounders() {
                     Founder 0{index + 1}
                   </p>
 
-                  <h3 className="mt-2 text-3xl font-bold text-white sm:text-4xl">
-                    {founder.name}
-                  </h3>
+                  <h3 className="mt-2 text-3xl font-bold text-white sm:text-4xl">{founder.name}</h3>
 
-                  <p className="mt-1 text-sm font-semibold text-white/75">
-                    {founder.role}
-                  </p>
+                  <p className="mt-1 text-sm font-semibold text-white/75">{founder.role}</p>
                 </div>
               </div>
 
               {/* Founder details */}
               <div className="p-6 sm:p-8">
-                <p className="text-base leading-7 text-slate-600">
-                  {founder.description}
-                </p>
+                <p className="text-base leading-7 text-slate-600">{founder.description}</p>
 
                 <div className="mt-6 flex flex-wrap gap-2">
                   {founder.expertise.map((item) => (

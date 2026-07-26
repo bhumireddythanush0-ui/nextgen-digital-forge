@@ -1,9 +1,4 @@
-import {
-  Facebook,
-  Instagram,
-  MessageCircle,
-  Youtube,
-} from "lucide-react";
+import { Facebook, Instagram, MessageCircle, Youtube } from "lucide-react";
 
 export function Footer() {
   return (
@@ -22,9 +17,8 @@ export function Footer() {
             </div>
 
             <p className="mt-5 max-w-md leading-7 text-slate-400">
-              Building startup ecosystems across Andhra Pradesh by connecting
-              founders, mentors, investors, partners, and regional innovation
-              communities.
+              Building startup ecosystems across Andhra Pradesh by connecting founders, mentors,
+              investors, partners, and regional innovation communities.
             </p>
 
             <div className="mt-6 flex gap-4">
@@ -133,37 +127,25 @@ export function Footer() {
               </li>
 
               <li>
-                <a
-                  href="/partner-category/technology"
-                  className="hover:text-white"
-                >
+                <a href="/partner-category/technology" className="hover:text-white">
                   Technology Partners
                 </a>
               </li>
 
               <li>
-                <a
-                  href="/partner-category/marketing"
-                  className="hover:text-white"
-                >
+                <a href="/partner-category/marketing" className="hover:text-white">
                   Marketing Partners
                 </a>
               </li>
 
               <li>
-                <a
-                  href="/partner-category/legal"
-                  className="hover:text-white"
-                >
+                <a href="/partner-category/legal" className="hover:text-white">
                   Legal Partners
                 </a>
               </li>
 
               <li>
-                <a
-                  href="/partner-category/funding"
-                  className="hover:text-white"
-                >
+                <a href="/partner-category/funding" className="hover:text-white">
                   Funding Partners
                 </a>
               </li>
@@ -207,10 +189,7 @@ export function Footer() {
               </li>
 
               <li>
-                <a
-                  href="mailto:hello@hanova.in"
-                  className="hover:text-white"
-                >
+                <a href="mailto:hello@hanova.in" className="hover:text-white">
                   hello@hanova.in
                 </a>
               </li>
