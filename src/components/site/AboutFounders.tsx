@@ -2,8 +2,8 @@ import { ArrowUpRight, Quote, Sparkles } from "lucide-react";
 
 const founders = [
   {
-    name: "Harsha",
-    role: "Co-founder & CEO",
+    name: "K.Harsha Vardhan",
+    role: "Founder & CEO",
     image: "/images/cofounder-1.jpeg",
     imageClassName: "object-[center_24%] scale-[1.02] group-hover:scale-[1.055]",
     description:
@@ -16,7 +16,7 @@ const founders = [
     ],
   },
   {
-    name: "Yaswanth",
+    name: "M.Yashwath",
     role: "Co-founder & CTO",
     image: "/images/cofounder-2.jpeg",
     imageClassName: "object-[center_48%] scale-[1.08] group-hover:scale-[1.11]",
