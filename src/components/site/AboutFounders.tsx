@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Quote, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowUpRight, MessageCircle, Quote, Sparkles } from "lucide-react";
 
 const founders = [
   {
@@ -6,6 +6,9 @@ const founders = [
     role: "Founder & CEO",
     image: "/images/cofounder-1.jpeg",
     imageClassName: "object-[center_24%] scale-[1.02] group-hover:scale-[1.055]",
+    whatsapp: "919502051105",
+    whatsappMessage:
+      "Hello Harsha, I found your profile on the Hanova website and would like to connect with you.",
     description:
       "Harsha is building Hanova into one of Andhra Pradesh's leading founder ecosystems. He works with entrepreneurs, investors, educational institutions, businesses, and ecosystem partners to help startups validate ideas, build products, raise opportunities, and scale sustainably.",
     expertise: [
@@ -20,9 +23,20 @@ const founders = [
     role: "Co-founder & CTO",
     image: "/images/cofounder-2.jpeg",
     imageClassName: "object-[center_48%] scale-[1.08] group-hover:scale-[1.11]",
+    whatsapp: "919440463292",
+    whatsappMessage:
+      "Hello Yashwath, I found your profile on the Hanova website and would like to connect with you.",
     description:
-      "Yaswanth leads technology and product development at Hanova. He helps founders transform validated ideas into reliable, scalable, and launch-ready digital products.",
-    expertise: ["Product Development", "Technology Strategy", "Scalable Digital Systems"],
+      "Yashwanth leads technology and digital product development at Hanova. He works with founders to transform validated ideas into scalable digital products, helping startups build MVPs, websites, software solutions, and launch-ready technology.",
+    expertise: [
+      "Product Development",
+      "MVP Development",
+      "Technology Strategy",
+      "Software Architecture",
+      "Web Development",
+      "Digital Systems",
+      "AI Integration",
+    ],
   },
 ];
 
@@ -125,15 +139,30 @@ export function AboutFounders() {
                   ))}
                 </div>
 
-                <a
-                  href={`/founders/connect?founder=${encodeURIComponent(
-                    founder.name.toLowerCase(),
-                  )}`}
-                  className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-slate-950 transition hover:text-blue-600 sm:mt-7"
-                >
-                  Book Meeting
-                  <ArrowUpRight className="h-4 w-4" />
-                </a>
+                <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row">
+                  <a
+                    href={`/founders/connect?founder=${encodeURIComponent(
+                      founder.name.toLowerCase(),
+                    )}`}
+                    className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-3 text-center text-sm font-bold text-slate-950 transition hover:border-blue-300 hover:bg-blue-50 hover:text-blue-600"
+                  >
+                    Book Meeting
+                    <ArrowUpRight className="h-4 w-4 shrink-0" />
+                  </a>
+
+                  <a
+                    href={`https://wa.me/${founder.whatsapp}?text=${encodeURIComponent(
+                      founder.whatsappMessage,
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Chat with ${founder.name} on WhatsApp`}
+                    className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-center text-sm font-bold text-white transition hover:bg-[#1ebe5d]"
+                  >
+                    <MessageCircle className="h-4 w-4 shrink-0" />
+                    WhatsApp
+                  </a>
+                </div>
               </div>
             </article>
           ))}
