@@ -23,42 +23,39 @@ export function SuccessStories() {
           </h2>
 
           <p className="mt-5 text-base leading-7 text-slate-300 sm:text-lg">
-            Meet founders who turned early ideas into real products, customers, opportunities, and
-            growing businesses.
-          </p>
-        </div>
+            Meet founders who turned early ideas into real products, customers,opportunities, and growing businesses.  </p> 
+            </div>
 
-        <div className="mb-4 mt-10 flex items-center justify-between sm:hidden">
-          <p className="text-sm font-semibold text-slate-300">Swipe through stories</p>
-          <p className="text-xs font-bold uppercase tracking-wider text-cyan-300">
-            {startupStories.length} stories →
-          </p>
-        </div>
-
-        <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-7 sm:overflow-visible sm:px-0 sm:pb-0 lg:mt-12">
+        <div className="mx-auto mt-10 grid max-w-6xl gap-7 lg:mt-12">
           {startupStories.map((story) => (
             <article
               key={story.slug}
-              className="group min-w-[88%] snap-start overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.05] transition duration-300 hover:-translate-y-1 hover:border-blue-400/40 hover:shadow-2xl sm:min-w-0 sm:rounded-[32px]"
+              className="group grid overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.05] transition duration-300 hover:border-blue-400/40 sm:rounded-[32px] md:grid-cols-[42%_58%] lg:grid-cols-[46%_54%]"
             >
-              <div className="relative h-60 overflow-hidden bg-slate-900 sm:h-64">
+              {/* Image side */}
+              <div className="relative min-h-[280px] overflow-hidden bg-slate-900 sm:min-h-[330px] md:min-h-full">
                 <img
                   src={story.coverImage}
                   alt={`${story.startupName} startup`}
-                  className="h-full w-full object-cover opacity-55 transition duration-500 group-hover:scale-105"
+                  className="absolute inset-0 h-full w-full object-cover opacity-60 transition duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/35 to-transparent" />
 
-                <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-3">
-                  <div className="flex min-w-0 items-center gap-3 sm:gap-4">
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent md:bg-gradient-to-r md:from-transparent md:via-slate-950/5 md:to-slate-950/35" />
+
+                <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4 sm:bottom-7 sm:left-7 sm:right-7">
+                  <div className="flex min-w-0 items-center gap-3">
                     <img
                       src={story.founderImage}
                       alt={`${story.founderName}, founder of ${story.startupName}`}
                       className="h-14 w-14 shrink-0 rounded-2xl border-2 border-white/30 object-cover shadow-xl sm:h-16 sm:w-16"
                     />
+
                     <div className="min-w-0">
-                      <p className="text-sm font-semibold text-blue-300">Founder</p>
-                      <h3 className="truncate text-lg font-black text-white sm:text-xl">
+                      <p className="text-xs font-bold uppercase tracking-[0.14em] text-blue-300">
+                        Founder
+                      </p>
+
+                      <h3 className="mt-1 truncate text-base font-black text-white sm:text-lg">
                         {story.founderName}
                       </h3>
                     </div>
@@ -78,21 +75,26 @@ export function SuccessStories() {
                 </div>
               </div>
 
-              <div className="p-5 sm:p-8">
-                <div className="flex flex-wrap items-center gap-3 text-xs font-bold uppercase tracking-[0.13em]">
-                  <span className="rounded-full bg-blue-500/15 px-3 py-1 text-blue-300">
+              {/* Content side */}
+              <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
+                <div className="flex flex-wrap items-center gap-3 text-xs font-bold uppercase tracking-[0.12em]">
+                  <span className="max-w-full rounded-full bg-blue-500/15 px-3 py-1.5 text-blue-300">
                     {story.industry}
                   </span>
+
                   <span className="inline-flex items-center gap-1.5 text-slate-400">
-                    <MapPin className="h-3.5 w-3.5" />
+                    <MapPin className="h-3.5 w-3.5 shrink-0" />
                     {story.location}
                   </span>
                 </div>
 
-                <h3 className="mt-5 break-words text-2xl font-black text-white sm:text-3xl">
+                <h3 className="mt-5 break-words text-2xl font-black leading-tight text-white sm:text-3xl lg:text-4xl">
                   {story.startupName}
                 </h3>
-                <p className="mt-4 leading-7 text-slate-300">{story.shortStory}</p>
+
+                <p className="mt-4 line-clamp-5 text-sm leading-7 text-slate-300 sm:text-base lg:line-clamp-none">
+                  {story.shortStory}
+                </p>
 
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   <Link
@@ -118,9 +120,7 @@ export function SuccessStories() {
         </div>
 
         <p className="mt-7 text-center text-xs leading-5 text-slate-500">
-          Founder photographs and startup logos should be replaced with verified assets provided by
-          each founder.
-        </p>
+          Founder photographs and startup logos should be replaced with verified assets provided by each founder. </p>
       </div>
     </section>
   );
