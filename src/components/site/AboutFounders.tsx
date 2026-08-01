@@ -21,7 +21,7 @@ const founders = [
   {
     name: "M.Yashwath Kumar Yadhav",
     role: "Co-founder & CTO",
-    image: "/images/cofounder-2.jpeg",
+    image: "/images/yaswanth.jpeg",
     imageClassName: "object-[center_48%] scale-[1.08] group-hover:scale-[1.11]",
     whatsapp: "919440463292",
     whatsappMessage:

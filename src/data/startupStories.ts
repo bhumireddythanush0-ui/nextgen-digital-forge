@@ -40,7 +40,7 @@ export const startupStories: StartupStory[] = [
     industry: "Technology, Digital Marketing and Product Development",
     shortStory:
       "Mila Innovations and Technologies Pvt. Ltd. helps businesses build influential digital brands and scalable technology products. O-MAX Media operates as its branding, content, and digital-marketing division, while the technology team builds websites, applications, AI-powered platforms, marketplaces, and custom digital solutions.",
-    founderImage: "/images/cofounder-2.jpeg",
+    founderImage: "/images/yaswanth.jpeg",
     startupLogo: "",
     coverImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&h=900&fit=crop",
 
