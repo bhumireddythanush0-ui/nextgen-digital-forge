@@ -27,16 +27,8 @@ const founders = [
     whatsappMessage:
       "Hello Yashwath, I found your profile on the Hanova website and would like to connect with you.",
     description:
-      "Yashwanth leads technology and digital product development at Hanova. He works with founders to transform validated ideas into scalable digital products, helping startups build MVPs, websites, software solutions, and launch-ready technology.",
-    expertise: [
-      "Product Development",
-      "MVP Development",
-      "Technology Strategy",
-      "Software Architecture",
-      "Web Development",
-      "Digital Systems",
-      "AI Integration",
-    ],
+      "Yashwanth is building Hanova's technology foundation into a powerful platform for startup innovation and growth. He works closely with founders to transform validated ideas into scalable digital products, helping startups build MVPs, websites, software platforms, AI-powered solutions, and launch-ready technology.",
+    expertise: ["💻 Product Engineering", "🤖 AI & Digital Innovation", "🚀 Scalable Technology"],
   },
 ];
 
