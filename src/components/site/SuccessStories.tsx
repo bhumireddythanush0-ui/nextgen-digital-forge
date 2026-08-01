@@ -23,8 +23,10 @@ export function SuccessStories() {
           </h2>
 
           <p className="mt-5 text-base leading-7 text-slate-300 sm:text-lg">
-            Meet founders who turned early ideas into real products, customers,opportunities, and growing businesses.  </p> 
-            </div>
+            Meet founders who turned early ideas into real products, customers,opportunities, and
+            growing businesses.{" "}
+          </p>
+        </div>
 
         <div className="mx-auto mt-10 grid max-w-6xl gap-7 lg:mt-12">
           {startupStories.map((story) => (
@@ -120,7 +122,9 @@ export function SuccessStories() {
         </div>
 
         <p className="mt-7 text-center text-xs leading-5 text-slate-500">
-          Founder photographs and startup logos should be replaced with verified assets provided by each founder. </p>
+          Founder photographs and startup logos should be replaced with verified assets provided by
+          each founder.
+        </p>
       </div>
     </section>
   );
