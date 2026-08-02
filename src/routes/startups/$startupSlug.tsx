@@ -37,9 +37,7 @@ function StartupStoryPage() {
               Founder story
             </p>
 
-            <h1 className="mt-4 text-4xl font-black text-slate-950">
-              Startup not found
-            </h1>
+            <h1 className="mt-4 text-4xl font-black text-slate-950">Startup not found</h1>
 
             <p className="mt-4 leading-7 text-slate-600">
               The requested startup profile is unavailable.
@@ -62,8 +60,7 @@ function StartupStoryPage() {
   }
 
   const hasPortfolio =
-    Boolean(startup.mediaPortfolio?.length) ||
-    Boolean(startup.technologyPortfolio?.length);
+    Boolean(startup.mediaPortfolio?.length) || Boolean(startup.technologyPortfolio?.length);
 
   return (
     <>
@@ -76,7 +73,7 @@ function StartupStoryPage() {
             <img
               src={startup.coverImage}
               alt=""
-              className="h-full w-full object-cover opacity-25"
+              className="h-full w-full object-contain bg-white p-10"
             />
 
             <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/95 to-slate-950/65" />
@@ -145,13 +142,9 @@ function StartupStoryPage() {
                   Founder
                 </p>
 
-                <h2 className="mt-2 break-words text-xl font-black">
-                  {startup.founderName}
-                </h2>
+                <h2 className="mt-2 break-words text-xl font-black">{startup.founderName}</h2>
 
-                <p className="mt-1 text-sm text-slate-300">
-                  Founder of {startup.startupName}
-                </p>
+                <p className="mt-1 text-sm text-slate-300">Founder of {startup.startupName}</p>
               </div>
             </div>
           </div>
@@ -184,13 +177,9 @@ function StartupStoryPage() {
                       Milestone {milestone.number}
                     </div>
 
-                    <h3 className="mt-3 text-2xl font-black text-slate-950">
-                      {milestone.title}
-                    </h3>
+                    <h3 className="mt-3 text-2xl font-black text-slate-950">{milestone.title}</h3>
 
-                    <p className="mt-3 leading-7 text-slate-600">
-                      {milestone.description}
-                    </p>
+                    <p className="mt-3 leading-7 text-slate-600">{milestone.description}</p>
                   </div>
                 </article>
               ))}
@@ -216,9 +205,8 @@ function StartupStoryPage() {
                 </h2>
 
                 <p className="mt-5 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg">
-                  Explore branding campaigns, founder-led content, business
-                  websites, AI-powered platforms, marketplaces, and digital
-                  products delivered by the company.
+                  Explore branding campaigns, founder-led content, business websites, AI-powered
+                  platforms, marketplaces, and digital products delivered by the company.
                 </p>
               </div>
 
@@ -282,8 +270,8 @@ function StartupStoryPage() {
                 </h2>
 
                 <p className="mt-5 leading-8 text-slate-600">
-                  Founder-led content, cinematic storytelling, social-media
-                  strategy, and digital brand development.
+                  Founder-led content, cinematic storytelling, social-media strategy, and digital
+                  brand development.
                 </p>
               </div>
 
@@ -301,13 +289,9 @@ function StartupStoryPage() {
                       <Instagram className="h-6 w-6 text-pink-500" />
                     </div>
 
-                    <h3 className="mt-7 text-2xl font-black text-slate-950">
-                      {project.name}
-                    </h3>
+                    <h3 className="mt-7 text-2xl font-black text-slate-950">{project.name}</h3>
 
-                    <p className="mt-4 flex-1 leading-7 text-slate-600">
-                      {project.description}
-                    </p>
+                    <p className="mt-4 flex-1 leading-7 text-slate-600">{project.description}</p>
 
                     <a
                       href={project.url}
@@ -326,64 +310,58 @@ function StartupStoryPage() {
         )}
 
         {/* Technology portfolio */}
-        {startup.technologyPortfolio &&
-          startup.technologyPortfolio.length > 0 && (
-            <section className="bg-slate-50 py-16 sm:py-20 lg:py-24">
-              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="max-w-3xl">
-                  <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-blue-600">
-                    <Globe2 className="h-4 w-4" />
-                    Technology portfolio
-                  </div>
-
-                  <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">
-                    Websites, applications and scalable platforms
-                  </h2>
-
-                  <p className="mt-5 leading-8 text-slate-600">
-                    Digital products created for businesses, foundations,
-                    creators, education platforms, marketplaces, and consumer
-                    brands.
-                  </p>
+        {startup.technologyPortfolio && startup.technologyPortfolio.length > 0 && (
+          <section className="bg-slate-50 py-16 sm:py-20 lg:py-24">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="max-w-3xl">
+                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-blue-600">
+                  <Globe2 className="h-4 w-4" />
+                  Technology portfolio
                 </div>
 
-                <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                  {startup.technologyPortfolio.map((project, index) => (
-                    <article
-                      key={project.name}
-                      className="group flex h-full flex-col rounded-[26px] border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-[0_24px_70px_-35px_rgba(15,23,42,0.45)]"
-                    >
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-sm font-black text-blue-600">
-                          {String(index + 1).padStart(2, "0")}
-                        </div>
+                <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">
+                  Websites, applications and scalable platforms
+                </h2>
 
-                        <Globe2 className="h-5 w-5 text-blue-500" />
+                <p className="mt-5 leading-8 text-slate-600">
+                  Digital products created for businesses, foundations, creators, education
+                  platforms, marketplaces, and consumer brands.
+                </p>
+              </div>
+
+              <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                {startup.technologyPortfolio.map((project, index) => (
+                  <article
+                    key={project.name}
+                    className="group flex h-full flex-col rounded-[26px] border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-[0_24px_70px_-35px_rgba(15,23,42,0.45)]"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-sm font-black text-blue-600">
+                        {String(index + 1).padStart(2, "0")}
                       </div>
 
-                      <h3 className="mt-6 text-xl font-black text-slate-950">
-                        {project.name}
-                      </h3>
+                      <Globe2 className="h-5 w-5 text-blue-500" />
+                    </div>
 
-                      <p className="mt-3 flex-1 leading-7 text-slate-600">
-                        {project.description}
-                      </p>
+                    <h3 className="mt-6 text-xl font-black text-slate-950">{project.name}</h3>
 
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-blue-600 transition hover:text-blue-500"
-                      >
-                        {project.linkLabel}
-                        <ExternalLink className="h-4 w-4" />
-                      </a>
-                    </article>
-                  ))}
-                </div>
+                    <p className="mt-3 flex-1 leading-7 text-slate-600">{project.description}</p>
+
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-blue-600 transition hover:text-blue-500"
+                    >
+                      {project.linkLabel}
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
+                  </article>
+                ))}
               </div>
-            </section>
-          )}
+            </div>
+          </section>
+        )}
 
         {/* CTA */}
         <section className="bg-white py-14 sm:py-16">
@@ -394,9 +372,7 @@ function StartupStoryPage() {
                   Take your first step
                 </p>
 
-                <h2 className="mt-3 text-3xl font-black">
-                  Ready to share your startup journey?
-                </h2>
+                <h2 className="mt-3 text-3xl font-black">Ready to share your startup journey?</h2>
               </div>
 
               <Link
